@@ -7,7 +7,7 @@ public partial class PlayerManager : Node2D
 {
 	[Export] public PackedScene Character;
 	[Export] public Marker2D[] PlayerSpawnPoint;
-	public static PlayerManager Instance { get; private set; }
+	
 	// TODO convert to array
 	private Dictionary<string, PlayerID> _playerIDbyStartKey = new(){
 		{"p1_start", PlayerID.P1},
@@ -16,14 +16,7 @@ public partial class PlayerManager : Node2D
 		{"p4_start", PlayerID.P4}
 	};
 
-	public override void _EnterTree()
-	{
-		base._EnterTree();
-		if (Instance != null)
-			QueueFree();
-		else
-			Instance = this;
-	}
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -44,10 +37,11 @@ public partial class PlayerManager : Node2D
 		{
 			if (Input.IsActionJustPressed(item.Key))
 			{
+				GD.PrintErr("ARRRR");
 				var c = Character.Instantiate() as Character;
 				c.GlobalTransform = PlayerSpawnPoint[(int)item.Value].GlobalTransform;
 				c.SetupPlayer(item.Value);
-				GetTree().Root.AddChild(c);
+				AddChild(c);
 			}
 		}
 	}
