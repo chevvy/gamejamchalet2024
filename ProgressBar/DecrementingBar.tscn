@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt0k5u646kv1y"]
+
+[ext_resource type="Script" path="res://ProgressBar/DecrementingBar.cs" id="1_vy8h1"]
+
+[node name="DecrementingBar" type="Control"]
+layout_mode = 3
+anchor_right = 0.081
+anchor_bottom = 0.047
+offset_right = 306.688
+offset_bottom = 9.544
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vy8h1")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="TickTimer" to="." method="OnTickTimerTimeout"]
