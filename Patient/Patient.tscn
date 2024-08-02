@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn7ibigpaiqg1"]
+
+[ext_resource type="Script" path="res://Patient/Patient.cs" id="1_0tk08"]
+[ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="1_m4u3j"]
+[ext_resource type="PackedScene" uid="uid://bt0k5u646kv1y" path="res://ProgressBar/DecrementingBar.tscn" id="3_adt8v"]
+[ext_resource type="PackedScene" uid="uid://inhohtyl2o6" path="res://ProgressBar/LifeBar.tscn" id="4_h37pb"]
+
+[node name="Patient" type="Node2D"]
+script = ExtResource("1_0tk08")
+
+[node name="Bars" type="Sprite2D" parent="."]
+self_modulate = Color(0.588235, 0.541176, 0.172549, 1)
+texture = ExtResource("1_m4u3j")
+
+[node name="DecrementingBar" parent="Bars" instance=ExtResource("3_adt8v")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -189.0
+offset_right = 128.0
+offset_bottom = -159.0
+scale = Vector2(0.75, 0.75)
+
+[node name="LifeBar" parent="Bars" instance=ExtResource("4_h37pb")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -164.0
+offset_right = 85.0
+offset_bottom = -134.0
+scale = Vector2(1.04159, 1.02769)
+
+[node name="HealthTickTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="HealthTickTimer" to="." method="OnHealthTickTimeout"]
