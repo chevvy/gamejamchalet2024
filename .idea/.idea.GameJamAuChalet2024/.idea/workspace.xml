@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1d1fb1f-b6e2-4a55-9e4f-b80ebd70d813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Character.tscn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlayerInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameJamAuChalet2024.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GameJamAuChalet2024.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/main.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
@@ -23,9 +20,34 @@
       <option value="directory" />
     </option>
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;chevvy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:chevvy/gamejamchalet2024.git&quot;,
+    &quot;accountId&quot;: &quot;475a3868-0649-4aeb-aa20-63f0087e62a5&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;chevvy&quot;,
+    &quot;repository&quot;: &quot;gamejamchalet2024&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -99,8 +121,18 @@
       <option name="presentableId" value="Default" />
       <updated>1722549744363</updated>
       <workItem from="1722549745502" duration="126000" />
-      <workItem from="1722549921459" duration="334000" />
+      <workItem from="1722549921459" duration="3090000" />
+      <workItem from="1722633850310" duration="705000" />
     </task>
+    <task id="LOCAL-00001" summary="multiplayer works">
+      <option name="closed" value="true" />
+      <created>1722550628350</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722550628350</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,24 +143,7 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PlayerManager.cs</url>
-          <line>44</line>
-          <properties documentPath="$PROJECT_DIR$/PlayerManager.cs" containingFunctionPresentation="Method '_Process'">
-            <startOffsets>
-              <option value="1108" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1148" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="multiplayer works" />
+    <option name="LAST_COMMIT_MESSAGE" value="multiplayer works" />
   </component>
 </project>
