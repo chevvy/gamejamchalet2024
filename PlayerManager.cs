@@ -37,6 +37,7 @@ public partial class PlayerManager : Node2D
 		{
 			if (Input.IsActionJustPressed(item.Key))
 			{
+				GD.Print("AHHH");
 				var c = Character.Instantiate() as Character;
 				c.GlobalTransform = PlayerSpawnPoint[(int)item.Value].GlobalTransform;
 				c.SetupPlayer(item.Value);
