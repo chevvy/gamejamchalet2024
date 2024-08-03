@@ -4,6 +4,7 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
+    [Export] public int BounceStrength = 5;
     public const float Speed = 850.0f;
     private PlayerInput _playerInput;
 
@@ -53,6 +54,7 @@ public partial class Character : CharacterBody2D
             _playerInput.GetInputKey(InputAction.MoveUp),
             _playerInput.GetInputKey(InputAction.MoveDown)
         );
+
         if (direction != Vector2.Zero)
         {
             velocity.X = direction.X * Speed;
@@ -64,9 +66,15 @@ public partial class Character : CharacterBody2D
             velocity.Y = Mathf.MoveToward(Velocity.Y - PlaneMovementVectore.Y, 0, Speed);
         }
 
+        KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta, true);
+        if (kc != null && kc.GetCollider() is Character character)
+        {
+            velocity += Velocity.Bounce(kc.GetNormal()) * BounceStrength;
+            character.Velocity = -Velocity.Bounce(kc.GetNormal()) * BounceStrength;
+        }
+
         Velocity = velocity;
         MoveAndSlide();
-        KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta, true);
     }
 
     public void ReceiveItem(ClosetItemType item)
