@@ -31,10 +31,10 @@ public partial class ItemSpawner : AnimatableBody2D
 	}
 
 	private Vector2 GetRandomSpawnPosition()
-	{	
+	{
 		var area = SpawnArea.GetNode<MeshInstance2D>("Area").Mesh.GetAabb();
 
-		var width  = area.Size.X / 2;
+		var width = area.Size.X / 2;
 		var height = area.Size.Y / 2;
 		var origin = area.GetCenter();
 
