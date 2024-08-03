@@ -7,6 +7,8 @@ public partial class Character : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 
+	private bool _hasItem = false;
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	private PlayerInput _playerInput;
 
@@ -23,7 +25,6 @@ public partial class Character : CharacterBody2D
 		if (!_canCharacterMove || _playerInput == null) return;
 
 		Vector2 velocity = Velocity;
-		GD.Print(velocity);
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -45,6 +46,20 @@ public partial class Character : CharacterBody2D
 		}
 
 		Velocity = velocity;
-		MoveAndSlide();
+		KinematicCollision2D kc = MoveAndCollide(Velocity*(float)delta);
+		if (kc != null && _hasItem && kc.GetCollider() is Patient patient ) {
+			UseItem(patient);
+		}
+	}
+
+	public void ReceiveItem()
+	{
+		_hasItem = true;
+	}
+
+	public void UseItem(Patient patient)
+	{
+		patient.ReceiveItem();
+		_hasItem = false;
 	}
 }

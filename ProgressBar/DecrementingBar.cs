@@ -25,6 +25,11 @@ public partial class DecrementingBar : Control
 		return bar.Value == 0;
 	}
 
+	public void Increase(int value)
+	{
+		bar.Value += value;
+	}
+
 	private void OnTickTimerTimeout()
 	{
 		LowerValue(2);
@@ -39,10 +44,10 @@ public partial class DecrementingBar : Control
 	private void NotifyValueChanges()
 	{
 		EmitSignal("BarValueChanged");
-		if (bar.Value == 0) 
+		if (bar.Value == 0)
 		{
 			EmitSignal("BarEmpty");
 		}
 	}
-	
+
 }
