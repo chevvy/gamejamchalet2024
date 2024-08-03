@@ -9,6 +9,8 @@ public partial class Character : CharacterBody2D
 
     private bool _hasItem = false;
 
+    private AnimationPlayer _animationPlayer;
+
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     private PlayerInput _playerInput;
 
@@ -18,6 +20,11 @@ public partial class Character : CharacterBody2D
     {
         _playerInput = new(id);
         _canCharacterMove = true;
+    }
+
+    public override void _Ready()
+    {
+        _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -64,11 +71,13 @@ public partial class Character : CharacterBody2D
     public void ReceiveItem()
     {
         _hasItem = true;
+        _animationPlayer.Play("flash");
     }
 
     public void UseItem(Patient patient)
     {
         patient.ReceiveItem();
         _hasItem = false;
+        _animationPlayer.Stop();
     }
 }
