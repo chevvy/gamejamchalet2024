@@ -4,7 +4,7 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-    [Export] public int BounceStrength = 5;
+    [Export] public int BounceStrength = 4;
     public const float Speed = 850.0f;
     private PlayerInput _playerInput;
 
