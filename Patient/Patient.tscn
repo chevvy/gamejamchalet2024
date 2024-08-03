@@ -9,6 +9,8 @@
 size = Vector2(74.75, 71.1875)
 
 [node name="Patient" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_0tk08")
 
@@ -52,6 +54,7 @@ texture = ExtResource("1_m4u3j")
 [node name="PatientCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -2)
 shape = SubResource("RectangleShape2D_as4v1")
+one_way_collision_margin = 5.0
 debug_color = Color(0.284208, 0.617454, 0.375096, 0.42)
 
 [connection signal="timeout" from="HealthTickTimer" to="." method="OnHealthTickTimeout"]
