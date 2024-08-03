@@ -25,10 +25,26 @@ public partial class DecrementingBar : Control
 		bar = GetNode<ProgressBar>("ProgressBar");
 		timer = GetNode<Timer>("TickTimer");
 
-		timer.Start();
+		if (GameManager.Instance != null)
+		{
+			GameManager.Instance.GameReady += Initialize;
+		}
 
 		SetupItemType();
 		SetupBarColor();
+	}
+
+	private void Initialize()
+	{
+		timer.Start();
+	}
+
+	private void OnTreeExiting()
+	{
+		if (GameManager.Instance != null)
+		{
+			GameManager.Instance.GameReady -= Initialize;
+		}
 	}
 
 	public bool IsEmpty()
@@ -43,7 +59,7 @@ public partial class DecrementingBar : Control
 
 	private void OnTickTimerTimeout()
 	{
-		LowerValue(2);
+		LowerValue(5);
 	}
 
 	private void LowerValue(int value)
@@ -54,10 +70,10 @@ public partial class DecrementingBar : Control
 
 	private void NotifyValueChanges()
 	{
-		EmitSignal("BarValueChanged");
+		EmitSignal(SignalName.BarValueChanged);
 		if (bar.Value == 0)
 		{
-			EmitSignal("BarEmpty");
+			EmitSignal(SignalName.BarEmpty);
 		}
 	}
 
@@ -66,6 +82,14 @@ public partial class DecrementingBar : Control
 		if (itemName == "A")
 		{
 			itemType = ClosetItemType.BANDAGE;
+		}
+		else if (itemName == "B")
+		{
+			itemType = ClosetItemType.PILLZ;
+		}
+		else if (itemName == "C")
+		{
+			itemType = ClosetItemType.SERINGE;
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://inhohtyl2o6" path="res://ProgressBar/LifeBar.tscn" id="4_h37pb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as4v1"]
-size = Vector2(74.75, 71.1875)
+size = Vector2(200.438, 111.047)
 
 [node name="Patient" type="RigidBody2D"]
 collision_layer = 2
@@ -38,6 +38,8 @@ offset_top = 3.0
 offset_right = 273.0
 offset_bottom = 43.0
 scale = Vector2(0.75, 0.75)
+itemName = "A"
+color = Color(0, 0.870588, 0, 1)
 
 [node name="DecrementingBarB" parent="Bars" instance=ExtResource("3_adt8v")]
 anchors_preset = 8
@@ -50,6 +52,8 @@ offset_top = -61.0
 offset_right = 273.0
 offset_bottom = -21.0
 scale = Vector2(0.75, 0.75)
+itemName = "B"
+color = Color(0.619608, 0.00392157, 0.878431, 1)
 
 [node name="DecrementingBarC" parent="Bars" instance=ExtResource("3_adt8v")]
 anchors_preset = 8
@@ -57,11 +61,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 23.0
-offset_top = -29.0
-offset_right = 273.0
-offset_bottom = 11.0
+offset_left = 22.0
+offset_top = -26.0
+offset_right = 272.0
+offset_bottom = 14.0
 scale = Vector2(0.75, 0.75)
+itemName = "C"
+color = Color(0, 0, 1, 1)
 
 [node name="HealingFromItemTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -73,7 +79,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("4_2gksv")
 
 [node name="PatientCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-11.5, -2.5)
+position = Vector2(-8, -24)
 shape = SubResource("RectangleShape2D_as4v1")
 one_way_collision_margin = 5.0
 debug_color = Color(0.284208, 0.617454, 0.375096, 0.42)

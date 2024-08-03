@@ -8,6 +8,7 @@ public partial class Character : CharacterBody2D
     private PlayerInput _playerInput;
 
     private bool _hasItem = false;
+    private ClosetItemType? _itemType = null;
 
     private AnimationPlayer _animationPlayer;
     private bool _canCharacterMove = false;
@@ -53,7 +54,7 @@ public partial class Character : CharacterBody2D
         KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta, true);
         if (kc != null)
         {
-            if (_hasItem && kc.GetCollider() is Patient patient)
+            if (_hasItem && kc.GetCollider() is Patient patient && _itemType != null)
             {
                 UseItem(patient);
             }
@@ -68,13 +69,17 @@ public partial class Character : CharacterBody2D
     public void ReceiveItem(ClosetItemType item)
     {
         _hasItem = true;
+        _itemType = item;
         _animationPlayer.Play("flash");
     }
 
     public void UseItem(Patient patient)
     {
-        patient.ReceiveItem();
-        _hasItem = false;
-        _animationPlayer.Stop();
+        if (_itemType.HasValue)
+        {
+            patient.ReceiveItem(_itemType.Value);
+            _hasItem = false;
+            _animationPlayer.Stop();
+        }
     }
 }
