@@ -3,8 +3,12 @@ using System;
 
 public partial class LifeBar : Control
 {
+
+	[Signal]
+	public delegate void OnLifeZeroEventHandler();
+
 	[Export]
-	public const int LOSE_LIFE_PER_TICK = 1;
+	public const int LOSE_LIFE_PER_TICK = 3;
 
 	private ProgressBar bar;
 
@@ -15,7 +19,10 @@ public partial class LifeBar : Control
 		bar = GetNode<ProgressBar>("ProgressBar");
 		lifeTimer = GetNode<Timer>("PassifLifeLossTimer");
 
-		GameManager.Instance.GameReady += Initialize;
+		if (GameManager.Instance != null)
+		{
+			GameManager.Instance.GameReady += Initialize;
+		}
 	}
 
 	private void Initialize()
@@ -25,7 +32,10 @@ public partial class LifeBar : Control
 
 	private void OnTreeExiting()
 	{
-		GameManager.Instance.GameReady -= Initialize;
+		if (GameManager.Instance != null)
+		{
+			GameManager.Instance.GameReady -= Initialize;
+		}
 	}
 
 	public void Increase(int value)
@@ -35,6 +45,15 @@ public partial class LifeBar : Control
 
 	public void LoseLifeFromTimer()
 	{
-		bar.Value -= LOSE_LIFE_PER_TICK;
+		Decrease(LOSE_LIFE_PER_TICK);
+	}
+
+	private void Decrease(int value)
+	{
+		bar.Value -= value;
+		if (bar.Value <= 0)
+		{
+			EmitSignal(SignalName.OnLifeZero);
+		}
 	}
 }

@@ -7,13 +7,14 @@ public partial class GameManager : Node
 
 	[Signal]
 	public delegate void GameReadyEventHandler();
-                       
+
 	public bool IsGameReady = false;
 
 	public AnimationPlayer AnimationPlayer { get; set; }
 
-	public override void _EnterTree()                                
+	public override void _EnterTree()
 	{
+		GD.Print("GameManager entering tree");
 		base._EnterTree();
 		if (Instance != null)
 			QueueFree();
