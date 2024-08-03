@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dugsja1pm8oje"]
 
-[ext_resource type="PackedScene" uid="uid://do2nf5x8hbk2r" path="res://Levels/DebugLevels/AlixLevel.tscn" id="3_5cq0o"]
+[ext_resource type="PackedScene" uid="uid://do2nf5x8hbk2r" path="res://Levels/DebugLevels/Alix/AlixLevel.tscn" id="3_5cq0o"]
 
 [node name="Main" type="Node2D"]
 
