@@ -55,7 +55,6 @@ public partial class Character : CharacterBody2D
             _playerInput.GetInputKey(InputAction.MoveDown)
         );
 
-
         if (direction != Vector2.Zero)
         {
             velocity.X = direction.X * Speed;
