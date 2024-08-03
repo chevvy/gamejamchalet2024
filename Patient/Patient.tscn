@@ -42,9 +42,8 @@ offset_right = 303.0
 offset_bottom = 60.0
 scale = Vector2(0.75, 0.74)
 
-[node name="HealthTickTimer" type="Timer" parent="."]
+[node name="HealingFromItemTimer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="PatientSprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.123604, 0.610599, 0.317359, 1)
@@ -58,4 +57,4 @@ shape = SubResource("RectangleShape2D_as4v1")
 one_way_collision_margin = 5.0
 debug_color = Color(0.284208, 0.617454, 0.375096, 0.42)
 
-[connection signal="timeout" from="HealthTickTimer" to="." method="OnHealthTickTimeout"]
+[connection signal="timeout" from="HealingFromItemTimer" to="." method="OnHealthTickTimeout"]
