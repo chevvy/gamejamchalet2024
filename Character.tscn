@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwsny8wxh0ku2"]
+[gd_scene load_steps=8 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
 [ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="2_02pau"]
@@ -6,25 +6,62 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
 size = Vector2(74.125, 64.5)
 
-[sub_resource type="Animation" id="Animation_3eurj"]
-resource_name = "flash"
+[sub_resource type="Animation" id="Animation_wykr1"]
+resource_name = "pillz"
 length = 2.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1, 0.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.779759, 0.000492281, 0.783519, 1)]
+"values": [Color(1, 1, 1, 1), Color(0.400799, 0.00192735, 0.84928, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_egf65"]
+resource_name = "bandage"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.0352941, 0.85098, 0.317647, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0t4yc"]
+resource_name = "seringe"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.144684, 0.684625, 0.869554, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xkauc"]
 _data = {
-"flash": SubResource("Animation_3eurj")
+"bandage": SubResource("Animation_egf65"),
+"pillz": SubResource("Animation_wykr1"),
+"seringe": SubResource("Animation_0t4yc")
 }
 
 [node name="Character" type="CharacterBody2D"]
