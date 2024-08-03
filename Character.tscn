@@ -101,5 +101,6 @@ libraries = {
 position = Vector2(2, 2.48722)
 shape = SubResource("RectangleShape2D_jioqv")
 
-[node name="BounceAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="PlayerEffectsAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8vfni")
+bus = &"Effects"

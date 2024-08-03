@@ -41,7 +41,7 @@ public partial class Character : CharacterBody2D
     public override void _Ready()
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-        _bounceAudioPlayer = GetNode<AudioStreamPlayer2D>("BounceAudioPlayer");
+        _bounceAudioPlayer = GetNode<AudioStreamPlayer2D>("PlayerEffectsAudioPlayer");
 
         SetBounceMovementLockTimer();
     }
