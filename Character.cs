@@ -19,6 +19,7 @@ public partial class Character : CharacterBody2D
     private ClosetItemType? _itemType = null;
 
     private AnimationPlayer _animationPlayer;
+    private Sprite2D _itemHeld;
     private bool _canCharacterMove = false;
 
     private AudioStreamPlayer2D _bounceAudioPlayer;
@@ -27,7 +28,7 @@ public partial class Character : CharacterBody2D
     private float PlaneMovementMalusY = 0;
 
     private Vector2 PlaneMovementVectore = Vector2.Zero;
-    
+
     [ExportGroup("Patient")]
     [Export]
     public InteractArea InteractArea;
@@ -43,6 +44,8 @@ public partial class Character : CharacterBody2D
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         _bounceAudioPlayer = GetNode<AudioStreamPlayer2D>("BounceAudioPlayer");
 
+        _itemHeld = GetNode<Sprite2D>("Sprite2D/ItemHeld");
+        _itemHeld.Visible = false;
         SetBounceMovementLockTimer();
     }
 
@@ -99,18 +102,8 @@ public partial class Character : CharacterBody2D
         _hasItem = true;
         _itemType = item;
 
-        if (item == ClosetItemType.PILLZ)
-        {
-            _animationPlayer.Play("pillz");
-        }
-        if (item == ClosetItemType.SERINGE)
-        {
-            _animationPlayer.Play("seringe");
-        }
-        if (item == ClosetItemType.BANDAGE)
-        {
-            _animationPlayer.Play("bandage");
-        }
+        _itemHeld.Texture = ItemHelper.TextureFromItem(item);
+        _itemHeld.Visible = true;
 
         PlayPickupAudio();
     }
@@ -121,13 +114,15 @@ public partial class Character : CharacterBody2D
         {
             patient.ReceiveItem(_itemType.Value);
             _hasItem = false;
+            _itemHeld.Visible = false;
             _animationPlayer.Stop();
         }
 
         PlayUseAudio();
     }
 
-    public void ApplyPlaneMovement(Vector2 direction){
+    public void ApplyPlaneMovement(Vector2 direction)
+    {
 
         PlaneMovementVectore = direction;
     }
@@ -143,7 +138,7 @@ public partial class Character : CharacterBody2D
     private void LockMovementInput(float duration)
     {
         _isBouncing = true;
-        _bouceDurationTimer.Start(_bounceLockDuration); 
+        _bouceDurationTimer.Start(_bounceLockDuration);
     }
 
     private void OnMovementInputLockTimeout()
