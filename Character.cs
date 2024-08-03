@@ -4,8 +4,9 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-    [Export] public int BounceStrength = 4;
+    [Export] public int BounceStrength = 2;
     private bool _isBouncing = false;
+    private float _bounceLockDuration = 0.1f;
     private Timer _bouceDurationTimer;
 
     public const float Speed = 850.0f;
@@ -36,10 +37,7 @@ public partial class Character : CharacterBody2D
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-        _bouceDurationTimer = new Timer();
-        _bouceDurationTimer.OneShot = false;
-        _bouceDurationTimer.Timeout += OnMovementInputLockTimeout;
-        AddChild(_bouceDurationTimer);
+        SetBounceMovementLockTimer();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -81,7 +79,7 @@ public partial class Character : CharacterBody2D
             velocity += Velocity.Bounce(kc.GetNormal()) * BounceStrength;
             character.Velocity = -Velocity.Bounce(kc.GetNormal()) * BounceStrength;
 
-            LockMovementInput(0.1f);
+            LockMovementInput(_bounceLockDuration);
         }
 
         Velocity = velocity;
@@ -122,10 +120,18 @@ public partial class Character : CharacterBody2D
         PlaneMovementVectore = direction;
     }
 
+    private void SetBounceMovementLockTimer()
+    {
+        _bouceDurationTimer = new Timer();
+        _bouceDurationTimer.OneShot = false;
+        _bouceDurationTimer.Timeout += OnMovementInputLockTimeout;
+        AddChild(_bouceDurationTimer);
+    }
+
     private void LockMovementInput(float duration)
     {
         _isBouncing = true;
-        _bouceDurationTimer.Start(duration); 
+        _bouceDurationTimer.Start(_bounceLockDuration); 
     }
 
     private void OnMovementInputLockTimeout()
