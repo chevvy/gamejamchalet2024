@@ -50,17 +50,17 @@ public partial class Patient : RigidBody2D
 
         foreach (Node child in bars.GetChildren())
         {
-            if (child is DecrementingBar bar)
+            if (child is DecrementingBar bar && bar.itemType == item)
             {
-                if (item == ClosetItemType.BANDAGE && bar.itemName == "A")
+                if (item == ClosetItemType.BANDAGE)
                 {
                     bar.Increase(ITEM_VALUE);
                 }
-                if (item == ClosetItemType.PILLZ && bar.itemName == "B")
+                if (item == ClosetItemType.PILLZ)
                 {
                     bar.Increase(ITEM_VALUE);
                 }
-                if (item == ClosetItemType.SERINGE && bar.itemName == "C")
+                if (item == ClosetItemType.SERINGE)
                 {
                     bar.Increase(ITEM_VALUE);
                 }

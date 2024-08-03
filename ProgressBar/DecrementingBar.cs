@@ -10,7 +10,7 @@ public partial class DecrementingBar : Control
 	public delegate void BarValueChangedEventHandler();
 
 	[Export]
-	public string itemName;
+	public ClosetItemType itemType;
 
 	[Export]
 	private int DOWN_PER_SECOND = 3;
@@ -20,8 +20,6 @@ public partial class DecrementingBar : Control
 
 	private ProgressBar bar;
 	private Timer timer;
-
-	private ClosetItemType itemType;
 
 	public override void _Ready()
 	{
@@ -33,7 +31,6 @@ public partial class DecrementingBar : Control
 			GameManager.Instance.GameReady += Initialize;
 		}
 
-		SetupItemType();
 		SetupBarColor();
 	}
 
@@ -77,28 +74,6 @@ public partial class DecrementingBar : Control
 		if (bar.Value == 0)
 		{
 			EmitSignal(SignalName.BarEmpty);
-		}
-	}
-
-	private void SetupItemType()
-	{
-		if (itemName == "A")
-		{
-			itemType = ClosetItemType.BANDAGE;
-		}
-		else if (itemName == "B")
-		{
-			itemType = ClosetItemType.PILLZ;
-		}
-		else if (itemName == "C")
-		{
-			itemType = ClosetItemType.SERINGE;
-		}
-		else
-		{
-			// Default, shouldn't get here ...
-			GD.PrintErr("Invalid item type export on progress bar");
-			itemType = ClosetItemType.BANDAGE;
 		}
 	}
 
