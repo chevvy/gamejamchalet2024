@@ -6,7 +6,7 @@ public partial class Character : CharacterBody2D
 {
     public const float Speed = 450.0f;
     private PlayerInput _playerInput;
-    
+
     private bool _hasItem = false;
 
     private AnimationPlayer _animationPlayer;
@@ -59,12 +59,12 @@ public partial class Character : CharacterBody2D
             else if (!_hasItem && kc.GetCollider() is ItemSpawner item)
             {
                 item.QueueFree();
-                ReceiveItem();
+                ReceiveItem(ItemType.BANDAGE);
             }
         }
     }
 
-    public void ReceiveItem()
+    public void ReceiveItem(ItemType item)
     {
         _hasItem = true;
         _animationPlayer.Play("flash");
@@ -76,4 +76,10 @@ public partial class Character : CharacterBody2D
         _hasItem = false;
         _animationPlayer.Stop();
     }
+}
+
+public enum ItemType
+{
+    BANDAGE,
+    SERINGUE
 }
