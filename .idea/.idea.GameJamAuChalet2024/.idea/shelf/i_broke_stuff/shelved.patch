@@ -1,0 +1,150 @@
+Index: Levels/DebugLevels/Alix/AlixLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=7 format=3 uid=\"uid://do2nf5x8hbk2r\"]\n\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"1_4r385\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"2_26lin\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://cx6optq4kqsa7\" path=\"res://Item/Item.tscn\" id=\"3_yfija\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bky0rbru4qtx5\" path=\"res://ItemSpawnArea/ItemSpawnArea.tscn\" id=\"4_sdegd\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[sub_resource type=\"QuadMesh\" id=\"QuadMesh_6r7ox\"]\nsize = Vector2(400, 400)\n\n[node name=\"BaseLevel\" type=\"Node2D\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"1_4r385\")\nCharacter = ExtResource(\"2_26lin\")\nPlayerSpawnPoint = [NodePath(\"SpawnPointP1\"), NodePath(\"SpawnPointP2\"), NodePath(\"SpawnPointP3\"), NodePath(\"SpawnPointP4\")]\n\n[node name=\"Walls\" type=\"Node\" parent=\".\"]\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(17, 349)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(603, 110)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(-602, 106)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(-440, 4)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(-228, 2)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(134, 2)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(347, -1)\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\nvisible = false\n\n[node name=\"Item\" parent=\".\" instance=ExtResource(\"3_yfija\")]\n\n[node name=\"ItemSpawnArea\" parent=\".\" groups=[\"Spawn\"] instance=ExtResource(\"4_sdegd\")]\nvisible = false\n\n[node name=\"Area\" type=\"MeshInstance2D\" parent=\"ItemSpawnArea\"]\nvisible = false\nmodulate = Color(1, 1, 1, 0.392157)\nposition = Vector2(0, 56)\nmesh = SubResource(\"QuadMesh_6r7ox\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/DebugLevels/Alix/AlixLevel.tscn b/Levels/DebugLevels/Alix/AlixLevel.tscn
+--- a/Levels/DebugLevels/Alix/AlixLevel.tscn	(revision 072230a7a58f34aee7d75d1d93b479b9e5463e24)
++++ b/Levels/DebugLevels/Alix/AlixLevel.tscn	(date 1722686087450)
+@@ -11,7 +11,7 @@
+ [sub_resource type="QuadMesh" id="QuadMesh_6r7ox"]
+ size = Vector2(400, 400)
+ 
+-[node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
++[node name="BaseLevel2" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
+ script = ExtResource("1_4r385")
+ Character = ExtResource("2_26lin")
+ PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2"), NodePath("SpawnPointP3"), NodePath("SpawnPointP4")]
+Index: Item/HealingItem.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=4 format=3 uid=\"uid://di3vopy26h5cr\"]\n\n[ext_resource type=\"Script\" path=\"res://Item/HealingItem.cs\" id=\"1_5t8b0\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://csu66ea3mfdnt\" path=\"res://Assets/items/GadgetSyringe.png\" id=\"1_kyhl3\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_34ugw\"]\nsize = Vector2(137, 64)\n\n[node name=\"HealingItem\" type=\"Area2D\"]\ncollision_layer = 4\ncollision_mask = 2\nscript = ExtResource(\"1_5t8b0\")\n\n[node name=\"Sprite2D\" type=\"Sprite2D\" parent=\".\"]\ntexture = ExtResource(\"1_kyhl3\")\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\".\"]\nposition = Vector2(-7.5, -1)\nshape = SubResource(\"RectangleShape2D_34ugw\")\n\n[connection signal=\"body_entered\" from=\".\" to=\".\" method=\"OnBodyEntered\"]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Item/HealingItem.tscn b/Item/HealingItem.tscn
+--- a/Item/HealingItem.tscn	(revision 072230a7a58f34aee7d75d1d93b479b9e5463e24)
++++ b/Item/HealingItem.tscn	(date 1722685979100)
+@@ -1,4 +1,4 @@
+-[gd_scene load_steps=4 format=3 uid="uid://di3vopy26h5cr"]
++[gd_scene load_steps=4 format=3 uid="uid://dttj0h4pcqdyp"]
+ 
+ [ext_resource type="Script" path="res://Item/HealingItem.cs" id="1_5t8b0"]
+ [ext_resource type="Texture2D" uid="uid://csu66ea3mfdnt" path="res://Assets/items/GadgetSyringe.png" id="1_kyhl3"]
+Index: Levels/DebugLevels/VincentLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=11 format=3 uid=\"uid://m2cvkmqmwfl4\"]\n\n[ext_resource type=\"Texture2D\" uid=\"uid://cp2ynrnjf58se\" path=\"res://Assets/Environment/Enviro_CockPit_intro.png\" id=\"1_uxewu\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://bc5rtwk7r4lhn\" path=\"res://Assets/Environment/Enviro slice.png\" id=\"2_lu6r7\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bn7ibigpaiqg1\" path=\"res://Patient/Patient.tscn\" id=\"3_kvksi\"]\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"4_essxp\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"5_8haym\"]\n[ext_resource type=\"Script\" path=\"res://Managers/GameManager.cs\" id=\"6_4g50k\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[sub_resource type=\"Animation\" id=\"Animation_ipwiv\"]\nlength = 0.001\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0)]\n}\n\n[sub_resource type=\"Animation\" id=\"Animation_oucfm\"]\nresource_name = \"plane_anim\"\nlength = 2.0\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 2),\n\"transitions\": PackedFloat32Array(0.378929, 1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0), Vector2(-1764.56, 2.08165e-12)]\n}\ntracks/1/type = \"method\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"Managers/GameManager\")\ntracks/1/interp = 1\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(2),\n\"transitions\": PackedFloat32Array(1),\n\"values\": [{\n\"args\": [],\n\"method\": &\"OnGameReady\"\n}]\n}\n\n[sub_resource type=\"AnimationLibrary\" id=\"AnimationLibrary_h1ndd\"]\n_data = {\n\"RESET\": SubResource(\"Animation_ipwiv\"),\n\"plane_anim\": SubResource(\"Animation_oucfm\")\n}\n\n[node name=\"MainLevel\" type=\"Node2D\"]\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n\n[node name=\"Walls\" type=\"Node\" parent=\".\"]\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(17, 349)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(603, 110)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(-602, 106)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"PlaneSection\" type=\"Node2D\" parent=\".\"]\nposition = Vector2(1348, 0)\n\n[node name=\"PlaneStart\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(76, -33)\nscale = Vector2(0.45, 0.45)\ntexture = ExtResource(\"1_uxewu\")\n\n[node name=\"PlaneBackground\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(1769, -1)\nscale = Vector2(0.49, 0.49)\ntexture = ExtResource(\"2_lu6r7\")\n\n[node name=\"Patient\" parent=\"PlaneSection/PlaneBackground\" instance=ExtResource(\"3_kvksi\")]\nposition = Vector2(2.08165e-12, 2.041)\nscale = Vector2(2.04082, 2.04082)\n\n[node name=\"SpawnPoints\" type=\"Node\" parent=\".\"]\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-440, 4)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-228, 2)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(135, 20)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(347, -1)\n\n[node name=\"EnvironmentAnimationPlayer\" type=\"AnimationPlayer\" parent=\".\"]\nlibraries = {\n\"\": SubResource(\"AnimationLibrary_h1ndd\")\n}\n\n[node name=\"Managers\" type=\"Node\" parent=\".\"]\n\n[node name=\"PlayerManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"4_essxp\")\nCharacter = ExtResource(\"5_8haym\")\nPlayerSpawnPoint = [NodePath(\"../../SpawnPoints/SpawnPointP1\"), NodePath(\"../../SpawnPoints/SpawnPointP2\"), NodePath(\"../../SpawnPoints/SpawnPointP3\"), NodePath(\"../../SpawnPoints/SpawnPointP4\")]\n\n[node name=\"GameManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"AnimationPlayer\")]\nscript = ExtResource(\"6_4g50k\")\nAnimationPlayer = NodePath(\"../../EnvironmentAnimationPlayer\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/DebugLevels/VincentLevel.tscn b/Levels/DebugLevels/VincentLevel.tscn
+--- a/Levels/DebugLevels/VincentLevel.tscn	(revision 072230a7a58f34aee7d75d1d93b479b9e5463e24)
++++ b/Levels/DebugLevels/VincentLevel.tscn	(date 1722686087450)
+@@ -61,7 +61,7 @@
+ "plane_anim": SubResource("Animation_oucfm")
+ }
+ 
+-[node name="MainLevel" type="Node2D"]
++[node name="MainLevel2" type="Node2D"]
+ 
+ [node name="Camera2D" type="Camera2D" parent="."]
+ 
+Index: Levels/MainLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=12 format=3 uid=\"uid://c1dkh1vp3cdp0\"]\n\n[ext_resource type=\"Texture2D\" uid=\"uid://cp2ynrnjf58se\" path=\"res://Assets/Environment/Enviro_CockPit_intro.png\" id=\"1_btio0\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://bc5rtwk7r4lhn\" path=\"res://Assets/Environment/Enviro slice.png\" id=\"2_70p3h\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bn7ibigpaiqg1\" path=\"res://Patient/Patient.tscn\" id=\"3_4om8c\"]\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"3_c2rit\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://di3vopy26h5cr\" path=\"res://Item/HealingItem.tscn\" id=\"4_g47w6\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"4_gqalf\"]\n[ext_resource type=\"Script\" path=\"res://Managers/GameManager.cs\" id=\"5_htpyh\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[sub_resource type=\"Animation\" id=\"Animation_ipwiv\"]\nlength = 0.001\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0)]\n}\n\n[sub_resource type=\"Animation\" id=\"Animation_oucfm\"]\nresource_name = \"plane_anim\"\nlength = 2.0\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 2),\n\"transitions\": PackedFloat32Array(0.378929, 1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0), Vector2(-1764.56, 2.08165e-12)]\n}\ntracks/1/type = \"method\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"Managers/GameManager\")\ntracks/1/interp = 1\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(2),\n\"transitions\": PackedFloat32Array(1),\n\"values\": [{\n\"args\": [],\n\"method\": &\"OnGameReady\"\n}]\n}\n\n[sub_resource type=\"AnimationLibrary\" id=\"AnimationLibrary_h1ndd\"]\n_data = {\n\"RESET\": SubResource(\"Animation_ipwiv\"),\n\"plane_anim\": SubResource(\"Animation_oucfm\")\n}\n\n[node name=\"MainLevel\" type=\"Node2D\"]\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n\n[node name=\"Walls\" type=\"Node\" parent=\".\"]\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(17, 349)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(603, 110)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(-602, 106)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"PlaneSection\" type=\"Node2D\" parent=\".\"]\nposition = Vector2(1348, 0)\n\n[node name=\"PlaneStart\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(76, -33)\nscale = Vector2(0.45, 0.45)\ntexture = ExtResource(\"1_btio0\")\n\n[node name=\"PlaneBackground\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(1769, -1)\nscale = Vector2(0.49, 0.49)\ntexture = ExtResource(\"2_70p3h\")\n\n[node name=\"Patient\" parent=\"PlaneSection\" instance=ExtResource(\"3_4om8c\")]\nposition = Vector2(1769, 9.0003e-05)\nscale = Vector2(1, 1)\n\n[node name=\"HealingItem\" parent=\"PlaneSection\" instance=ExtResource(\"4_g47w6\")]\nposition = Vector2(2107, 270)\n\n[node name=\"SpawnPoints\" type=\"Node\" parent=\".\"]\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-440, 4)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-228, 2)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(135, 20)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(347, -1)\n\n[node name=\"EnvironmentAnimationPlayer\" type=\"AnimationPlayer\" parent=\".\"]\nlibraries = {\n\"\": SubResource(\"AnimationLibrary_h1ndd\")\n}\n\n[node name=\"Managers\" type=\"Node\" parent=\".\"]\n\n[node name=\"PlayerManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"3_c2rit\")\nCharacter = ExtResource(\"4_gqalf\")\nPlayerSpawnPoint = [NodePath(\"../../SpawnPoints/SpawnPointP1\"), NodePath(\"../../SpawnPoints/SpawnPointP2\"), NodePath(\"../../SpawnPoints/SpawnPointP3\"), NodePath(\"../../SpawnPoints/SpawnPointP4\")]\n\n[node name=\"GameManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"AnimationPlayer\")]\nscript = ExtResource(\"5_htpyh\")\nAnimationPlayer = NodePath(\"../../EnvironmentAnimationPlayer\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/MainLevel.tscn b/Levels/MainLevel.tscn
+--- a/Levels/MainLevel.tscn	(revision 072230a7a58f34aee7d75d1d93b479b9e5463e24)
++++ b/Levels/MainLevel.tscn	(date 1722686087450)
+@@ -4,7 +4,7 @@
+ [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]
+ [ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_4om8c"]
+ [ext_resource type="Script" path="res://PlayerManager.cs" id="3_c2rit"]
+-[ext_resource type="PackedScene" uid="uid://di3vopy26h5cr" path="res://Item/HealingItem.tscn" id="4_g47w6"]
++[ext_resource type="PackedScene" uid="uid://dttj0h4pcqdyp" path="res://Item/HealingItem.tscn" id="4_g47w6"]
+ [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="4_gqalf"]
+ [ext_resource type="Script" path="res://Managers/GameManager.cs" id="5_htpyh"]
+ 
+@@ -101,13 +101,15 @@
+ scale = Vector2(0.49, 0.49)
+ texture = ExtResource("2_70p3h")
+ 
++<<<<<<< Updated upstream
+ [node name="Patient" parent="PlaneSection" instance=ExtResource("3_4om8c")]
+ position = Vector2(1769, 9.0003e-05)
+-scale = Vector2(1, 1)
+ 
+ [node name="HealingItem" parent="PlaneSection" instance=ExtResource("4_g47w6")]
+ position = Vector2(2107, 270)
+ 
++=======
++>>>>>>> Stashed changes
+ [node name="SpawnPoints" type="Node" parent="."]
+ 
+ [node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
+@@ -137,3 +139,6 @@
+ [node name="GameManager" type="Node" parent="Managers" node_paths=PackedStringArray("AnimationPlayer")]
+ script = ExtResource("5_htpyh")
+ AnimationPlayer = NodePath("../../EnvironmentAnimationPlayer")
++
++[node name="Patient" parent="." instance=ExtResource("3_4om8c")]
++position = Vector2(700, -151)
+Index: Character.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=6 format=3 uid=\"uid://bwsny8wxh0ku2\"]\n\n[ext_resource type=\"Script\" path=\"res://Character.cs\" id=\"1_q02ar\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://chkk618nx16dp\" path=\"res://icon.svg\" id=\"2_02pau\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_plhnx\"]\nsize = Vector2(132.25, 129)\n\n[sub_resource type=\"Animation\" id=\"Animation_3eurj\"]\nresource_name = \"flash\"\nlength = 2.0\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\".:modulate\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 1.1),\n\"transitions\": PackedFloat32Array(1, 1),\n\"update\": 0,\n\"values\": [Color(1, 1, 1, 1), Color(0.779759, 0.000492281, 0.783519, 1)]\n}\n\n[sub_resource type=\"AnimationLibrary\" id=\"AnimationLibrary_xkauc\"]\n_data = {\n\"flash\": SubResource(\"Animation_3eurj\")\n}\n\n[node name=\"Character\" type=\"CharacterBody2D\"]\nscale = Vector2(1, 1.00514)\ncollision_layer = 2\ncollision_mask = 7\nscript = ExtResource(\"1_q02ar\")\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\".\"]\nposition = Vector2(-0.125, 0.5)\nshape = SubResource(\"RectangleShape2D_plhnx\")\n\n[node name=\"Sprite2D\" type=\"Sprite2D\" parent=\".\"]\ntexture = ExtResource(\"2_02pau\")\n\n[node name=\"AnimationPlayer\" type=\"AnimationPlayer\" parent=\".\"]\nlibraries = {\n\"\": SubResource(\"AnimationLibrary_xkauc\")\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Character.tscn b/Character.tscn
+--- a/Character.tscn	(revision 072230a7a58f34aee7d75d1d93b479b9e5463e24)
++++ b/Character.tscn	(date 1722685979063)
+@@ -1,10 +1,7 @@
+ [gd_scene load_steps=6 format=3 uid="uid://bwsny8wxh0ku2"]
+ 
+ [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
+-[ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="2_02pau"]
+-
+-[sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
+-size = Vector2(132.25, 129)
++[ext_resource type="Texture2D" uid="uid://b351forxxdejp" path="res://Assets/Characters/Jacob.png" id="2_lxr52"]
+ 
+ [sub_resource type="Animation" id="Animation_3eurj"]
+ resource_name = "flash"
+@@ -27,20 +24,25 @@
+ "flash": SubResource("Animation_3eurj")
+ }
+ 
++[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_webwl"]
++radius = 37.8057
++height = 139.284
++
+ [node name="Character" type="CharacterBody2D"]
+ scale = Vector2(1, 1.00514)
+ collision_layer = 2
+ collision_mask = 7
+ script = ExtResource("1_q02ar")
+ 
+-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+-position = Vector2(-0.125, 0.5)
+-shape = SubResource("RectangleShape2D_plhnx")
+-
+ [node name="Sprite2D" type="Sprite2D" parent="."]
+-texture = ExtResource("2_02pau")
++scale = Vector2(0.1, 0.1)
++texture = ExtResource("2_lxr52")
+ 
+ [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+ libraries = {
+ "": SubResource("AnimationLibrary_xkauc")
+ }
++
++[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
++position = Vector2(0, 7.95909)
++shape = SubResource("CapsuleShape2D_webwl")

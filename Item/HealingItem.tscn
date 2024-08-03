@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://di3vopy26h5cr"]
+[gd_scene load_steps=4 format=3 uid="uid://dttj0h4pcqdyp"]
 
 [ext_resource type="Script" path="res://Item/HealingItem.cs" id="1_5t8b0"]
-[ext_resource type="Texture2D" uid="uid://csu66ea3mfdnt" path="res://Assets/items/GadgetSyringe.png" id="1_kyhl3"]
+[ext_resource type="Texture2D" uid="uid://cdicroede4jx6" path="res://Assets/items/Asset_Syringe.png" id="2_dv2hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34ugw"]
-size = Vector2(137, 64)
+size = Vector2(130.5, 64)
 
 [node name="HealingItem" type="Area2D"]
 collision_layer = 4
@@ -12,10 +12,11 @@ collision_mask = 2
 script = ExtResource("1_5t8b0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_kyhl3")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_dv2hn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7.5, -1)
+position = Vector2(-0.25, -1)
 shape = SubResource("RectangleShape2D_34ugw")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

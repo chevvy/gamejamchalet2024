@@ -1,0 +1,179 @@
+Index: Levels/DebugLevels/Alix/AlixLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=7 format=3 uid=\"uid://do2nf5x8hbk2r\"]\n\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"1_4r385\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"2_26lin\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://cx6optq4kqsa7\" path=\"res://Item/Item.tscn\" id=\"3_yfija\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bky0rbru4qtx5\" path=\"res://ItemSpawnArea/ItemSpawnArea.tscn\" id=\"4_sdegd\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[sub_resource type=\"QuadMesh\" id=\"QuadMesh_6r7ox\"]\nsize = Vector2(400, 400)\n\n[node name=\"BaseLevel\" type=\"Node2D\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"1_4r385\")\nCharacter = ExtResource(\"2_26lin\")\nPlayerSpawnPoint = [NodePath(\"SpawnPointP1\"), NodePath(\"SpawnPointP2\"), NodePath(\"SpawnPointP3\"), NodePath(\"SpawnPointP4\")]\n\n[node name=\"Walls\" type=\"Node\" parent=\".\"]\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(17, 349)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(603, 110)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(-602, 106)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(-440, 4)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(-228, 2)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(134, 2)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(347, -1)\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\nvisible = false\n\n[node name=\"Item\" parent=\".\" instance=ExtResource(\"3_yfija\")]\n\n[node name=\"ItemSpawnArea\" parent=\".\" groups=[\"Spawn\"] instance=ExtResource(\"4_sdegd\")]\nvisible = false\n\n[node name=\"Area\" type=\"MeshInstance2D\" parent=\"ItemSpawnArea\"]\nvisible = false\nmodulate = Color(1, 1, 1, 0.392157)\nposition = Vector2(0, 56)\nmesh = SubResource(\"QuadMesh_6r7ox\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/DebugLevels/Alix/AlixLevel.tscn b/Levels/DebugLevels/Alix/AlixLevel.tscn
+--- a/Levels/DebugLevels/Alix/AlixLevel.tscn	(revision 8a8c5d6514c4a963fcac22b4112627b77b4f30f2)
++++ b/Levels/DebugLevels/Alix/AlixLevel.tscn	(date 1722654266177)
+@@ -1,9 +1,10 @@
+-[gd_scene load_steps=7 format=3 uid="uid://do2nf5x8hbk2r"]
++[gd_scene load_steps=8 format=3 uid="uid://do2nf5x8hbk2r"]
+ 
+ [ext_resource type="Script" path="res://PlayerManager.cs" id="1_4r385"]
+ [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="2_26lin"]
+ [ext_resource type="PackedScene" uid="uid://cx6optq4kqsa7" path="res://Item/Item.tscn" id="3_yfija"]
+ [ext_resource type="PackedScene" uid="uid://bky0rbru4qtx5" path="res://ItemSpawnArea/ItemSpawnArea.tscn" id="4_sdegd"]
++[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="5_hlrk3"]
+ 
+ [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
+ size = Vector2(1280, 50)
+@@ -63,3 +64,6 @@
+ modulate = Color(1, 1, 1, 0.392157)
+ position = Vector2(0, 56)
+ mesh = SubResource("QuadMesh_6r7ox")
++
++[node name="Patient" parent="." instance=ExtResource("5_hlrk3")]
++position = Vector2(352, 158)
+Index: .idea/.idea.GameJamAuChalet2024/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b1d1fb1f-b6e2-4a55-9e4f-b80ebd70d813\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro slice.png\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro slice.png.import\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro_CockPit_intro.png\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro_CockPit_intro.png.import\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro_Sky_paralax.png\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro_Sky_paralax.png.import\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro_Slice_Skeleton.png\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Assets/Environment/Enviro_Slice_Skeleton.png.import\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Levels/MainLevel.tscn\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Managers/GameManager.cs\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Character.tscn\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Character.tscn\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Levels/BaseLevel.tscn\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Levels/DebugLevels/IoLevel.tscn\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Levels/DebugLevels/IoLevel.tscn\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Levels/DebugLevels/VincentLevel.tscn\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Levels/DebugLevels/VincentLevel.tscn\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/PlayerManager.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/PlayerManager.cs\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/main.tscn\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/main.tscn\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/project.godot\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/project.godot\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ChangesViewManager\">\n    <option name=\"groupingKeys\">\n      <option value=\"directory\" />\n    </option>\n  </component>\n  <component name=\"DpaMonitoringSettings\">\n    <option name=\"autoShow\" value=\"false\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;chevvy&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;git@github.com:chevvy/gamejamchalet2024.git&quot;,\n    &quot;accountId&quot;: &quot;475a3868-0649-4aeb-aa20-63f0087e62a5&quot;\n  },\n  &quot;recentNewPullRequestHead&quot;: {\n    &quot;server&quot;: {\n      &quot;useHttp&quot;: false,\n      &quot;host&quot;: &quot;github.com&quot;,\n      &quot;port&quot;: null,\n      &quot;suffix&quot;: null\n    },\n    &quot;owner&quot;: &quot;chevvy&quot;,\n    &quot;repository&quot;: &quot;gamejamchalet2024&quot;\n  }\n}</component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/Character.cs\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/PlayerManager.cs\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file:///usr/local/share/dotnet/sdk/8.0.303/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.globalconfig\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"MetaFilesCheckinStateConfiguration\" checkMetaFiles=\"true\" />\n  <component name=\"ProjectColorInfo\">{\n  &quot;customColor&quot;: &quot;&quot;,\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2k4jSgkecL8iQm56Y3hMfZ5Vldr\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \".NET Executable.Player.executor\": \"Debug\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"git-widget-placeholder\": \"Rebasing integrate-vendredi\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"settings.editor.selected.configurable\": \"editor.preferences.inline.completion\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"RunManager\" selected=\".NET Executable.Player\">\n    <configuration name=\"Player GDScript\" type=\"GDSCRIPT_DEBUG_RUN_CONFIGURATION\" factoryName=\"GdScriptRunFactory\" show_console_on_std_err=\"false\" show_console_on_std_out=\"false\" port=\"6006\">\n      <option name=\"address\" value=\"127.0.0.1\" />\n      <option name=\"allowRunningInParallel\" value=\"false\" />\n      <option name=\"listenPortForConnections\" value=\"false\" />\n      <option name=\"projectPathOnTarget\" />\n      <option name=\"selectedOptions\">\n        <list />\n      </option>\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"Editor\" type=\"RunExe\" factoryName=\".NET Executable\">\n      <option name=\"EXE_PATH\" value=\"/Applications/Godot_mono.app/Contents/MacOS/Godot\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\"--path &quot;./&quot; --editor\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"PASS_PARENT_ENVS\" value=\"1\" />\n      <option name=\"USE_EXTERNAL_CONSOLE\" value=\"0\" />\n      <option name=\"USE_MONO\" value=\"0\" />\n      <option name=\"RUNTIME_ARGUMENTS\" value=\"\" />\n      <option name=\"RUNTIME_TYPE\" value=\"coreclr\" />\n      <method v=\"2\">\n        <option name=\"Build Solution\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Player\" type=\"RunExe\" factoryName=\".NET Executable\">\n      <option name=\"EXE_PATH\" value=\"/Applications/Godot_mono.app/Contents/MacOS/Godot\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\"--path &quot;./&quot;\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"PASS_PARENT_ENVS\" value=\"1\" />\n      <option name=\"USE_EXTERNAL_CONSOLE\" value=\"0\" />\n      <option name=\"USE_MONO\" value=\"0\" />\n      <option name=\"RUNTIME_ARGUMENTS\" value=\"\" />\n      <option name=\"RUNTIME_TYPE\" value=\"coreclr\" />\n      <method v=\"2\">\n        <option name=\"Build Solution\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b1d1fb1f-b6e2-4a55-9e4f-b80ebd70d813\" name=\"Changes\" comment=\"\" />\n      <created>1722549744363</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1722549744363</updated>\n      <workItem from=\"1722549745502\" duration=\"126000\" />\n      <workItem from=\"1722549921459\" duration=\"3090000\" />\n      <workItem from=\"1722633850310\" duration=\"705000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"multiplayer works\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1722550628350</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1722550628350</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"UnityCheckinConfiguration\" checkUnsavedScenes=\"true\" />\n  <component name=\"UnityProjectConfiguration\" hasMinimizedUI=\"false\" />\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN\" value=\"false\" />\n    <option name=\"CLEAR_INITIAL_COMMIT_MESSAGE\" value=\"true\" />\n    <MESSAGE value=\"multiplayer works\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"multiplayer works\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml b/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml
+--- a/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml	(revision 8a8c5d6514c4a963fcac22b4112627b77b4f30f2)
++++ b/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml	(date 1722653658270)
+@@ -5,24 +5,8 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b1d1fb1f-b6e2-4a55-9e4f-b80ebd70d813" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro slice.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro slice.png.import" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_CockPit_intro.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_CockPit_intro.png.import" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Sky_paralax.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Sky_paralax.png.import" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Slice_Skeleton.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Slice_Skeleton.png.import" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Levels/MainLevel.tscn" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Managers/GameManager.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Character.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Character.tscn" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Levels/BaseLevel.tscn" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Levels/DebugLevels/IoLevel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Levels/DebugLevels/IoLevel.tscn" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Levels/DebugLevels/VincentLevel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Levels/DebugLevels/VincentLevel.tscn" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Levels/MainLevel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Levels/MainLevel.tscn" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerManager.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/main.tscn" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -81,7 +65,7 @@
+   "keyToString": {
+     ".NET Executable.Player.executor": "Debug",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "Rebasing integrate-vendredi",
++    "git-widget-placeholder": "main",
+     "node.js.detected.package.eslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+Index: Levels/DebugLevels/VincentLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=11 format=3 uid=\"uid://m2cvkmqmwfl4\"]\n\n[ext_resource type=\"Texture2D\" uid=\"uid://cp2ynrnjf58se\" path=\"res://Assets/Environment/Enviro_CockPit_intro.png\" id=\"1_uxewu\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://bc5rtwk7r4lhn\" path=\"res://Assets/Environment/Enviro slice.png\" id=\"2_lu6r7\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bn7ibigpaiqg1\" path=\"res://Patient/Patient.tscn\" id=\"3_kvksi\"]\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"4_essxp\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"5_8haym\"]\n[ext_resource type=\"Script\" path=\"res://Managers/GameManager.cs\" id=\"6_4g50k\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[sub_resource type=\"Animation\" id=\"Animation_ipwiv\"]\nlength = 0.001\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0)]\n}\n\n[sub_resource type=\"Animation\" id=\"Animation_oucfm\"]\nresource_name = \"plane_anim\"\nlength = 2.0\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 2),\n\"transitions\": PackedFloat32Array(0.378929, 1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0), Vector2(-1764.56, 2.08165e-12)]\n}\ntracks/1/type = \"method\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"Managers/GameManager\")\ntracks/1/interp = 1\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(2),\n\"transitions\": PackedFloat32Array(1),\n\"values\": [{\n\"args\": [],\n\"method\": &\"OnGameReady\"\n}]\n}\n\n[sub_resource type=\"AnimationLibrary\" id=\"AnimationLibrary_h1ndd\"]\n_data = {\n\"RESET\": SubResource(\"Animation_ipwiv\"),\n\"plane_anim\": SubResource(\"Animation_oucfm\")\n}\n\n[node name=\"MainLevel\" type=\"Node2D\"]\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n\n[node name=\"Walls\" type=\"Node\" parent=\".\"]\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(17, 349)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(603, 110)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(-602, 106)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"PlaneSection\" type=\"Node2D\" parent=\".\"]\nposition = Vector2(1348, 0)\n\n[node name=\"PlaneStart\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(76, -33)\nscale = Vector2(0.45, 0.45)\ntexture = ExtResource(\"1_uxewu\")\n\n[node name=\"PlaneBackground\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(1769, -1)\nscale = Vector2(0.49, 0.49)\ntexture = ExtResource(\"2_lu6r7\")\n\n[node name=\"Patient\" parent=\"PlaneSection/PlaneBackground\" instance=ExtResource(\"3_kvksi\")]\nposition = Vector2(2.08165e-12, 2.041)\nscale = Vector2(2.04082, 2.04082)\n\n[node name=\"SpawnPoints\" type=\"Node\" parent=\".\"]\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-440, 4)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-228, 2)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(135, 20)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(347, -1)\n\n[node name=\"EnvironmentAnimationPlayer\" type=\"AnimationPlayer\" parent=\".\"]\nlibraries = {\n\"\": SubResource(\"AnimationLibrary_h1ndd\")\n}\n\n[node name=\"Managers\" type=\"Node\" parent=\".\"]\n\n[node name=\"PlayerManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"4_essxp\")\nCharacter = ExtResource(\"5_8haym\")\nPlayerSpawnPoint = [NodePath(\"../../SpawnPoints/SpawnPointP1\"), NodePath(\"../../SpawnPoints/SpawnPointP2\"), NodePath(\"../../SpawnPoints/SpawnPointP3\"), NodePath(\"../../SpawnPoints/SpawnPointP4\")]\n\n[node name=\"GameManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"AnimationPlayer\")]\nscript = ExtResource(\"6_4g50k\")\nAnimationPlayer = NodePath(\"../../EnvironmentAnimationPlayer\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/DebugLevels/VincentLevel.tscn b/Levels/DebugLevels/VincentLevel.tscn
+--- a/Levels/DebugLevels/VincentLevel.tscn	(revision 8a8c5d6514c4a963fcac22b4112627b77b4f30f2)
++++ b/Levels/DebugLevels/VincentLevel.tscn	(date 1722654266079)
+@@ -1,8 +1,7 @@
+-[gd_scene load_steps=11 format=3 uid="uid://m2cvkmqmwfl4"]
++[gd_scene load_steps=10 format=3 uid="uid://m2cvkmqmwfl4"]
+ 
+ [ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_uxewu"]
+ [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_lu6r7"]
+-[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_kvksi"]
+ [ext_resource type="Script" path="res://PlayerManager.cs" id="4_essxp"]
+ [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="5_8haym"]
+ [ext_resource type="Script" path="res://Managers/GameManager.cs" id="6_4g50k"]
+@@ -100,10 +99,6 @@
+ scale = Vector2(0.49, 0.49)
+ texture = ExtResource("2_lu6r7")
+ 
+-[node name="Patient" parent="PlaneSection/PlaneBackground" instance=ExtResource("3_kvksi")]
+-position = Vector2(2.08165e-12, 2.041)
+-scale = Vector2(2.04082, 2.04082)
+-
+ [node name="SpawnPoints" type="Node" parent="."]
+ 
+ [node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
+Index: PlayerManager.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using Godot;\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\n\npublic partial class PlayerManager : Node\n{\n    [Export] public PackedScene Character;\n    [Export] public Marker2D[] PlayerSpawnPoint;\n    \n\n    // TODO convert to array\n    private Dictionary<string, PlayerID> _playerIDbyStartKey = new()\n    {\n        { \"p1_start\", PlayerID.P1 },\n        { \"p2_start\", PlayerID.P2 },\n        { \"p3_start\", PlayerID.P3 },\n        { \"p4_start\", PlayerID.P4 },\n        { \"p5_start\", PlayerID.P5 }\n    };\n\n\n    // Called when the node enters the scene tree for the first time.\n    public override void _Ready()\n    {\n        if (Character == null)\n        {\n            GD.PrintErr(\"Missing character packed scene on PlayerManager\");\n        }\n\n        if (PlayerSpawnPoint == null)\n        {\n            GD.PrintErr(\"Missing PlayerSpawnPoints on PlayerManager\");\n        }\n    }\n\n    // Called every frame. 'delta' is the elapsed time since the previous frame.\n    public override void _Process(double delta)\n    {\n        foreach (var item in _playerIDbyStartKey.ToList())\n        {\n            if (!Input.IsActionJustPressed(item.Key)) continue;\n\n            var character = Character.Instantiate() as Character;\n            character.GlobalTransform = item.Value == PlayerID.P5\n                ? PlayerSpawnPoint[(int)PlayerID.P1].GlobalTransform\n                : PlayerSpawnPoint[(int)item.Value].GlobalTransform;\n\n            character.SetupPlayer(item.Value);\n            AddChild(character);\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PlayerManager.cs b/PlayerManager.cs
+--- a/PlayerManager.cs	(revision 8a8c5d6514c4a963fcac22b4112627b77b4f30f2)
++++ b/PlayerManager.cs	(date 1722653657439)
+@@ -47,7 +47,7 @@
+                 : PlayerSpawnPoint[(int)item.Value].GlobalTransform;
+ 
+             character.SetupPlayer(item.Value);
+-            AddChild(character);
++            GetTree().Root.AddChild(character);
+         }
+     }
+ }
+\ No newline at end of file
+Index: Levels/MainLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=11 format=3 uid=\"uid://bpcdo3mrkvlsi\"]\n\n[ext_resource type=\"Texture2D\" uid=\"uid://cp2ynrnjf58se\" path=\"res://Assets/Environment/Enviro_CockPit_intro.png\" id=\"1_btio0\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://bc5rtwk7r4lhn\" path=\"res://Assets/Environment/Enviro slice.png\" id=\"2_70p3h\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bn7ibigpaiqg1\" path=\"res://Patient/Patient.tscn\" id=\"3_4om8c\"]\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"3_c2rit\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"4_gqalf\"]\n[ext_resource type=\"Script\" path=\"res://Managers/GameManager.cs\" id=\"5_htpyh\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[sub_resource type=\"Animation\" id=\"Animation_ipwiv\"]\nlength = 0.001\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0)]\n}\n\n[sub_resource type=\"Animation\" id=\"Animation_oucfm\"]\nresource_name = \"plane_anim\"\nlength = 2.0\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 2),\n\"transitions\": PackedFloat32Array(0.378929, 1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0), Vector2(-1764.56, 2.08165e-12)]\n}\ntracks/1/type = \"method\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"Managers/GameManager\")\ntracks/1/interp = 1\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(2),\n\"transitions\": PackedFloat32Array(1),\n\"values\": [{\n\"args\": [],\n\"method\": &\"OnGameReady\"\n}]\n}\n\n[sub_resource type=\"AnimationLibrary\" id=\"AnimationLibrary_h1ndd\"]\n_data = {\n\"RESET\": SubResource(\"Animation_ipwiv\"),\n\"plane_anim\": SubResource(\"Animation_oucfm\")\n}\n\n[node name=\"MainLevel\" type=\"Node2D\"]\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n\n[node name=\"Walls\" type=\"Node\" parent=\".\"]\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(17, 349)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(603, 110)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(-602, 106)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"PlaneSection\" type=\"Node2D\" parent=\".\"]\nposition = Vector2(1348, 0)\n\n[node name=\"PlaneStart\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(76, -33)\nscale = Vector2(0.45, 0.45)\ntexture = ExtResource(\"1_btio0\")\n\n[node name=\"PlaneBackground\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(1769, -1)\nscale = Vector2(0.49, 0.49)\ntexture = ExtResource(\"2_70p3h\")\n\n[node name=\"Patient\" parent=\"PlaneSection/PlaneBackground\" instance=ExtResource(\"3_4om8c\")]\nposition = Vector2(2.08165e-12, 2.041)\nscale = Vector2(2.04082, 2.04082)\n\n[node name=\"SpawnPoints\" type=\"Node\" parent=\".\"]\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-440, 4)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(-228, 2)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(135, 20)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\"SpawnPoints\"]\nposition = Vector2(347, -1)\n\n[node name=\"EnvironmentAnimationPlayer\" type=\"AnimationPlayer\" parent=\".\"]\nlibraries = {\n\"\": SubResource(\"AnimationLibrary_h1ndd\")\n}\n\n[node name=\"Managers\" type=\"Node\" parent=\".\"]\n\n[node name=\"PlayerManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"3_c2rit\")\nCharacter = ExtResource(\"4_gqalf\")\nPlayerSpawnPoint = [NodePath(\"../../SpawnPoints/SpawnPointP1\"), NodePath(\"../../SpawnPoints/SpawnPointP2\"), NodePath(\"../../SpawnPoints/SpawnPointP3\"), NodePath(\"../../SpawnPoints/SpawnPointP4\")]\n\n[node name=\"GameManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"AnimationPlayer\")]\nscript = ExtResource(\"5_htpyh\")\nAnimationPlayer = NodePath(\"../../EnvironmentAnimationPlayer\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/MainLevel.tscn b/Levels/MainLevel.tscn
+--- a/Levels/MainLevel.tscn	(revision 8a8c5d6514c4a963fcac22b4112627b77b4f30f2)
++++ b/Levels/MainLevel.tscn	(date 1722654266164)
+@@ -100,10 +100,6 @@
+ scale = Vector2(0.49, 0.49)
+ texture = ExtResource("2_70p3h")
+ 
+-[node name="Patient" parent="PlaneSection/PlaneBackground" instance=ExtResource("3_4om8c")]
+-position = Vector2(2.08165e-12, 2.041)
+-scale = Vector2(2.04082, 2.04082)
+-
+ [node name="SpawnPoints" type="Node" parent="."]
+ 
+ [node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
+@@ -133,3 +129,6 @@
+ [node name="GameManager" type="Node" parent="Managers" node_paths=PackedStringArray("AnimationPlayer")]
+ script = ExtResource("5_htpyh")
+ AnimationPlayer = NodePath("../../EnvironmentAnimationPlayer")
++
++[node name="Patient" parent="." instance=ExtResource("3_4om8c")]
++position = Vector2(700, -151)
+Index: Levels/DebugLevels/AlixLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=4 format=3 uid=\"uid://k4gbdadujgcx\"]\n\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"1_4r385\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"2_26lin\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[node name=\"BaseLevel\" type=\"Node2D\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"1_4r385\")\nCharacter = ExtResource(\"2_26lin\")\nPlayerSpawnPoint = [NodePath(\"SpawnPointP1\"), NodePath(\"SpawnPointP2\"), NodePath(\"SpawnPointP3\"), NodePath(\"SpawnPointP4\")]\n\n[node name=\"Walls\" type=\"Node\" parent=\".\"]\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(17, 349)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(603, 110)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"Walls\"]\nposition = Vector2(-602, 106)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(-440, 4)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(-228, 2)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(134, 2)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\".\"]\nposition = Vector2(347, -1)\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/DebugLevels/AlixLevel.tscn b/Levels/DebugLevels/AlixLevel.tscn
+--- a/Levels/DebugLevels/AlixLevel.tscn	(revision 8a8c5d6514c4a963fcac22b4112627b77b4f30f2)
++++ b/Levels/DebugLevels/AlixLevel.tscn	(date 1722654266065)
+@@ -1,7 +1,8 @@
+-[gd_scene load_steps=4 format=3 uid="uid://k4gbdadujgcx"]
++[gd_scene load_steps=5 format=3 uid="uid://k4gbdadujgcx"]
+ 
+ [ext_resource type="Script" path="res://PlayerManager.cs" id="1_4r385"]
+ [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="2_26lin"]
++[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_w77u0"]
+ 
+ [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
+ size = Vector2(1280, 50)
+@@ -46,3 +47,5 @@
+ position = Vector2(347, -1)
+ 
+ [node name="Camera2D" type="Camera2D" parent="."]
++
++[node name="Patient" parent="." instance=ExtResource("3_w77u0")]
