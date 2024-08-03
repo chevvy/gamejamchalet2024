@@ -13,11 +13,6 @@ public partial class InteractArea : Area2D
 		{
 			Patient = patient;
 		}
-
-		if (body is Character character && !IsPatient && body != this)
-		{
-			character.ReceiveItem(ClosetItemType.BANDAGE);
-		}
 	}
 
 	public void OnBodyExited(Node2D body)
