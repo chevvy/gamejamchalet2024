@@ -156,6 +156,7 @@ position = Vector2(423, 339)
 [node name="Closet" parent="PlaneSection" instance=ExtResource("8_j6tna")]
 position = Vector2(3658.44, 475.441)
 scale = Vector2(1.29548, 1.29548)
+ClosetItemType = 1
 
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

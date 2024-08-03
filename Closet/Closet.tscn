@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://wuvjg1xx01wm"]
 
-[ext_resource type="Script" path="res://Closet/ClosetGameReadyStateHandler.cs" id="1_84wrg"]
+[ext_resource type="Script" path="res://Closet/Closet.cs" id="1_7nyqk"]
 [ext_resource type="Script" path="res://Closet/ClosetPickupAreaCollisionHandler.cs" id="1_cv7cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qtba"]
@@ -17,10 +17,9 @@ collision_layer = 4
 collision_mask = 6
 mass = 20.0
 gravity_scale = 0.0
-script = ExtResource("1_84wrg")
+script = ExtResource("1_7nyqk")
 
 [node name="ClosetCollider" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_1qtba")
 
 [node name="ClosetMesh" type="MeshInstance2D" parent="."]
@@ -28,13 +27,13 @@ modulate = Color(0.923668, 1.15514e-06, 0.516859, 1)
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_81xuj")
 
-[node name="PlayerCanPickupItemArea" type="Area2D" parent="."]
+[node name="ClosetPickupArea" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_cv7cc")
 
-[node name="PlayerCanPickupItemCollider" type="CollisionShape2D" parent="PlayerCanPickupItemArea"]
+[node name="ClosetPickupShape" type="CollisionShape2D" parent="ClosetPickupArea"]
 position = Vector2(-1.5, -1.5)
 shape = SubResource("RectangleShape2D_hdn36")
 
-[connection signal="body_entered" from="PlayerCanPickupItemArea" to="PlayerCanPickupItemArea" method="OnBodyEntered"]
+[connection signal="body_entered" from="ClosetPickupArea" to="ClosetPickupArea" method="OnBodyEntered"]
