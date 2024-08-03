@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://bn7ibigpaiqg1"]
 
 [ext_resource type="Script" path="res://Patient/Patient.cs" id="1_0tk08"]
-[ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="1_m4u3j"]
 [ext_resource type="PackedScene" uid="uid://bt0k5u646kv1y" path="res://ProgressBar/DecrementingBar.tscn" id="3_adt8v"]
+[ext_resource type="Texture2D" uid="uid://bjwrsy7wvqq7j" path="res://Assets/Characters/Bed_Full.png" id="4_2gksv"]
 [ext_resource type="PackedScene" uid="uid://inhohtyl2o6" path="res://ProgressBar/LifeBar.tscn" id="4_h37pb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as4v1"]
-size = Vector2(74.75, 71.1875)
+size = Vector2(201, 151)
 
 [node name="Patient" type="RigidBody2D"]
 collision_layer = 2
@@ -16,7 +16,7 @@ freeze = true
 script = ExtResource("1_0tk08")
 
 [node name="Bars" type="Node2D" parent="."]
-position = Vector2(-111, -91)
+position = Vector2(-110, -134)
 
 [node name="DecrementingBar" parent="Bars" instance=ExtResource("3_adt8v")]
 anchors_preset = 8
@@ -49,11 +49,11 @@ autostart = true
 [node name="PatientSprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.123604, 0.610599, 0.317359, 1)
 position = Vector2(-2, -2)
-scale = Vector2(0.507813, 0.523438)
-texture = ExtResource("1_m4u3j")
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_2gksv")
 
 [node name="PatientCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -2)
+position = Vector2(-11.5, -2.5)
 shape = SubResource("RectangleShape2D_as4v1")
 one_way_collision_margin = 5.0
 debug_color = Color(0.284208, 0.617454, 0.375096, 0.42)

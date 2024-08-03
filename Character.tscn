@@ -26,7 +26,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_webwl"]
 radius = 37.8057
-height = 139.284
+height = 99.4886
 
 [node name="Character" type="CharacterBody2D"]
 scale = Vector2(1, 1.00514)

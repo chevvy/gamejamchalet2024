@@ -79,9 +79,6 @@ position = Vector2(2759, 32)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_70p3h")
 
-[node name="Patient" parent="PlaneSection" instance=ExtResource("3_4om8c")]
-position = Vector2(2591, 25)
-
 [node name="Walls" type="Node2D" parent="PlaneSection"]
 position = Vector2(2412, -485)
 
@@ -114,27 +111,53 @@ rotation = 1.56684
 shape = SubResource("RectangleShape2D_og16h")
 
 [node name="HealingItem" parent="PlaneSection" instance=ExtResource("4_g47w6")]
-position = Vector2(3311, 442)
+position = Vector2(3357, 504)
 
 [node name="HealingItem2" parent="PlaneSection" instance=ExtResource("4_g47w6")]
-position = Vector2(3114, -235)
+position = Vector2(3538, -41)
 
 [node name="HealingItem3" parent="PlaneSection" instance=ExtResource("4_g47w6")]
-position = Vector2(2166, 448)
+position = Vector2(2038, 490)
+
+[node name="Patients" type="Node2D" parent="PlaneSection"]
+
+[node name="Patient" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2582, -74)
+
+[node name="Patient2" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2856, -74)
+
+[node name="Patient3" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(3113, -74)
+
+[node name="Patient4" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2318, -74)
+
+[node name="Patient5" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2593, 285)
+
+[node name="Patient6" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2867, 285)
+
+[node name="Patient7" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(3124, 285)
+
+[node name="Patient8" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2329, 285)
 
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(-440, 4)
+position = Vector2(-963, -303)
 
 [node name="SpawnPointP2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(-228, 2)
+position = Vector2(896, -311)
 
 [node name="SpawnPointP3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(135, 20)
+position = Vector2(-929, 367)
 
 [node name="SpawnPointP4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(347, -1)
+position = Vector2(892, 418)
 
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
