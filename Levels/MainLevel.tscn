@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhcemxgig1lm3"]
+[gd_scene load_steps=16 format=3 uid="uid://c8qlykrks52h"]
 
 [ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_btio0"]
 [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]

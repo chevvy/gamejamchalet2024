@@ -1,9 +1,12 @@
 using Godot;
 using System;
 
-
 public partial class Character : CharacterBody2D
 {
+    [Export] public AudioStream BounceAudio;
+    [Export] public AudioStream PickupAudio;
+    [Export] public AudioStream UseAudio;
+
     [Export] public int BounceStrength = 2;
     private bool _isBouncing = false;
     private float _bounceLockDuration = 0.1f;
@@ -17,6 +20,8 @@ public partial class Character : CharacterBody2D
 
     private AnimationPlayer _animationPlayer;
     private bool _canCharacterMove = false;
+
+    private AudioStreamPlayer2D _bounceAudioPlayer;
 
     private float PlaneMovementMalusX = 0;
     private float PlaneMovementMalusY = 0;
@@ -36,6 +41,7 @@ public partial class Character : CharacterBody2D
     public override void _Ready()
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+        _bounceAudioPlayer = GetNode<AudioStreamPlayer2D>("BounceAudioPlayer");
 
         SetBounceMovementLockTimer();
     }
@@ -48,6 +54,7 @@ public partial class Character : CharacterBody2D
         {
             UseItem(InteractArea.Patient);
         }
+
         Vector2 velocity = Velocity;
 
         if (!_isBouncing)
@@ -80,6 +87,7 @@ public partial class Character : CharacterBody2D
             character.Velocity = -Velocity.Bounce(kc.GetNormal()) * BounceStrength;
 
             LockMovementInput(_bounceLockDuration);
+            PlayBounceAudio();
         }
 
         Velocity = velocity;
@@ -103,6 +111,8 @@ public partial class Character : CharacterBody2D
         {
             _animationPlayer.Play("bandage");
         }
+
+        PlayPickupAudio();
     }
 
     public void UseItem(Patient patient)
@@ -113,6 +123,8 @@ public partial class Character : CharacterBody2D
             _hasItem = false;
             _animationPlayer.Stop();
         }
+
+        PlayUseAudio();
     }
 
     public void ApplyPlaneMovement(Vector2 direction){
@@ -137,5 +149,23 @@ public partial class Character : CharacterBody2D
     private void OnMovementInputLockTimeout()
     {
         _isBouncing = false;
+    }
+
+    private void PlayBounceAudio()
+    {
+        _bounceAudioPlayer.Stream = BounceAudio;
+        _bounceAudioPlayer.Play();
+    }
+
+    private void PlayPickupAudio()
+    {
+        _bounceAudioPlayer.Stream = PickupAudio;
+        _bounceAudioPlayer.Play();
+    }
+
+    private void PlayUseAudio()
+    {
+        _bounceAudioPlayer.Stream = UseAudio;
+        _bounceAudioPlayer.Play();
     }
 }
