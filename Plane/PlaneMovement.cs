@@ -5,7 +5,7 @@ public partial class PlaneMovement : Node
 {
 	// Called when the node enters the scene tree for the first time.
 	double LastTimePlaneMoved = 20;
-	double IntervalOfPlaneMovement = 10;
+	double IntervalOfPlaneMovement = 5;
 
 	Vector2 LastDirection = Vector2.Zero;
 
