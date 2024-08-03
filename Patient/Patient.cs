@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Patient : Node2D
+public partial class Patient : RigidBody2D
 {
 
 	private DecrementingBar decrementingBar;
@@ -14,21 +14,20 @@ public partial class Patient : Node2D
 		lifeBar = GetNode<LifeBar>("Bars/LifeBar");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public void GainHealthFromItem(int value)
 	{
-
+		lifeBar.Increase(value);
 	}
 
 	private void OnHealthTickTimeout()
 	{
 		if (!decrementingBar.IsEmpty())
 		{
-			GainHealth();
+			GainHealthFromTick();
 		}
 	}
 
-	private void GainHealth()
+	private void GainHealthFromTick()
 	{
 		lifeBar.Increase(5);
 	}
