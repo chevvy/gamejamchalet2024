@@ -5,7 +5,7 @@ public partial class PlaneMovement : Node
 {
 	// Called when the node enters the scene tree for the first time.
 	double LastTimePlaneMoved = 20;
-	double IntervalOfPlaneMovement = 5;
+	double IntervalOfPlaneMovement = 3;
 
 	Vector2 LastDirection = Vector2.Zero;
 
@@ -19,8 +19,9 @@ public partial class PlaneMovement : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		float ftest =  -1;
 		if (LastTimePlaneMoved > IntervalOfPlaneMovement){
-		Vector2 direction = new Vector2(random.RandfRange(0,1),random.RandfRange(0,1));
+		Vector2 direction = new Vector2(random.RandfRange(ftest,1),random.RandfRange(ftest,1));
 		GeneratePlaneMovement(direction - LastDirection*2);
 		LastDirection = direction;
 		LastTimePlaneMoved = 0;

@@ -4,7 +4,7 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-    public const float Speed = 450.0f;
+    public const float Speed = 850.0f;
     private PlayerInput _playerInput;
 
     private bool _hasItem = false;
@@ -12,6 +12,11 @@ public partial class Character : CharacterBody2D
 
     private AnimationPlayer _animationPlayer;
     private bool _canCharacterMove = false;
+
+    private float PlaneMovementMalusX = 0;
+    private float PlaneMovementMalusY = 0;
+
+    private Vector2 PlaneMovementVectore = Vector2.Zero;
     
     [ExportGroup("Patient")]
     [Export]
@@ -27,6 +32,8 @@ public partial class Character : CharacterBody2D
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
     }
+
+    
 
     public override void _PhysicsProcess(double delta)
     {
@@ -53,8 +60,8 @@ public partial class Character : CharacterBody2D
         }
         else
         {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-            velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+            velocity.X = Mathf.MoveToward(Velocity.X - PlaneMovementVectore.X, 0, Speed);
+            velocity.Y = Mathf.MoveToward(Velocity.Y - PlaneMovementVectore.Y, 0, Speed);
         }
 
         Velocity = velocity;
@@ -89,5 +96,10 @@ public partial class Character : CharacterBody2D
             _hasItem = false;
             _animationPlayer.Stop();
         }
+    }
+
+    public void ApplyPlaneMovement(Vector2 direction){
+
+        PlaneMovementVectore = direction;
     }
 }
