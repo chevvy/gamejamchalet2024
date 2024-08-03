@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bky0rbru4qtx5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j6wfj"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.0627451, 1, 1, 1)
+position = Vector2(0, -104)
+scale = Vector2(1136, 848)
+mesh = SubResource("BoxMesh_j6wfj")

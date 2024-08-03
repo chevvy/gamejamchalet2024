@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx6optq4kqsa7"]
+
+[ext_resource type="Script" path="res://Item/ItemSpawner.cs" id="1_s4dci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlk07"]
+size = Vector2(50, 123)
+
+[sub_resource type="QuadMesh" id="QuadMesh_kpfaw"]
+
+[node name="Item" type="AnimatableBody2D" groups=["Spawn"]]
+script = ExtResource("1_s4dci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -37.5)
+shape = SubResource("RectangleShape2D_dlk07")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, -37)
+scale = Vector2(50, 124)
+mesh = SubResource("QuadMesh_kpfaw")
