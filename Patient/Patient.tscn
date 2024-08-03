@@ -12,6 +12,7 @@ size = Vector2(74.75, 71.1875)
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
+freeze = true
 script = ExtResource("1_0tk08")
 
 [node name="Bars" type="Node2D" parent="."]
