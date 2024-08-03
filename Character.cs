@@ -74,13 +74,6 @@ public partial class Character : CharacterBody2D
             character.Velocity = -Velocity.Bounce(kc.GetNormal()) * BounceStrength;
         }
 
-        KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta, true);
-        if (kc != null && kc.GetCollider() is Character character)
-        {
-            velocity += Velocity.Bounce(kc.GetNormal()) * BounceStrength;
-            character.Velocity = -Velocity.Bounce(kc.GetNormal()) * BounceStrength;
-        }
-
         Velocity = velocity;
         MoveAndSlide();
     }
