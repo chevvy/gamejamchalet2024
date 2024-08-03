@@ -60,12 +60,12 @@ public partial class Character : CharacterBody2D
             else if (!_hasItem && kc.GetCollider() is ItemSpawner item)
             {
                 item.QueueFree();
-                ReceiveItem(ItemType.BANDAGE);
+                ReceiveItem(ClosetItemType.BANDAGE);
             }
         }
     }
 
-    public void ReceiveItem(ItemType item)
+    public void ReceiveItem(ClosetItemType item)
     {
         _hasItem = true;
         _animationPlayer.Play("flash");
@@ -77,10 +77,4 @@ public partial class Character : CharacterBody2D
         _hasItem = false;
         _animationPlayer.Stop();
     }
-}
-
-public enum ItemType
-{
-    BANDAGE,
-    SERINGUE
 }

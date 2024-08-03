@@ -1,6 +1,6 @@
 public enum ClosetItemType
 {
-    Pill,
-    Bandage,
-    Seringe
+    PILLZ,
+    BANDAGE,
+    SERINGE
 }

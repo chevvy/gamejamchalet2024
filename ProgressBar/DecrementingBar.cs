@@ -18,7 +18,7 @@ public partial class DecrementingBar : Control
 	private ProgressBar bar;
 	private Timer timer;
 
-	private ItemType itemType;
+	private ClosetItemType itemType;
 
 	public override void _Ready()
 	{
@@ -65,13 +65,13 @@ public partial class DecrementingBar : Control
 	{
 		if (itemName == "A")
 		{
-			itemType = ItemType.BANDAGE;
+			itemType = ClosetItemType.BANDAGE;
 		}
 		else
 		{
 			// Default, shouldn't get here ...
 			GD.PrintErr("Invalid item type export on progress bar");
-			itemType = ItemType.BANDAGE;
+			itemType = ClosetItemType.BANDAGE;
 		}
 	}
 
