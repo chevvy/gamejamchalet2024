@@ -39,7 +39,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(0.378929, 1),
 "update": 0,
-"values": [Vector2(1348, 0), Vector2(-2739, 2.08165e-12)]
+"values": [Vector2(1348, 0), Vector2(-1944, 2.08165e-12)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -68,6 +68,7 @@ _data = {
 
 [node name="PlaneSection" type="Node2D" parent="."]
 position = Vector2(1348, 0)
+scale = Vector2(0.720546, 0.720546)
 
 [node name="PlaneStart" type="Sprite2D" parent="PlaneSection"]
 position = Vector2(152, -3)
@@ -145,19 +146,20 @@ position = Vector2(3124, 285)
 [node name="Patient8" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
 position = Vector2(2329, 285)
 
-[node name="SpawnPoints" type="Node" parent="."]
+[node name="SpawnPoints" type="Node2D" parent="."]
+position = Vector2(320, 84)
 
 [node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-963, -303)
 
 [node name="SpawnPointP2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(896, -311)
+position = Vector2(406, -331)
 
 [node name="SpawnPointP3" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-929, 367)
 
 [node name="SpawnPointP4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(892, 418)
+position = Vector2(423, 339)
 
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
