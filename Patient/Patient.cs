@@ -12,7 +12,7 @@ public partial class Patient : RigidBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        decrementingBar = GetNode<DecrementingBar>("Bars/DecrementingBar");
+        decrementingBar = GetNode<DecrementingBar>("Bars/DecrementingBarA");
         lifeBar = GetNode<LifeBar>("Bars/LifeBar");
         healthTimer = GetNode<Timer>("HealingFromItemTimer");
 
