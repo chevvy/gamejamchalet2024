@@ -2,15 +2,13 @@
 
 [ext_resource type="Script" path="res://Closet/Closet.cs" id="1_7nyqk"]
 [ext_resource type="Script" path="res://Closet/ClosetPickupAreaCollisionHandler.cs" id="1_cv7cc"]
+[ext_resource type="Texture2D" uid="uid://bkqod7dfn40fm" path="res://Assets/items/Asset_Pills_Distributor.png" id="2_jxpdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qtba"]
-size = Vector2(157, 275)
-
-[sub_resource type="QuadMesh" id="QuadMesh_81xuj"]
-size = Vector2(8, 14)
+size = Vector2(101, 183)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdn36"]
-size = Vector2(195, 307)
+size = Vector2(126, 212)
 
 [node name="Closet" type="RigidBody2D"]
 collision_layer = 4
@@ -20,12 +18,12 @@ gravity_scale = 0.0
 script = ExtResource("1_7nyqk")
 
 [node name="ClosetCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_1qtba")
 
-[node name="ClosetMesh" type="MeshInstance2D" parent="."]
-modulate = Color(0.923668, 1.15514e-06, 0.516859, 1)
-scale = Vector2(20, 20)
-mesh = SubResource("QuadMesh_81xuj")
+[node name="ClosetSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_jxpdk")
 
 [node name="ClosetPickupArea" type="Area2D" parent="."]
 collision_layer = 4
@@ -33,7 +31,7 @@ collision_mask = 2
 script = ExtResource("1_cv7cc")
 
 [node name="ClosetPickupShape" type="CollisionShape2D" parent="ClosetPickupArea"]
-position = Vector2(-1.5, -1.5)
+position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_hdn36")
 
 [connection signal="body_entered" from="ClosetPickupArea" to="ClosetPickupArea" method="OnBodyEntered"]
