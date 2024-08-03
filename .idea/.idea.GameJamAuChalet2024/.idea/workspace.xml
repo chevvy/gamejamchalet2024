@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1d1fb1f-b6e2-4a55-9e4f-b80ebd70d813" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro slice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro slice.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_CockPit_intro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_CockPit_intro.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Sky_paralax.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Sky_paralax.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Slice_Skeleton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Environment/Enviro_Slice_Skeleton.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Levels/MainLevel.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Character.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Character.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Levels/BaseLevel.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Levels/DebugLevels/IoLevel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Levels/DebugLevels/IoLevel.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Levels/DebugLevels/VincentLevel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Levels/DebugLevels/VincentLevel.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/main.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +65,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/local/share/dotnet/sdk/8.0.303/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -63,11 +81,12 @@
   "keyToString": {
     ".NET Executable.Player.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "remap-input",
+    "git-widget-placeholder": "Rebasing integrate-vendredi",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -142,5 +161,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="multiplayer works" />
     <option name="LAST_COMMIT_MESSAGE" value="multiplayer works" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

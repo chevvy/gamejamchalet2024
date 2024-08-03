@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dugsja1pm8oje"]
 
-[ext_resource type="PackedScene" uid="uid://do2nf5x8hbk2r" path="res://Levels/DebugLevels/Alix/AlixLevel.tscn" id="3_5cq0o"]
+[ext_resource type="PackedScene" uid="uid://bpcdo3mrkvlsi" path="res://Levels/MainLevel.tscn" id="1_dbflw"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="BaseLevel" parent="." instance=ExtResource("3_5cq0o")]
+[node name="MainLevel" parent="." instance=ExtResource("1_dbflw")]

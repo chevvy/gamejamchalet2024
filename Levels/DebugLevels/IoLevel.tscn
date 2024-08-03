@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
 size = Vector2(1280, 50)
 
-[node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
+[node name="BaseLevel2" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
 script = ExtResource("1_6rhkt")
 Character = ExtResource("2_2rwes")
 PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2"), NodePath("SpawnPointP3"), NodePath("SpawnPointP4")]

@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class PlayerManager : Node2D
+public partial class PlayerManager : Node
 {
     [Export] public PackedScene Character;
     [Export] public Marker2D[] PlayerSpawnPoint;
+    
 
     // TODO convert to array
     private Dictionary<string, PlayerID> _playerIDbyStartKey = new()
