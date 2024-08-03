@@ -47,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 22.0
-offset_top = -58.0
-offset_right = 272.0
-offset_bottom = -18.0
+offset_left = 23.0
+offset_top = -61.0
+offset_right = 273.0
+offset_bottom = -21.0
 scale = Vector2(0.75, 0.75)
 color = Color(0.779115, 0.439435, 0.999885, 1)
 
