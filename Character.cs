@@ -12,6 +12,10 @@ public partial class Character : CharacterBody2D
 
     private AnimationPlayer _animationPlayer;
     private bool _canCharacterMove = false;
+    
+    [ExportGroup("Patient")]
+    [Export]
+    public InteractArea InteractArea;
 
     public void SetupPlayer(PlayerID id)
     {
@@ -28,6 +32,10 @@ public partial class Character : CharacterBody2D
     {
         if (!_canCharacterMove || _playerInput == null) return;
 
+        if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)) && _hasItem && InteractArea.Patient != null)
+        {
+            UseItem(InteractArea.Patient);
+        }
         Vector2 velocity = Velocity;
 
         // Get the input direction and handle the movement/deceleration.
@@ -52,13 +60,6 @@ public partial class Character : CharacterBody2D
         Velocity = velocity;
         MoveAndSlide();
         KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta, true);
-        if (kc != null)
-        {
-            if (_hasItem && kc.GetCollider() is Patient patient && _itemType != null)
-            {
-                UseItem(patient);
-            }
-        }
     }
 
     public void ReceiveItem(ClosetItemType item)
