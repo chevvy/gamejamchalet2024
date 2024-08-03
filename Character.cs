@@ -4,7 +4,11 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-    [Export] public int BounceStrength = 4;
+    [Export] public int BounceStrength = 2;
+    private bool _isBouncing = false;
+    private float _bounceLockDuration = 0.1f;
+    private Timer _bouceDurationTimer;
+
     public const float Speed = 850.0f;
     private PlayerInput _playerInput;
 
@@ -32,9 +36,9 @@ public partial class Character : CharacterBody2D
     public override void _Ready()
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-    }
 
-    
+        SetBounceMovementLockTimer();
+    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -46,25 +50,27 @@ public partial class Character : CharacterBody2D
         }
         Vector2 velocity = Velocity;
 
-        // Get the input direction and handle the movement/deceleration.
-        // As good practice, you should replace UI actions with custom gameplay actions.
-        Vector2 direction = Input.GetVector(
-            _playerInput.GetInputKey(InputAction.MoveLeft),
-            _playerInput.GetInputKey(InputAction.MoveRight),
-            _playerInput.GetInputKey(InputAction.MoveUp),
-            _playerInput.GetInputKey(InputAction.MoveDown)
-        );
-
-
-        if (direction != Vector2.Zero)
+        if (!_isBouncing)
         {
-            velocity.X = direction.X * Speed;
-            velocity.Y = direction.Y * Speed;
-        }
-        else
-        {
-            velocity.X = Mathf.MoveToward(Velocity.X - PlaneMovementVectore.X, 0, Speed);
-            velocity.Y = Mathf.MoveToward(Velocity.Y - PlaneMovementVectore.Y, 0, Speed);
+            // Get the input direction and handle the movement/deceleration.
+            // As good practice, you should replace UI actions with custom gameplay actions.
+            Vector2 direction = Input.GetVector(
+                _playerInput.GetInputKey(InputAction.MoveLeft),
+                _playerInput.GetInputKey(InputAction.MoveRight),
+                _playerInput.GetInputKey(InputAction.MoveUp),
+                _playerInput.GetInputKey(InputAction.MoveDown)
+            );
+
+            if (direction != Vector2.Zero)
+            {
+                velocity.X = direction.X * Speed;
+                velocity.Y = direction.Y * Speed;
+            }
+            else
+            {
+                velocity.X = Mathf.MoveToward(Velocity.X - PlaneMovementVectore.X, 0, Speed);
+                velocity.Y = Mathf.MoveToward(Velocity.Y - PlaneMovementVectore.Y, 0, Speed);
+            }
         }
 
         KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta, true);
@@ -72,6 +78,8 @@ public partial class Character : CharacterBody2D
         {
             velocity += Velocity.Bounce(kc.GetNormal()) * BounceStrength;
             character.Velocity = -Velocity.Bounce(kc.GetNormal()) * BounceStrength;
+
+            LockMovementInput(_bounceLockDuration);
         }
 
         Velocity = velocity;
@@ -110,5 +118,24 @@ public partial class Character : CharacterBody2D
     public void ApplyPlaneMovement(Vector2 direction){
 
         PlaneMovementVectore = direction;
+    }
+
+    private void SetBounceMovementLockTimer()
+    {
+        _bouceDurationTimer = new Timer();
+        _bouceDurationTimer.OneShot = false;
+        _bouceDurationTimer.Timeout += OnMovementInputLockTimeout;
+        AddChild(_bouceDurationTimer);
+    }
+
+    private void LockMovementInput(float duration)
+    {
+        _isBouncing = true;
+        _bouceDurationTimer.Start(_bounceLockDuration); 
+    }
+
+    private void OnMovementInputLockTimeout()
+    {
+        _isBouncing = false;
     }
 }

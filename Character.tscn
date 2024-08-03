@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
 [ext_resource type="Texture2D" uid="uid://b351forxxdejp" path="res://Assets/Characters/Jacob.png" id="2_3bpt5"]
-[ext_resource type="PackedScene" uid="uid://b58bxvmbxjor2" path="res://InteractArea.tscn" id="3_3to06"]
+[ext_resource type="PackedScene" path="res://InteractArea.tscn" id="3_3to06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
 size = Vector2(74.125, 64.5)
