@@ -58,11 +58,6 @@ public partial class Character : CharacterBody2D
             {
                 UseItem(patient);
             }
-            else if (!_hasItem && kc.GetCollider() is ItemSpawner item)
-            {
-                item.QueueFree();
-                ReceiveItem(ClosetItemType.BANDAGE);
-            }
         }
     }
 
@@ -70,7 +65,19 @@ public partial class Character : CharacterBody2D
     {
         _hasItem = true;
         _itemType = item;
-        _animationPlayer.Play("flash");
+
+        if (item == ClosetItemType.PILLZ)
+        {
+            _animationPlayer.Play("pillz");
+        }
+        if (item == ClosetItemType.SERINGE)
+        {
+            _animationPlayer.Play("seringe");
+        }
+        if (item == ClosetItemType.BANDAGE)
+        {
+            _animationPlayer.Play("bandage");
+        }
     }
 
     public void UseItem(Patient patient)

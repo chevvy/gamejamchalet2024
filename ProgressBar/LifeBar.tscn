@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://inhohtyl2o6"]
+[gd_scene load_steps=4 format=3 uid="uid://inhohtyl2o6"]
 
 [ext_resource type="Script" path="res://ProgressBar/LifeBar.cs" id="1_p1qlr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gu3og"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5tj4"]
+bg_color = Color(0.817521, 0.817521, 0.817521, 1)
 
 [node name="LifeBar" type="Control"]
 layout_mode = 3
@@ -23,6 +29,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 28
+theme_override_styles/background = SubResource("StyleBoxFlat_gu3og")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e5tj4")
 value = 50.0
 
 [node name="PassifLifeLossTimer" type="Timer" parent="."]

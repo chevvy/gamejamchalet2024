@@ -4,8 +4,10 @@ using System;
 public partial class Closet : RigidBody2D
 {
 	[Export] public ClosetItemType ClosetItemType;
+	[Export] public Texture2D ClosetTexture;
 
 	private ClosetPickupAreaCollisionHandler _closetPickupAreaCollisionHandler;
+	private Sprite2D _closetSprite;
 
 	public override void _Ready()
 	{
@@ -14,6 +16,7 @@ public partial class Closet : RigidBody2D
 		GameManager.Instance.GameReady += OnGameReady;
 
 		SetClosetItemType(ClosetItemType);
+		SetClosetTexture(ClosetTexture);
 
 		Freeze = true;
 	}
@@ -22,6 +25,12 @@ public partial class Closet : RigidBody2D
 	{
 		_closetPickupAreaCollisionHandler = GetNode<CollisionObject2D>("ClosetPickupArea") as ClosetPickupAreaCollisionHandler;
 		_closetPickupAreaCollisionHandler.ClosetItemType = itemType;
+	}
+
+	private void SetClosetTexture(Texture2D texture)
+	{
+		_closetSprite = GetNode<Sprite2D>("ClosetSprite");
+		_closetSprite.Texture = texture;
 	}
 
 	public void OnGameReady()
