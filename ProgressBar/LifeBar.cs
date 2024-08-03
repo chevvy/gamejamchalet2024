@@ -8,7 +8,7 @@ public partial class LifeBar : Control
 	public delegate void OnLifeZeroEventHandler();
 
 	[Export]
-	public const int LOSE_LIFE_PER_TICK = 3;
+	public const int LOSE_LIFE_PER_TICK = 2;
 
 	private ProgressBar bar;
 

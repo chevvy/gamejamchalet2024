@@ -26,5 +26,6 @@ grow_vertical = 2
 value = 50.0
 
 [node name="PassifLifeLossTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="timeout" from="PassifLifeLossTimer" to="." method="LoseLifeFromTimer"]
