@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://inhohtyl2o6" path="res://ProgressBar/LifeBar.tscn" id="4_h37pb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as4v1"]
-size = Vector2(200.438, 111.047)
+size = Vector2(155, 40)
 
 [node name="Patient" type="RigidBody2D"]
 collision_layer = 2
@@ -16,7 +16,7 @@ freeze = true
 script = ExtResource("1_0tk08")
 
 [node name="Bars" type="Node2D" parent="."]
-position = Vector2(-110, -134)
+position = Vector2(-114, -146)
 
 [node name="LifeBar" parent="Bars" instance=ExtResource("4_h37pb")]
 anchors_preset = -1
@@ -77,7 +77,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("4_2gksv")
 
 [node name="PatientCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-8, -24)
+position = Vector2(-10.5, -29)
 shape = SubResource("RectangleShape2D_as4v1")
 one_way_collision_margin = 5.0
 debug_color = Color(0.284208, 0.617454, 0.375096, 0.42)
