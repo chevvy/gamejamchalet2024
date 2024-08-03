@@ -4,10 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="2_02pau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
-size = Vector2(71.5, 70)
+size = Vector2(132.25, 129)
 
 [sub_resource type="Animation" id="Animation_3eurj"]
 resource_name = "flash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.779759, 0.000492281, 0.783519, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xkauc"]
 _data = {
@@ -15,12 +28,13 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
+scale = Vector2(1, 1.00514)
 collision_layer = 2
-collision_mask = 6
+collision_mask = 7
 script = ExtResource("1_q02ar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.75, 0)
+position = Vector2(-0.125, 0.5)
 shape = SubResource("RectangleShape2D_plhnx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

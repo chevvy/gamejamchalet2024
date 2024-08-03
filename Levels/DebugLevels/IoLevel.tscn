@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://42gwr2ksohat"]
+
+[ext_resource type="Script" path="res://PlayerManager.cs" id="1_gv4m1"]
+[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="2_i8l4i"]
+[ext_resource type="PackedScene" uid="uid://cx6optq4kqsa7" path="res://Item/Item.tscn" id="3_yupq1"]
+[ext_resource type="PackedScene" uid="uid://bky0rbru4qtx5" path="res://ItemSpawnArea/ItemSpawnArea.tscn" id="4_2enh1"]
+[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="5_stqud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
+size = Vector2(1280, 50)
+
+[sub_resource type="QuadMesh" id="QuadMesh_6r7ox"]
+size = Vector2(400, 400)
+
+[node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
+script = ExtResource("1_gv4m1")
+Character = ExtResource("2_i8l4i")
+PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2"), NodePath("SpawnPointP3"), NodePath("SpawnPointP4")]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+position = Vector2(17, 349)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+shape = SubResource("RectangleShape2D_og16h")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2(603, 110)
+rotation = 1.56684
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_og16h")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2(-602, 106)
+rotation = 1.56684
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_og16h")
+
+[node name="SpawnPointP1" type="Marker2D" parent="."]
+position = Vector2(-440, 4)
+
+[node name="SpawnPointP2" type="Marker2D" parent="."]
+position = Vector2(-228, 2)
+
+[node name="SpawnPointP3" type="Marker2D" parent="."]
+position = Vector2(134, 2)
+
+[node name="SpawnPointP4" type="Marker2D" parent="."]
+position = Vector2(347, -1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+
+[node name="Item" parent="." instance=ExtResource("3_yupq1")]
+
+[node name="ItemSpawnArea" parent="." groups=["Spawn"] instance=ExtResource("4_2enh1")]
+visible = false
+
+[node name="Area" type="MeshInstance2D" parent="ItemSpawnArea"]
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(0, 56)
+mesh = SubResource("QuadMesh_6r7ox")
+
+[node name="Patient" parent="." instance=ExtResource("5_stqud")]
+position = Vector2(-206, -185)
