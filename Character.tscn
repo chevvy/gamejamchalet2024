@@ -1,7 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
-[ext_resource type="Texture2D" uid="uid://b351forxxdejp" path="res://Assets/Characters/Jacob.png" id="2_lxr52"]
+[ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="2_02pau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
+size = Vector2(132.25, 129)
 
 [sub_resource type="Animation" id="Animation_3eurj"]
 resource_name = "flash"
@@ -24,25 +27,20 @@ _data = {
 "flash": SubResource("Animation_3eurj")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_webwl"]
-radius = 37.8057
-height = 139.284
-
 [node name="Character" type="CharacterBody2D"]
 scale = Vector2(1, 1.00514)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_q02ar")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.125, 0.5)
+shape = SubResource("RectangleShape2D_plhnx")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_lxr52")
+texture = ExtResource("2_02pau")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xkauc")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7.95909)
-shape = SubResource("CapsuleShape2D_webwl")

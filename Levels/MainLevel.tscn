@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1dkh1vp3cdp0"]
+[gd_scene load_steps=13 format=3 uid="uid://c8qlykrks52h"]
 
 [ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_btio0"]
 [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]
 [ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_4om8c"]
 [ext_resource type="Script" path="res://PlayerManager.cs" id="3_c2rit"]
-[ext_resource type="PackedScene" uid="uid://dttj0h4pcqdyp" path="res://Item/HealingItem.tscn" id="4_g47w6"]
+[ext_resource type="PackedScene" uid="uid://cdc1onhsqs3kq" path="res://Item/HealingItem.tscn" id="4_g47w6"]
 [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="4_gqalf"]
 [ext_resource type="Script" path="res://Managers/GameManager.cs" id="5_htpyh"]
+[ext_resource type="PackedScene" uid="uid://wuvjg1xx01wm" path="res://Closet/Closet.tscn" id="8_j6tna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
 size = Vector2(1280, 50)
@@ -136,3 +137,5 @@ PlayerSpawnPoint = [NodePath("../../SpawnPoints/SpawnPointP1"), NodePath("../../
 [node name="GameManager" type="Node" parent="Managers" node_paths=PackedStringArray("AnimationPlayer")]
 script = ExtResource("5_htpyh")
 AnimationPlayer = NodePath("../../EnvironmentAnimationPlayer")
+
+[node name="Closet" parent="." instance=ExtResource("8_j6tna")]

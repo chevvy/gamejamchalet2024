@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dugsja1pm8oje"]
 
-[ext_resource type="PackedScene" uid="uid://c1dkh1vp3cdp0" path="res://Levels/MainLevel.tscn" id="1_dbflw"]
+[ext_resource type="PackedScene" uid="uid://c8qlykrks52h" path="res://Levels/MainLevel.tscn" id="1_dbflw"]
 
 [node name="Main" type="Node2D"]
 
