@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwsny8wxh0ku2"]
+[gd_scene load_steps=6 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
 [ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="2_02pau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
 size = Vector2(71.5, 70)
+
+[sub_resource type="Animation" id="Animation_3eurj"]
+resource_name = "flash"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xkauc"]
+_data = {
+"flash": SubResource("Animation_3eurj")
+}
 
 [node name="Character" type="CharacterBody2D"]
 collision_layer = 2
@@ -17,3 +25,8 @@ shape = SubResource("RectangleShape2D_plhnx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_02pau")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xkauc")
+}
