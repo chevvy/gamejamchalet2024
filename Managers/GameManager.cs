@@ -4,14 +4,15 @@ using System;
 public partial class GameManager : Node
 {
 	public static GameManager Instance;
+
 	[Signal]
 	public delegate void GameReadyEventHandler();
-
+                       
 	public bool IsGameReady = false;
-	[Export]
+
 	public AnimationPlayer AnimationPlayer { get; set; }
 
-	public override void _EnterTree()
+	public override void _EnterTree()                                
 	{
 		base._EnterTree();
 		if (Instance != null)
@@ -23,6 +24,7 @@ public partial class GameManager : Node
 	public override void _Ready()
 	{
 		base._Ready();
+		GD.Print("_Ready on GameManager");
 		AnimationPlayer.Play("plane_anim");
 	}
 
