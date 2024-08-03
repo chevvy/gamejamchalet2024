@@ -38,7 +38,8 @@ offset_top = 3.0
 offset_right = 273.0
 offset_bottom = 43.0
 scale = Vector2(0.75, 0.75)
-color = Color(0, 0.870588, 0, 1)
+itemType = 1
+color = Color(6.257e-06, 0.932922, 0, 1)
 
 [node name="DecrementingBarB" parent="Bars" instance=ExtResource("3_adt8v")]
 anchors_preset = 8
@@ -51,7 +52,7 @@ offset_top = -61.0
 offset_right = 273.0
 offset_bottom = -21.0
 scale = Vector2(0.75, 0.75)
-color = Color(0.619608, 0.00392157, 0.878431, 1)
+color = Color(0.779115, 0.439435, 0.999885, 1)
 
 [node name="DecrementingBarC" parent="Bars" instance=ExtResource("3_adt8v")]
 anchors_preset = 8
@@ -64,7 +65,8 @@ offset_top = -26.0
 offset_right = 272.0
 offset_bottom = 14.0
 scale = Vector2(0.75, 0.75)
-color = Color(0, 0, 1, 1)
+itemType = 2
+color = Color(0.444314, 0.621122, 1, 1)
 
 [node name="HealingFromItemTimer" type="Timer" parent="."]
 
