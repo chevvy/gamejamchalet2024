@@ -1,21 +1,70 @@
-[gd_scene load_steps=8 format=3 uid="uid://42gwr2ksohat"]
+[gd_scene load_steps=12 format=3 uid="uid://c0d0mnfogsx2v"]
 
-[ext_resource type="Script" path="res://PlayerManager.cs" id="1_gv4m1"]
-[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="2_i8l4i"]
-[ext_resource type="PackedScene" uid="uid://cx6optq4kqsa7" path="res://Item/Item.tscn" id="3_yupq1"]
-[ext_resource type="PackedScene" uid="uid://bky0rbru4qtx5" path="res://ItemSpawnArea/ItemSpawnArea.tscn" id="4_2enh1"]
-[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="5_stqud"]
+[ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_0i3u2"]
+[ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_j3526"]
+[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_sfgu1"]
+[ext_resource type="PackedScene" uid="uid://dttj0h4pcqdyp" path="res://Item/HealingItem.tscn" id="4_0vkyn"]
+[ext_resource type="Script" path="res://PlayerManager.cs" id="5_rv3rn"]
+[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="6_8nnkk"]
+[ext_resource type="Script" path="res://Managers/GameManager.cs" id="7_bh0h2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
 size = Vector2(1280, 50)
 
-[sub_resource type="QuadMesh" id="QuadMesh_6r7ox"]
-size = Vector2(400, 400)
+[sub_resource type="Animation" id="Animation_ipwiv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlaneSection:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1348, 0)]
+}
 
-[node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
-script = ExtResource("1_gv4m1")
-Character = ExtResource("2_i8l4i")
-PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2"), NodePath("SpawnPointP3"), NodePath("SpawnPointP4")]
+[sub_resource type="Animation" id="Animation_oucfm"]
+resource_name = "plane_anim"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlaneSection:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(1348, 0), Vector2(-1764.56, 2.08165e-12)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Managers/GameManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"OnGameReady"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1ndd"]
+_data = {
+"RESET": SubResource("Animation_ipwiv"),
+"plane_anim": SubResource("Animation_oucfm")
+}
+
+[node name="MainLevel2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -39,31 +88,51 @@ rotation = 1.56684
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
 shape = SubResource("RectangleShape2D_og16h")
 
-[node name="SpawnPointP1" type="Marker2D" parent="."]
+[node name="PlaneSection" type="Node2D" parent="."]
+position = Vector2(1348, 0)
+
+[node name="PlaneStart" type="Sprite2D" parent="PlaneSection"]
+position = Vector2(76, -33)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0i3u2")
+
+[node name="PlaneBackground" type="Sprite2D" parent="PlaneSection"]
+position = Vector2(1769, -1)
+scale = Vector2(0.49, 0.49)
+texture = ExtResource("2_j3526")
+
+[node name="Patient" parent="PlaneSection" instance=ExtResource("3_sfgu1")]
+position = Vector2(1769, 9.0003e-05)
+
+[node name="HealingItem" parent="PlaneSection" instance=ExtResource("4_0vkyn")]
+position = Vector2(2107, 270)
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-440, 4)
 
-[node name="SpawnPointP2" type="Marker2D" parent="."]
+[node name="SpawnPointP2" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-228, 2)
 
-[node name="SpawnPointP3" type="Marker2D" parent="."]
-position = Vector2(134, 2)
+[node name="SpawnPointP3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(135, 20)
 
-[node name="SpawnPointP4" type="Marker2D" parent="."]
+[node name="SpawnPointP4" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(347, -1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
+[node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h1ndd")
+}
 
-[node name="Item" parent="." instance=ExtResource("3_yupq1")]
+[node name="Managers" type="Node" parent="."]
 
-[node name="ItemSpawnArea" parent="." groups=["Spawn"] instance=ExtResource("4_2enh1")]
-visible = false
+[node name="PlayerManager" type="Node" parent="Managers" node_paths=PackedStringArray("PlayerSpawnPoint")]
+script = ExtResource("5_rv3rn")
+Character = ExtResource("6_8nnkk")
+PlayerSpawnPoint = [NodePath("../../SpawnPoints/SpawnPointP1"), NodePath("../../SpawnPoints/SpawnPointP2"), NodePath("../../SpawnPoints/SpawnPointP3"), NodePath("../../SpawnPoints/SpawnPointP4")]
 
-[node name="Area" type="MeshInstance2D" parent="ItemSpawnArea"]
-visible = false
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(0, 56)
-mesh = SubResource("QuadMesh_6r7ox")
-
-[node name="Patient" parent="." instance=ExtResource("5_stqud")]
-position = Vector2(-206, -185)
+[node name="GameManager" type="Node" parent="Managers" node_paths=PackedStringArray("AnimationPlayer")]
+script = ExtResource("7_bh0h2")
+AnimationPlayer = NodePath("../../EnvironmentAnimationPlayer")
