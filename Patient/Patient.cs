@@ -17,6 +17,9 @@ public partial class Patient : RigidBody2D
     [Export]
     private const int HOW_MANY_DEMANDS = 5;
 
+    [Export]
+    private Texture2D BED_EMPTY_TEXT;
+
     private Node2D bars;
     private LifeBar lifeBar;
 
@@ -27,6 +30,7 @@ public partial class Patient : RigidBody2D
 
     private Node2D itemHolder;
     private Sprite2D itemDemanded;
+    private Sprite2D patientSprite;
 
     private List<ClosetItemType> demands = new();
     private ClosetItemType? currentDemand = null;
@@ -34,6 +38,7 @@ public partial class Patient : RigidBody2D
     private bool isAlive = true;
 
     private AnimationPlayer player;
+
 
 
 
@@ -51,6 +56,7 @@ public partial class Patient : RigidBody2D
         itemHolder.Visible = false;
         itemDemanded = GetNode<Sprite2D>("ItemHolder/ItemDemanded");
         player = GetNode<AnimationPlayer>("AnimationPlayer");
+        patientSprite = GetNode<Sprite2D>("PatientSprite");
 
         if (GameManager.Instance != null)
         {
@@ -117,7 +123,7 @@ public partial class Patient : RigidBody2D
     {
         if (demands.Count == 0)
         {
-            PatientSaved();
+            StartPatientSaveEvent();
             return;
         }
         currentDemand = demands.First();
@@ -156,7 +162,7 @@ public partial class Patient : RigidBody2D
 
     private void OnDeathTimer()
     {
-        Die();
+        StartPatientDeathEvent();
     }
 
     private void OnTimerUntilShake()
@@ -184,7 +190,7 @@ public partial class Patient : RigidBody2D
         lifeBar.Increase(HEALTH_AMT);
     }
 
-    private void PatientSaved()
+    private void StartPatientSaveEvent()
     {
         if (isAlive)
         {
@@ -195,7 +201,7 @@ public partial class Patient : RigidBody2D
         }
     }
 
-    private void Die()
+    private void StartPatientDeathEvent()
     {
         if (isAlive)
         {
@@ -203,8 +209,11 @@ public partial class Patient : RigidBody2D
             GD.Print("Patient dying");
             EmitSignal(SignalName.OnPatientDead);
 
-            GetParent().RemoveChild(this);
-            QueueFree(); //TODO Dead animation or remove the sprite ???
+            patientSprite.Texture = BED_EMPTY_TEXT;
+            itemHolder.Visible = false;
+
+            //GetParent().RemoveChild(this);
+            //QueueFree(); //TODO Dead animation or remove the sprite ???
         }
     }
 }
