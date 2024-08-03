@@ -15,7 +15,7 @@ public partial class Patient : RigidBody2D
     private const int HEALTH_AMT = 1;
 
     [Export]
-    private const int HOW_MANY_DEMANDS = 3;
+    private const int HOW_MANY_DEMANDS = 5;
 
     private Node2D bars;
     private LifeBar lifeBar;
@@ -23,6 +23,7 @@ public partial class Patient : RigidBody2D
     private Timer healthTimer;
     private Timer demandsTimer;
     private Timer timeUntilDeadTimer;
+    private Timer timeUntilShakeTimer;
 
     private Node2D itemHolder;
     private Sprite2D itemDemanded;
@@ -45,6 +46,7 @@ public partial class Patient : RigidBody2D
 
         demandsTimer = GetNode<Timer>("DemandsTimer");
         timeUntilDeadTimer = GetNode<Timer>("TimeUntilDeadTimer");
+        timeUntilShakeTimer = GetNode<Timer>("TimeUntilShakeTimer");
         itemHolder = GetNode<Node2D>("ItemHolder");
         itemHolder.Visible = false;
         itemDemanded = GetNode<Sprite2D>("ItemHolder/ItemDemanded");
@@ -115,7 +117,7 @@ public partial class Patient : RigidBody2D
     {
         if (demands.Count == 0)
         {
-            GD.Print("Patient saved!");
+            PatientSaved();
             return;
         }
         currentDemand = demands.First();
@@ -137,11 +139,15 @@ public partial class Patient : RigidBody2D
         itemDemanded.Texture = ItemHelper.TextureFromItem(currentDemand.Value);
 
         timeUntilDeadTimer.Start();
+        timeUntilShakeTimer.Start();
         player.Play("hurry");
     }
 
     private void DemandMet()
     {
+        timeUntilDeadTimer.Stop();
+        timeUntilShakeTimer.Stop();
+
         currentDemand = null;
         itemHolder.Visible = false;
         player.Stop();
@@ -151,6 +157,11 @@ public partial class Patient : RigidBody2D
     private void OnDeathTimer()
     {
         Die();
+    }
+
+    private void OnTimerUntilShake()
+    {
+        player.Play("shake");
     }
 
     private void OnHealthTickTimeout()
@@ -177,6 +188,7 @@ public partial class Patient : RigidBody2D
     {
         if (isAlive)
         {
+            GD.Print("Patient is saved");
             EmitSignal(SignalName.OnPatientSaved);
             GetParent().RemoveChild(this);
             QueueFree(); //TODO Win animation
