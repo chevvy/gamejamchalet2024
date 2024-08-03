@@ -8,6 +8,7 @@ public partial class ItemSpawner : AnimatableBody2D
 	public override void _Ready()
 	{
 		TrySetSpawnArea();
+		FailIfSpawnAreaNotSet();
 		Position = GetRandomSpawnPosition();
 	}
 
@@ -17,7 +18,7 @@ public partial class ItemSpawner : AnimatableBody2D
 
 	private void TrySetSpawnArea()
 	{
-		SpawnArea = GetTree().CurrentScene.GetNode<Area2D>("./BaseLevel/ItemSpawnArea");
+		SpawnArea = GetTree().CurrentScene.GetNode<Area2D>("ItemSpawnArea");
 	}
 
 	private void FailIfSpawnAreaNotSet()
