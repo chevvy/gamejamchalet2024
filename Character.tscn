@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwsny8wxh0ku2"]
+[gd_scene load_steps=13 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
 [ext_resource type="Texture2D" uid="uid://b351forxxdejp" path="res://Assets/Characters/Jacob.png" id="2_3bpt5"]
@@ -51,5 +51,6 @@ libraries = {
 position = Vector2(2, 2.48722)
 shape = SubResource("RectangleShape2D_jioqv")
 
-[node name="BounceAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="PlayerEffectsAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8vfni")
+bus = &"Effects"
