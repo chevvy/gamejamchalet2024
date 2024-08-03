@@ -49,7 +49,8 @@ public partial class Character : CharacterBody2D
         }
 
         Velocity = velocity;
-        KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta);
+        MoveAndSlide();
+        KinematicCollision2D kc = MoveAndCollide(Velocity * (float)delta, true);
         if (kc != null)
         {
             if (_hasItem && kc.GetCollider() is Patient patient)
