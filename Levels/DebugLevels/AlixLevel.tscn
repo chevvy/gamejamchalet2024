@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://hlyx4xjrrshv"]
+[gd_scene load_steps=4 format=3 uid="uid://k4gbdadujgcx"]
 
-[ext_resource type="Script" path="res://PlayerManager.cs" id="1_ruhry"]
-[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="2_ug587"]
+[ext_resource type="Script" path="res://PlayerManager.cs" id="1_4r385"]
+[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="2_26lin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
 size = Vector2(1280, 50)
 
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
-script = ExtResource("1_ruhry")
-Character = ExtResource("2_ug587")
+script = ExtResource("1_4r385")
+Character = ExtResource("2_26lin")
 PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2"), NodePath("SpawnPointP3"), NodePath("SpawnPointP4")]
 
 [node name="Walls" type="Node" parent="."]
