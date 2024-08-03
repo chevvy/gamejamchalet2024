@@ -12,11 +12,12 @@ size = Vector2(8, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdn36"]
 size = Vector2(195, 307)
 
-[node name="Closet" type="RigidBody2D"]
+[node name="Closet" type="RigidBody2D" groups=["PlaneMovement"]]
 collision_layer = 4
 collision_mask = 6
-mass = 20.0
+mass = 0.01
 gravity_scale = 0.0
+inertia = 1.22
 script = ExtResource("1_7nyqk")
 
 [node name="ClosetCollider" type="CollisionShape2D" parent="."]
