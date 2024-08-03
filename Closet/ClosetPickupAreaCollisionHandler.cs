@@ -6,7 +6,7 @@ public partial class ClosetPickupAreaCollisionHandler : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		GD.Print(body.Name);
+		GD.Print(string.Format("{0}.OnBodyEntered: {1}", this.Name, body.Name));                           
 
 		if (body is Character character) OnEnterClosetPickupArea(character);
 	}

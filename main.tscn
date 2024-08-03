@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dugsja1pm8oje"]
+[gd_scene load_steps=3 format=3 uid="uid://dugsja1pm8oje"]
 
 [ext_resource type="PackedScene" uid="uid://c8qlykrks52h" path="res://Levels/MainLevel.tscn" id="1_dbflw"]
+[ext_resource type="Script" path="res://Managers/GameManager.cs" id="1_v01k2"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="GameManager" type="Node" parent="Managers"]
+script = ExtResource("1_v01k2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

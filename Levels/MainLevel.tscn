@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8qlykrks52h"]
+[gd_scene load_steps=12 format=3 uid="uid://c8qlykrks52h"]
 
 [ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_btio0"]
 [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]
 [ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_4om8c"]
 [ext_resource type="Script" path="res://PlayerManager.cs" id="3_c2rit"]
-[ext_resource type="PackedScene" uid="uid://cdc1onhsqs3kq" path="res://Item/HealingItem.tscn" id="4_g47w6"]
 [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="4_gqalf"]
-[ext_resource type="Script" path="res://Managers/GameManager.cs" id="5_htpyh"]
+[ext_resource type="Script" path="res://Levels/GameStartPlaneAnimationPlayer.cs" id="5_2qevw"]
 [ext_resource type="PackedScene" uid="uid://wuvjg1xx01wm" path="res://Closet/Closet.tscn" id="8_j6tna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
@@ -45,7 +44,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Managers/GameManager")
+tracks/1/path = NodePath("EnvironmentAnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -53,7 +52,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"OnGameReady"
+"method": &"OnAnimationFinished"
 }]
 }
 
@@ -112,15 +111,6 @@ rotation = 1.56684
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaneSection/Walls/StaticBody2D3"]
 shape = SubResource("RectangleShape2D_og16h")
 
-[node name="HealingItem" parent="PlaneSection" instance=ExtResource("4_g47w6")]
-position = Vector2(3357, 504)
-
-[node name="HealingItem2" parent="PlaneSection" instance=ExtResource("4_g47w6")]
-position = Vector2(3538, -41)
-
-[node name="HealingItem3" parent="PlaneSection" instance=ExtResource("4_g47w6")]
-position = Vector2(2038, 490)
-
 [node name="Patients" type="Node2D" parent="PlaneSection"]
 
 [node name="Patient2" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
@@ -163,10 +153,15 @@ position = Vector2(-929, 367)
 [node name="SpawnPointP4" type="Marker2D" parent="PlaneSection/SpawnPoints"]
 position = Vector2(423, 339)
 
+[node name="Closet" parent="PlaneSection" instance=ExtResource("8_j6tna")]
+position = Vector2(3658.44, 475.441)
+scale = Vector2(1.29548, 1.29548)
+
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_h1ndd")
 }
+script = ExtResource("5_2qevw")
 
 [node name="Managers" type="Node" parent="."]
 
@@ -174,9 +169,3 @@ libraries = {
 script = ExtResource("3_c2rit")
 Character = ExtResource("4_gqalf")
 PlayerSpawnPoint = [NodePath("../../PlaneSection/SpawnPoints/SpawnPointP1"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP2"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP3"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP4")]
-
-[node name="GameManager" type="Node" parent="Managers" node_paths=PackedStringArray("AnimationPlayer")]
-script = ExtResource("5_htpyh")
-AnimationPlayer = NodePath("../../EnvironmentAnimationPlayer")
-
-[node name="Closet" parent="." instance=ExtResource("8_j6tna")]
