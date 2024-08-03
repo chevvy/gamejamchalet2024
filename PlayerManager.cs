@@ -38,21 +38,15 @@ public partial class PlayerManager : Node2D
     {
         foreach (var item in _playerIDbyStartKey.ToList())
         {
-            if (Input.IsActionJustPressed(item.Key))
-            {
-                var c = Character.Instantiate() as Character;
-                if (item.Value == PlayerID.P5)
-                {
-                    c.GlobalTransform = PlayerSpawnPoint[(int)PlayerID.P1].GlobalTransform;
-                }
-                else
-                {
-                    c.GlobalTransform = PlayerSpawnPoint[(int)item.Value].GlobalTransform;
-                }
+            if (!Input.IsActionJustPressed(item.Key)) continue;
 
-                c.SetupPlayer(item.Value);
-                AddChild(c);
-            }
+            var character = Character.Instantiate() as Character;
+            character.GlobalTransform = item.Value == PlayerID.P5
+                ? PlayerSpawnPoint[(int)PlayerID.P1].GlobalTransform
+                : PlayerSpawnPoint[(int)item.Value].GlobalTransform;
+
+            character.SetupPlayer(item.Value);
+            AddChild(character);
         }
     }
 }

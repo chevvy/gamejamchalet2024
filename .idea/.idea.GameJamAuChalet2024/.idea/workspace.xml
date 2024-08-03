@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1d1fb1f-b6e2-4a55-9e4f-b80ebd70d813" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJamAuChalet2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Character.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,24 +142,5 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="multiplayer works" />
     <option name="LAST_COMMIT_MESSAGE" value="multiplayer works" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PlayerManager.cs</url>
-          <line>43</line>
-          <properties documentPath="$PROJECT_DIR$/PlayerManager.cs" containingFunctionPresentation="Method '_Process'">
-            <startOffsets>
-              <option value="1240" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1270" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
