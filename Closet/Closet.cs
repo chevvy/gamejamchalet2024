@@ -45,4 +45,9 @@ public partial class Closet : RigidBody2D
 	{
 		GameManager.Instance.GameReady -= OnGameReady;
 	}
+
+	public void ApplyPlaneMovement(Vector2 direction){
+		GD.Print(direction);
+		ApplyImpulse(direction*3);
+	}
 }
