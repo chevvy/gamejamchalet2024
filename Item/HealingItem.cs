@@ -10,7 +10,7 @@ public partial class HealingItem : Area2D
 
 	private void OnPickUpByCharacter(Character character)
 	{
-		character.ReceiveItem();
+		character.ReceiveItem(ItemType.BANDAGE);
 		OnDestroy();
 	}
 
