@@ -18,6 +18,8 @@ public partial class ItemSpawner : AnimatableBody2D
 
 	private void TrySetSpawnArea()
 	{
+		if (SpawnArea != null) return;
+		
 		SpawnArea = GetTree().CurrentScene.GetNode<Area2D>("ItemSpawnArea");
 	}
 

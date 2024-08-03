@@ -37,6 +37,11 @@ public partial class PlayerManager : Node
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        if(GameManager.Instance.IsGameReady) SpawnPlayers();
+    }
+
+    private void SpawnPlayers()
+    {
         foreach (var item in _playerIDbyStartKey.ToList())
         {
             if (!Input.IsActionJustPressed(item.Key)) continue;
