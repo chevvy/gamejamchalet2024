@@ -46,6 +46,7 @@ public partial class Patient : RigidBody2D
         demandsTimer = GetNode<Timer>("DemandsTimer");
         timeUntilDeadTimer = GetNode<Timer>("TimeUntilDeadTimer");
         itemHolder = GetNode<Node2D>("ItemHolder");
+        itemHolder.Visible = false;
         itemDemanded = GetNode<Sprite2D>("ItemHolder/ItemDemanded");
         player = GetNode<AnimationPlayer>("AnimationPlayer");
 
@@ -133,20 +134,7 @@ public partial class Patient : RigidBody2D
         }
 
         itemHolder.Visible = true;
-        string itemName = "";
-        if (currentDemand == ClosetItemType.PILLZ)
-        {
-            itemName = "Pills";
-        }
-        if (currentDemand == ClosetItemType.SERINGE)
-        {
-            itemName = "Syringe";
-        }
-        if (currentDemand == ClosetItemType.BANDAGE)
-        {
-            itemName = "BandAid";
-        }
-        itemDemanded.Texture = (Texture2D)GD.Load($"res://Assets/items/Asset_PickUp_{itemName}.png");
+        itemDemanded.Texture = ItemHelper.TextureFromItem(currentDemand.Value);
 
         timeUntilDeadTimer.Start();
         player.Play("hurry");
@@ -191,7 +179,7 @@ public partial class Patient : RigidBody2D
         {
             EmitSignal(SignalName.OnPatientSaved);
             GetParent().RemoveChild(this);
-            QueueFree(); //TODO Dead animation or remove the sprite ???
+            QueueFree(); //TODO Win animation
         }
     }
 

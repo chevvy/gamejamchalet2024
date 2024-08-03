@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwsny8wxh0ku2"]
+[gd_scene load_steps=11 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
 [ext_resource type="Texture2D" uid="uid://b351forxxdejp" path="res://Assets/Characters/Jacob.png" id="2_3bpt5"]
 [ext_resource type="PackedScene" path="res://InteractArea.tscn" id="3_3to06"]
+[ext_resource type="Texture2D" uid="uid://chwfdengwbe3b" path="res://Assets/items/Asset_PickUp_Pills.png" id="3_k3o1s"]
 [ext_resource type="AudioStream" uid="uid://dunkqmp0ql0fa" path="res://Audio/Sfx/Pick_Up.wav" id="3_rnle8"]
 [ext_resource type="AudioStream" uid="uid://bkcjbkq2tb5j8" path="res://Audio/Sfx/Drop.wav" id="4_0yac0"]
 [ext_resource type="AudioStream" uid="uid://dn1kwm7kb4osi" path="res://Audio/Sfx/Hurt.wav" id="4_8vfni"]
@@ -10,63 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
 size = Vector2(74.125, 64.5)
 
-[sub_resource type="Animation" id="Animation_egf65"]
-resource_name = "bandage"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.6, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.0352941, 0.85098, 0.317647, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_wykr1"]
-resource_name = "pillz"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.7, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.400799, 0.00192735, 0.84928, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0t4yc"]
-resource_name = "seringe"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.6, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.144684, 0.684625, 0.869554, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xkauc"]
-_data = {
-"bandage": SubResource("Animation_egf65"),
-"pillz": SubResource("Animation_wykr1"),
-"seringe": SubResource("Animation_0t4yc")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jioqv"]
 size = Vector2(112, 136.299)
@@ -89,6 +34,10 @@ shape = SubResource("RectangleShape2D_plhnx")
 position = Vector2(-1.90735e-06, 0)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_3bpt5")
+
+[node name="ItemHeld" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(1.90735e-05, -636.727)
+texture = ExtResource("3_k3o1s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

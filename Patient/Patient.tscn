@@ -115,7 +115,6 @@ wait_time = 3.0
 wait_time = 15.0
 
 [node name="ItemHolder" type="Node2D" parent="."]
-visible = false
 
 [node name="ItemDemanded" type="Sprite2D" parent="ItemHolder"]
 position = Vector2(-16, -24)
