@@ -4,7 +4,7 @@ using Godot;
 
 public enum PlayerID
 {
-  P1, P2, P3, P4,
+  P1, P2, P3, P4, P5
 }
 public enum InputAction
 {
@@ -16,7 +16,8 @@ public partial class PlayerInput
     {PlayerID.P1, "p1"},
     {PlayerID.P2, "p2"},
     {PlayerID.P3, "p3"},
-    {PlayerID.P4, "p4"}
+    {PlayerID.P4, "p4"},
+    {PlayerID.P5, "p5"}
   };
 
   private static readonly Dictionary<InputAction, string> InputByName = new() {
