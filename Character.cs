@@ -4,16 +4,12 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-    public const float Speed = 300.0f;
-    public const float JumpVelocity = -400.0f;
-
+    public const float Speed = 450.0f;
+    private PlayerInput _playerInput;
+    
     private bool _hasItem = false;
 
     private AnimationPlayer _animationPlayer;
-
-    // Get the gravity from the project settings to be synced with RigidBody nodes.
-    private PlayerInput _playerInput;
-
     private bool _canCharacterMove = false;
 
     public void SetupPlayer(PlayerID id)

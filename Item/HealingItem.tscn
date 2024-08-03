@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://di3vopy26h5cr"]
+[gd_scene load_steps=4 format=3 uid="uid://dttj0h4pcqdyp"]
 
 [ext_resource type="Script" path="res://Item/HealingItem.cs" id="1_5t8b0"]
 [ext_resource type="Texture2D" uid="uid://csu66ea3mfdnt" path="res://Assets/items/GadgetSyringe.png" id="1_kyhl3"]

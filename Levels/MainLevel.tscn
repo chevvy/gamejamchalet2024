@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]
 [ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_4om8c"]
 [ext_resource type="Script" path="res://PlayerManager.cs" id="3_c2rit"]
-[ext_resource type="PackedScene" uid="uid://di3vopy26h5cr" path="res://Item/HealingItem.tscn" id="4_g47w6"]
+[ext_resource type="PackedScene" uid="uid://dttj0h4pcqdyp" path="res://Item/HealingItem.tscn" id="4_g47w6"]
 [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="4_gqalf"]
 [ext_resource type="Script" path="res://Managers/GameManager.cs" id="5_htpyh"]
 
@@ -62,7 +62,7 @@ _data = {
 "plane_anim": SubResource("Animation_oucfm")
 }
 
-[node name="MainLevel" type="Node2D"]
+[node name="MainLevel2" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -103,7 +103,6 @@ texture = ExtResource("2_70p3h")
 
 [node name="Patient" parent="PlaneSection" instance=ExtResource("3_4om8c")]
 position = Vector2(1769, 9.0003e-05)
-scale = Vector2(1, 1)
 
 [node name="HealingItem" parent="PlaneSection" instance=ExtResource("4_g47w6")]
 position = Vector2(2107, 270)
