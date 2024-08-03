@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://deiceixr8xlb3"]
+
+[ext_resource type="PackedScene" uid="uid://d1r36mrp4susl" path="res://Assets/Characters/character_visual.tscn" id="1_32b87"]
+
+[node name="Character_Visual_01" instance=ExtResource("1_32b87")]
+
+[node name="PlayerSprite" parent="." index="1"]
+modulate = Color(0, 0.513726, 1, 1)
