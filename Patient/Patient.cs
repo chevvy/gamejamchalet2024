@@ -7,7 +7,7 @@ public partial class Patient : RigidBody2D
     [Signal]
     public delegate void OnPatientDeadEventHandler();
 
-    private const int HEALTH_AMT = 2;
+    private const int HEALTH_AMT = 1;
 
     private Node2D bars;
     private LifeBar lifeBar;
@@ -46,7 +46,7 @@ public partial class Patient : RigidBody2D
 
     public void ReceiveItem(ClosetItemType item)
     {
-        const int ITEM_VALUE = 100;
+        const int ITEM_VALUE = 25;
 
         foreach (Node child in bars.GetChildren())
         {

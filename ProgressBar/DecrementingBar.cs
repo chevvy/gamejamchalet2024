@@ -13,6 +13,9 @@ public partial class DecrementingBar : Control
 	public string itemName;
 
 	[Export]
+	private int DOWN_PER_SECOND = 3;
+
+	[Export]
 	private Color color;
 
 	private ProgressBar bar;
@@ -59,7 +62,7 @@ public partial class DecrementingBar : Control
 
 	private void OnTickTimerTimeout()
 	{
-		LowerValue(5);
+		LowerValue(DOWN_PER_SECOND);
 	}
 
 	private void LowerValue(int value)

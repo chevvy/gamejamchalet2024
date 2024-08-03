@@ -70,7 +70,6 @@ itemName = "C"
 color = Color(0, 0, 1, 1)
 
 [node name="HealingFromItemTimer" type="Timer" parent="."]
-wait_time = 3.0
 
 [node name="PatientSprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.123604, 0.610599, 0.317359, 1)
