@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn7ibigpaiqg1"]
+[gd_scene load_steps=11 format=3 uid="uid://bn7ibigpaiqg1"]
 
 [ext_resource type="Script" path="res://Patient/Patient.cs" id="1_0tk08"]
 [ext_resource type="PackedScene" uid="uid://bt0k5u646kv1y" path="res://ProgressBar/DecrementingBar.tscn" id="3_adt8v"]
@@ -25,9 +25,44 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(2.5, 2.5)]
 }
 
+[sub_resource type="Animation" id="Animation_1agjq"]
+resource_name = "shake"
+length = 0.25
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemHolder/ItemDemanded:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.785398, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8x1ca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemHolder/ItemDemanded:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nv86o"]
 _data = {
-"hurry": SubResource("Animation_s0e6t")
+"RESET": SubResource("Animation_8x1ca"),
+"hurry": SubResource("Animation_s0e6t"),
+"shake": SubResource("Animation_1agjq")
 }
 
 [node name="Patient" type="RigidBody2D"]
@@ -114,7 +149,11 @@ wait_time = 3.0
 [node name="TimeUntilDeadTimer" type="Timer" parent="."]
 wait_time = 15.0
 
+[node name="TimeUntilShakeTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [node name="ItemHolder" type="Node2D" parent="."]
+scale = Vector2(1.0002, 1.0002)
 
 [node name="ItemDemanded" type="Sprite2D" parent="ItemHolder"]
 position = Vector2(-16, -24)
@@ -129,3 +168,4 @@ libraries = {
 [connection signal="timeout" from="HealingFromItemTimer" to="." method="OnHealthTickTimeout"]
 [connection signal="timeout" from="DemandsTimer" to="." method="OnDemandTimerTimeout"]
 [connection signal="timeout" from="TimeUntilDeadTimer" to="." method="OnDeathTimer"]
+[connection signal="timeout" from="TimeUntilShakeTimer" to="." method="OnTimerUntilShake"]
