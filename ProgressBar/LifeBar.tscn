@@ -24,3 +24,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 value = 50.0
+
+[node name="PassifLifeLossTimer" type="Timer" parent="."]
+
+[connection signal="tree_exiting" from="." to="." method="OnTreeExiting"]
+[connection signal="timeout" from="PassifLifeLossTimer" to="." method="LoseLifeFromTimer"]
