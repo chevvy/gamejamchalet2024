@@ -39,7 +39,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(0.378929, 1),
 "update": 0,
-"values": [Vector2(1348, 0), Vector2(-1944, 2.08165e-12)]
+"values": [Vector2(1348, -5), Vector2(-2099, -5)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -68,7 +68,7 @@ _data = {
 
 [node name="PlaneSection" type="Node2D" parent="."]
 position = Vector2(1348, 0)
-scale = Vector2(0.720546, 0.720546)
+scale = Vector2(0.771914, 0.771914)
 
 [node name="PlaneStart" type="Sprite2D" parent="PlaneSection"]
 position = Vector2(152, -3)
@@ -122,43 +122,44 @@ position = Vector2(2038, 490)
 
 [node name="Patients" type="Node2D" parent="PlaneSection"]
 
-[node name="Patient" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
-position = Vector2(2582, -74)
-
 [node name="Patient2" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
 position = Vector2(2856, -74)
 
 [node name="Patient3" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
-position = Vector2(3113, -74)
+position = Vector2(3192.07, -75.1379)
 
 [node name="Patient4" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
-position = Vector2(2318, -74)
+position = Vector2(2171.23, -74)
+
+[node name="Patient9" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2507.29, -75.1379)
 
 [node name="Patient5" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
-position = Vector2(2593, 285)
+position = Vector2(2852.11, 252.461)
 
 [node name="Patient6" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
-position = Vector2(2867, 285)
+position = Vector2(3188.18, 251.323)
 
 [node name="Patient7" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
-position = Vector2(3124, 285)
+position = Vector2(2167.34, 252.461)
 
-[node name="Patient8" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
-position = Vector2(2329, 285)
+[node name="Patient10" parent="PlaneSection/Patients" instance=ExtResource("3_4om8c")]
+position = Vector2(2503.41, 251.323)
 
-[node name="SpawnPoints" type="Node2D" parent="."]
-position = Vector2(320, 84)
+[node name="SpawnPoints" type="Node2D" parent="PlaneSection"]
+position = Vector2(3142.06, 116.578)
+scale = Vector2(1.38784, 1.38784)
 
-[node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
+[node name="SpawnPointP1" type="Marker2D" parent="PlaneSection/SpawnPoints"]
 position = Vector2(-963, -303)
 
-[node name="SpawnPointP2" type="Marker2D" parent="SpawnPoints"]
+[node name="SpawnPointP2" type="Marker2D" parent="PlaneSection/SpawnPoints"]
 position = Vector2(406, -331)
 
-[node name="SpawnPointP3" type="Marker2D" parent="SpawnPoints"]
+[node name="SpawnPointP3" type="Marker2D" parent="PlaneSection/SpawnPoints"]
 position = Vector2(-929, 367)
 
-[node name="SpawnPointP4" type="Marker2D" parent="SpawnPoints"]
+[node name="SpawnPointP4" type="Marker2D" parent="PlaneSection/SpawnPoints"]
 position = Vector2(423, 339)
 
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -171,7 +172,7 @@ libraries = {
 [node name="PlayerManager" type="Node" parent="Managers" node_paths=PackedStringArray("PlayerSpawnPoint")]
 script = ExtResource("3_c2rit")
 Character = ExtResource("4_gqalf")
-PlayerSpawnPoint = [NodePath("../../SpawnPoints/SpawnPointP1"), NodePath("../../SpawnPoints/SpawnPointP2"), NodePath("../../SpawnPoints/SpawnPointP3"), NodePath("../../SpawnPoints/SpawnPointP4")]
+PlayerSpawnPoint = [NodePath("../../PlaneSection/SpawnPoints/SpawnPointP1"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP2"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP3"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP4")]
 
 [node name="GameManager" type="Node" parent="Managers" node_paths=PackedStringArray("AnimationPlayer")]
 script = ExtResource("5_htpyh")
