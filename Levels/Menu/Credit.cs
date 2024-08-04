@@ -24,6 +24,6 @@ public partial class Credit : Control
 
 		var gameManager = GetNode<GameManager>("/root/GameManager");
 
-		gameManager.LoadScene("res://main.tscn");
+		gameManager.LoadScene(Scenes.GAME);
 	}
 }

@@ -28,7 +28,15 @@ public partial class GameManager : Node
 			Instance = this;
 	}
 
-	public override void _Ready()
+    public override void _Input(InputEvent @event)
+    {
+		if (Input.IsActionJustPressed("p5_go_to_menu"))
+		{
+			LoadScene(Scenes.MENU);
+		}
+    }
+
+    public override void _Ready()
 	{
 		base._Ready();
 		GD.Print("_Ready on GameManager");
@@ -114,7 +122,7 @@ public partial class GameManager : Node
 		GD.Print("Game won");
 
 		ResetGameState();
-		LoadScene("res://Levels/Menu/Credit.tscn");
+		LoadScene(Scenes.CREDIT);
 	}
 
 	private void OnGameLost()
@@ -122,6 +130,6 @@ public partial class GameManager : Node
 		GD.Print("Game lost");
 		
 		ResetGameState();
-		LoadScene("res://Levels/Menu/Credit.tscn");
+		LoadScene(Scenes.CREDIT);
 	}
 }
