@@ -46,5 +46,10 @@ public partial class PlayerInput
     }
   }
 
+  public PlayerID GetID()
+  {
+    return _id;
+  }
+
   public string GetInputKey(InputAction action) => _inputs[action];
 }
