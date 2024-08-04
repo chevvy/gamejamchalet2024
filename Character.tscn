@@ -1,47 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwsny8wxh0ku2"]
+[gd_scene load_steps=10 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
-[ext_resource type="Texture2D" uid="uid://chkk618nx16dp" path="res://icon.svg" id="2_02pau"]
+[ext_resource type="PackedScene" path="res://InteractArea.tscn" id="3_3to06"]
+[ext_resource type="Texture2D" uid="uid://chwfdengwbe3b" path="res://Assets/items/Asset_PickUp_Pills.png" id="3_k3o1s"]
+[ext_resource type="AudioStream" uid="uid://dunkqmp0ql0fa" path="res://Audio/Sfx/Pick_Up.wav" id="3_rnle8"]
+[ext_resource type="AudioStream" uid="uid://bkcjbkq2tb5j8" path="res://Audio/Sfx/Drop.wav" id="4_0yac0"]
+[ext_resource type="AudioStream" uid="uid://dn1kwm7kb4osi" path="res://Audio/Sfx/Hurt.wav" id="4_8vfni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
 size = Vector2(74.125, 64.5)
 
-[sub_resource type="Animation" id="Animation_3eurj"]
-resource_name = "flash"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.779759, 0.000492281, 0.783519, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xkauc"]
-_data = {
-"flash": SubResource("Animation_3eurj")
-}
 
-[node name="Character" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jioqv"]
+size = Vector2(112, 136.299)
+
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("InteractArea")]
 scale = Vector2(1, 1.00514)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_q02ar")
+BounceAudio = ExtResource("4_8vfni")
+PickupAudio = ExtResource("3_rnle8")
+UseAudio = ExtResource("4_0yac0")
+BounceStrength = 3
+InteractArea = NodePath("InteractArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_plhnx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.90735e-06, 0)
-scale = Vector2(0.5625, 0.56218)
-texture = ExtResource("2_02pau")
+scale = Vector2(0.1, 0.1)
+
+[node name="ItemHeld" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(1.90735e-05, 238.773)
+scale = Vector2(1.39529, 1.39529)
+texture = ExtResource("3_k3o1s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xkauc")
 }
+
+[node name="InteractArea" parent="." instance=ExtResource("3_3to06")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(2, 2.48722)
+shape = SubResource("RectangleShape2D_jioqv")
+
+[node name="PlayerEffectsAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8vfni")
+bus = &"Effects"

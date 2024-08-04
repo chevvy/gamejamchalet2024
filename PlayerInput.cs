@@ -8,7 +8,7 @@ public enum PlayerID
 }
 public enum InputAction
 {
-  MoveLeft, MoveRight, MoveUp, MoveDown, Jump, Start
+  MoveLeft, MoveRight, MoveUp, MoveDown, Interact, Start
 }
 public partial class PlayerInput
 {
@@ -25,8 +25,8 @@ public partial class PlayerInput
     { InputAction.MoveRight, "_move_right" },
     { InputAction.MoveUp, "_move_up"},
     { InputAction.MoveDown, "_move_down"},
-    { InputAction.Jump, "_jump" },
-    { InputAction.Start, "_start" }
+    { InputAction.Interact, "_interact" },
+    { InputAction.Start, "_start" },
   };
   private Dictionary<InputAction, string> _inputs;
 
@@ -44,6 +44,11 @@ public partial class PlayerInput
       var (action, actionName) = getInputInfo(inputWithName.Key);
       _inputs[action] = actionName;
     }
+  }
+
+  public PlayerID GetID()
+  {
+    return _id;
   }
 
   public string GetInputKey(InputAction action) => _inputs[action];

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjfudasotem4i"]
+
+[ext_resource type="Script" path="res://Plane/PlaneMovement.cs" id="1_mdkpw"]
+
+[node name="PlaneMovement" type="Node"]
+script = ExtResource("1_mdkpw")

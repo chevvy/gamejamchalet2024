@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8qlykrks52h"]
+[gd_scene load_steps=16 format=3 uid="uid://c8qlykrks52h"]
 
 [ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_btio0"]
 [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]
@@ -6,9 +6,10 @@
 [ext_resource type="Script" path="res://PlayerManager.cs" id="3_c2rit"]
 [ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="4_gqalf"]
 [ext_resource type="Script" path="res://Levels/GameStartPlaneAnimationPlayer.cs" id="5_2qevw"]
-[ext_resource type="Texture2D" uid="uid://bkqod7dfn40fm" path="res://Assets/items/Asset_Pills_Distributor.png" id="5_yqt42"]
+[ext_resource type="Texture2D" uid="uid://do87thgtsw8s1" path="res://Assets/items/Asset_Distributor_Pills.png" id="5_swr2l"]
 [ext_resource type="Texture2D" uid="uid://dbut785yenvo5" path="res://Assets/items/Asset_Distributor_Syringe.png" id="6_whj4p"]
 [ext_resource type="Texture2D" uid="uid://cinc115ailk0h" path="res://Assets/items/Asset_Distributor_BandAid.png" id="7_o6s84"]
+[ext_resource type="PackedScene" uid="uid://cjfudasotem4i" path="res://Plane/PlaneMovement.tscn" id="8_8rrh6"]
 [ext_resource type="PackedScene" uid="uid://wuvjg1xx01wm" path="res://Closet/Closet.tscn" id="8_j6tna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
@@ -159,12 +160,14 @@ position = Vector2(423, 339)
 [node name="PillCloset" parent="PlaneSection" instance=ExtResource("8_j6tna")]
 position = Vector2(3727.1, 554.466)
 scale = Vector2(1.29548, 1.29548)
+collision_mask = 7
 freeze = true
-ClosetTexture = ExtResource("5_yqt42")
+ClosetTexture = ExtResource("5_swr2l")
 
 [node name="SeringeCloset" parent="PlaneSection" instance=ExtResource("8_j6tna")]
 position = Vector2(1750.19, 566.125)
 scale = Vector2(1.29548, 1.29548)
+collision_mask = 7
 freeze = true
 ClosetItemType = 2
 ClosetTexture = ExtResource("6_whj4p")
@@ -172,9 +175,12 @@ ClosetTexture = ExtResource("6_whj4p")
 [node name="BandageCloset" parent="PlaneSection" instance=ExtResource("8_j6tna")]
 position = Vector2(3741.35, -290.188)
 scale = Vector2(1.29548, 1.29548)
+collision_mask = 7
 freeze = true
 ClosetItemType = 1
 ClosetTexture = ExtResource("7_o6s84")
+
+[node name="PlaneMovement" parent="PlaneSection" instance=ExtResource("8_8rrh6")]
 
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
