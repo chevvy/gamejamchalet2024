@@ -35,4 +35,5 @@ script = ExtResource("1_cv7cc")
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_hdn36")
 
+[connection signal="tree_exiting" from="." to="." method="OnTreeExiting"]
 [connection signal="body_entered" from="ClosetPickupArea" to="ClosetPickupArea" method="OnBodyEntered"]

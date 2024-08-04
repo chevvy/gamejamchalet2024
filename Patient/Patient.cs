@@ -20,10 +20,6 @@ public partial class Patient : RigidBody2D
     [Export]
     private Texture2D BED_EMPTY_TEXT;
 
-    private Node2D bars;
-    private LifeBar lifeBar;
-
-    private Timer healthTimer;
     private Timer demandsTimer;
     private Timer timeUntilDeadTimer;
     private Timer timeUntilShakeTimer;
@@ -39,16 +35,9 @@ public partial class Patient : RigidBody2D
 
     private AnimationPlayer player;
 
-
-
-
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        bars = GetNode<Node2D>("Bars");
-        lifeBar = GetNode<LifeBar>("Bars/LifeBar");
-        healthTimer = GetNode<Timer>("HealingFromItemTimer");
-
         demandsTimer = GetNode<Timer>("DemandsTimer");
         timeUntilDeadTimer = GetNode<Timer>("TimeUntilDeadTimer");
         timeUntilShakeTimer = GetNode<Timer>("TimeUntilShakeTimer");
@@ -58,27 +47,18 @@ public partial class Patient : RigidBody2D
         player = GetNode<AnimationPlayer>("AnimationPlayer");
         patientSprite = GetNode<Sprite2D>("PatientSprite");
 
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.GameReady += Initialize;
-        }
-
-        //lifeBar.OnLifeZero += Die;
+        GetNode<GameManager>("/root/GameManager").GameReady += Initialize;
     }
 
     private void Initialize()
     {
         CreateRandomDemands();
-        healthTimer.Start();
         demandsTimer.Start();
     }
 
     private void OnTreeExiting()
     {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.GameReady -= Initialize;
-        }
+        GetNode<GameManager>("/root/GameManager").GameReady -= Initialize;
     }
 
     public void ReceiveItem(ClosetItemType item)
@@ -86,27 +66,6 @@ public partial class Patient : RigidBody2D
         if (currentDemand.HasValue && item == currentDemand)
         {
             DemandMet();
-        }
-
-        // Old mechanic ...
-        const int ITEM_VALUE = 25;
-        foreach (Node child in bars.GetChildren())
-        {
-            if (child is DecrementingBar bar && bar.itemType == item)
-            {
-                if (item == ClosetItemType.BANDAGE)
-                {
-                    bar.Increase(ITEM_VALUE);
-                }
-                if (item == ClosetItemType.PILLZ)
-                {
-                    bar.Increase(ITEM_VALUE);
-                }
-                if (item == ClosetItemType.SERINGE)
-                {
-                    bar.Increase(ITEM_VALUE);
-                }
-            }
         }
     }
 
@@ -168,26 +127,6 @@ public partial class Patient : RigidBody2D
     private void OnTimerUntilShake()
     {
         player.Play("shake");
-    }
-
-    private void OnHealthTickTimeout()
-    {
-        foreach (Node child in bars.GetChildren())
-        {
-            if (child is DecrementingBar bar)
-            {
-                if (!bar.IsEmpty())
-                {
-                    GainHealthFromTick();
-                    break;
-                }
-            }
-        }
-    }
-
-    private void GainHealthFromTick()
-    {
-        lifeBar.Increase(HEALTH_AMT);
     }
 
     private void StartPatientSaveEvent()
