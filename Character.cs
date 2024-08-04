@@ -25,6 +25,9 @@ public partial class Character : CharacterBody2D
 
     private AudioStreamPlayer2D _bounceAudioPlayer;
 
+    private CharacterVisual _characterVisual;
+    private Vector2? lastDirection = new Vector2(0, 1);
+
     private float PlaneMovementMalusX = 0;
     private float PlaneMovementMalusY = 0;
 
@@ -44,6 +47,7 @@ public partial class Character : CharacterBody2D
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         _bounceAudioPlayer = GetNode<AudioStreamPlayer2D>("PlayerEffectsAudioPlayer");
+        _characterVisual = GetNode<CharacterVisual>("CharacterVisual");
 
         _itemHeld = GetNode<Sprite2D>("Sprite2D/ItemHeld");
         _itemHeld.Visible = false;
@@ -87,11 +91,13 @@ public partial class Character : CharacterBody2D
             {
                 velocity.X = direction.X * Speed;
                 velocity.Y = direction.Y * Speed;
+                HandleMovingAnimation(velocity);
             }
             else
             {
                 velocity.X = Mathf.MoveToward(Velocity.X - PlaneMovementVectore.X, 0, Speed);
                 velocity.Y = Mathf.MoveToward(Velocity.Y - PlaneMovementVectore.Y, 0, Speed);
+                HandleIdleAnimation();
             }
         }
 
@@ -107,6 +113,53 @@ public partial class Character : CharacterBody2D
 
         Velocity = velocity;
         MoveAndSlide();
+    }
+
+    private void HandleMovingAnimation(Vector2 velocity)
+    {
+        Vector2 oneVector = velocity.Normalized().Snapped(Vector2.One);
+        if (oneVector.X == 0 && oneVector.Y == 1)
+        {
+            _characterVisual.AnimateMoveUp(false);
+        }
+        else if (oneVector.X == 0 && oneVector.Y == -1)
+        {
+            _characterVisual.AnimateMoveDown(false);
+        }
+        else if (oneVector.X == 1 && oneVector.Y == 0)
+        {
+            _characterVisual.AnimateMoveRight(false);
+        }
+        else if (oneVector.X == -1 && oneVector.Y == 0)
+        {
+            _characterVisual.AnimateMoveLeft(false);
+        }
+        lastDirection = oneVector;
+    }
+
+    private void HandleIdleAnimation()
+    {
+        if (lastDirection.HasValue)
+        {
+            Vector2 vector = lastDirection.Value;
+            if (vector.X == 0 && vector.Y == 1)
+            {
+                _characterVisual.AnimateMoveUp(true);
+            }
+            else if (vector.X == 0 && vector.Y == -1)
+            {
+                _characterVisual.AnimateMoveDown(true);
+            }
+            else if (vector.X == 1 && vector.Y == 0)
+            {
+                _characterVisual.AnimateMoveRight(true);
+            }
+            else if (vector.X == -1 && vector.Y == 0)
+            {
+                _characterVisual.AnimateMoveLeft(true);
+            }
+        }
+        lastDirection = null;
     }
 
     public void ReceiveItem(ClosetItemType item)
