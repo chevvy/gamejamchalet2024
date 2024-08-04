@@ -12,12 +12,12 @@ public partial class ClosetPickupAreaCollisionHandler : Area2D
 	private void OnEnterClosetPickupArea(Character character)
 	{
 		character.CanReceiveItem = true;
-		character.ItemType = ClosetItemType;
+		character._itemType = ClosetItemType;
 	}
 
 	private void OnExitClosetPickupArea(Character character)
 	{
-		character.ItemType = null;
+		character._itemType = null;
 	}
 
 	private void OnDestroy()

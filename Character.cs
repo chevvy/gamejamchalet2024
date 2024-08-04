@@ -17,7 +17,7 @@ public partial class Character : CharacterBody2D
 
     private bool _hasItem = false;
     public bool CanReceiveItem = false;
-    public ClosetItemType? ItemType = null;
+    public ClosetItemType? _itemType = null;
 
     private AnimationPlayer _animationPlayer;
     private Sprite2D _itemHeld;
@@ -94,11 +94,12 @@ public partial class Character : CharacterBody2D
         base._Process(delta);
         if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)))
         {
-            if (CanReceiveItem && ItemType != null)
+            if (CanReceiveItem && _itemType != null)
             {
-                ReceiveItem((ClosetItemType)ItemType);
+                ReceiveItem((ClosetItemType)_itemType);
             }
-            if (_hasItem && InteractArea.Patient != null)
+            // YES WE CAN SIMPLIFY THIS
+            if (_hasItem && _itemType.HasValue && InteractArea.Patient != null && InteractArea.Patient.IsPatientAlive() && InteractArea.Patient.ItemNeededByPatient(_itemType.Value))
             {
                 UseItem(InteractArea.Patient);
             }
@@ -200,7 +201,7 @@ public partial class Character : CharacterBody2D
     public void ReceiveItem(ClosetItemType item)
     {
         _hasItem = true;
-        ItemType = item;
+        _itemType = item;
 
         _itemHeld.Texture = ItemHelper.TextureFromItem(item);
         _itemHeld.Visible = true;
@@ -210,9 +211,9 @@ public partial class Character : CharacterBody2D
 
     public void UseItem(Patient patient)
     {
-        if (ItemType.HasValue)
+        if (_itemType.HasValue)
         {
-            patient.ReceiveItem(ItemType.Value);
+            patient.ReceiveItem(_itemType.Value);
             _hasItem = false;
             _itemHeld.Visible = false;
             CanReceiveItem = false;
