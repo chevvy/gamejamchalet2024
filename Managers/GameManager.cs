@@ -17,6 +17,7 @@ public partial class GameManager : Node
 
 	public bool IsGameReady = false;
 	public AnimationPlayer AnimationPlayer { get; set; }
+	[Export] public AudioStreamPlayer2D MortStreamPlayer;
 
 	public override void _EnterTree()
 	{
@@ -131,5 +132,13 @@ public partial class GameManager : Node
 		
 		ResetGameState();
 		LoadScene(Scenes.CREDIT);
+	}
+
+	public void OnMortSounds()
+	{
+		if (!MortStreamPlayer.Playing)
+		{
+			MortStreamPlayer.Play();
+		}
 	}
 }
