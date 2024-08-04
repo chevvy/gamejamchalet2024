@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bn7ibigpaiqg1"]
+[gd_scene load_steps=20 format=3 uid="uid://bn7ibigpaiqg1"]
 
 [ext_resource type="Script" path="res://Patient/Patient.cs" id="1_0tk08"]
 [ext_resource type="Texture2D" uid="uid://coahpj2y41qpt" path="res://Assets/items/Bed_Empty.png" id="2_2xeot"]
