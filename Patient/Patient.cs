@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Bridge;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ public partial class Patient : RigidBody2D
     private Sprite2D patientSprite;
 
     private List<ClosetItemType> demands = new();
-    private ClosetItemType? currentDemand = null;
+    private ClosetItemType? _currentDemand = null;
 
     private bool isAlive = true;
 
@@ -81,9 +82,19 @@ public partial class Patient : RigidBody2D
         }
     }
 
+    public bool IsPatientAlive()
+    {
+        return isAlive;
+    }
+
+    public bool ItemNeededByPatient(ClosetItemType item)
+    {
+        return _currentDemand.HasValue && _currentDemand.Value == item;
+    }
+
     public void ReceiveItem(ClosetItemType item)
     {
-        if (currentDemand.HasValue && item == currentDemand)
+        if (_currentDemand.HasValue && item == _currentDemand)
         {
             DemandMet();
         }
@@ -126,7 +137,7 @@ public partial class Patient : RigidBody2D
             StartPatientSaveEvent();
             return;
         }
-        currentDemand = demands.First();
+        _currentDemand = demands.First();
         demands.RemoveAt(0);
         demandsTimer.Stop();
 
@@ -135,7 +146,7 @@ public partial class Patient : RigidBody2D
 
     private void StartDemand()
     {
-        if (!currentDemand.HasValue)
+        if (!_currentDemand.HasValue)
         {
             GD.PrintErr("Incorrect patient demand ...");
             return;
@@ -148,7 +159,7 @@ public partial class Patient : RigidBody2D
         }
 
         itemHolder.Visible = true;
-        itemDemanded.Texture = ItemHelper.TextureFromItem(currentDemand.Value);
+        itemDemanded.Texture = ItemHelper.TextureFromItem(_currentDemand.Value);
 
         timeUntilDeadTimer.Start();
         timeUntilShakeTimer.Start();
@@ -160,7 +171,7 @@ public partial class Patient : RigidBody2D
         timeUntilDeadTimer.Stop();
         timeUntilShakeTimer.Stop();
 
-        currentDemand = null;
+        _currentDemand = null;
         itemHolder.Visible = false;
         player.Stop();
         demandsTimer.Start();
