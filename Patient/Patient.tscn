@@ -199,6 +199,7 @@ libraries = {
 
 [node name="SonsMort" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_2v64s")
+bus = &"Effects"
 
 [connection signal="timeout" from="HealingFromItemTimer" to="." method="OnHealthTickTimeout"]
 [connection signal="timeout" from="DemandsTimer" to="." method="OnDemandTimerTimeout"]
