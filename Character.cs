@@ -15,9 +15,9 @@ public partial class Character : CharacterBody2D
     public const float Speed = 850.0f;
     private PlayerInput _playerInput;
 
-    private bool _hasItem = false;
     public bool CanReceiveItem = false;
     public ClosetItemType? _itemType = null;
+    public ClosetItemType? _lastBumpedItemType = null;
 
     private AnimationPlayer _animationPlayer;
     private Sprite2D _itemHeld;
@@ -93,13 +93,12 @@ public partial class Character : CharacterBody2D
         base._Process(delta);
         if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)))
         {
-            if (CanReceiveItem && _itemType != null)
+            if (CanReceiveItem && _lastBumpedItemType != null)
             {
-                GD.Print(string.Format("Player {0} received item {1}", _playerInput.GetID(), _itemType.ToString()));
-                ReceiveItem((ClosetItemType)_itemType);
+                ReceiveItem((ClosetItemType)_lastBumpedItemType);
             }
             // YES WE CAN SIMPLIFY THIS
-            if (_hasItem && _itemType.HasValue && InteractArea.Patient != null && InteractArea.Patient.IsPatientAlive() && InteractArea.Patient.ItemNeededByPatient(_itemType.Value))
+            if (_itemType.HasValue && InteractArea.Patient != null && InteractArea.Patient.IsPatientAlive() && InteractArea.Patient.ItemNeededByPatient(_itemType.Value))
             {
                 UseItem(InteractArea.Patient);
             }
@@ -200,7 +199,6 @@ public partial class Character : CharacterBody2D
 
     public void ReceiveItem(ClosetItemType item)
     {
-        _hasItem = true;
         _itemType = item;
 
         _itemHeld.Texture = ItemHelper.TextureFromItem(item);
@@ -214,7 +212,6 @@ public partial class Character : CharacterBody2D
         if (_itemType.HasValue)
         {
             patient.ReceiveItem(_itemType.Value);
-            _hasItem = false;
             _itemHeld.Visible = false;
             CanReceiveItem = false;
             _animationPlayer.Stop();
