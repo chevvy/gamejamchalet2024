@@ -35,6 +35,7 @@ public partial class Patient : RigidBody2D
     private bool isAlive = true;
 
     private AnimationPlayer player;
+    private AudioStreamPlayer2D audioDeathEffectPlayer;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -47,6 +48,7 @@ public partial class Patient : RigidBody2D
         itemDemanded = GetNode<Sprite2D>("ItemHolder/ItemDemanded");
         player = GetNode<AnimationPlayer>("AnimationPlayer");
         patientSprite = GetNode<Sprite2D>("PatientSprite");
+        audioDeathEffectPlayer = GetNode<AudioStreamPlayer2D>("SonsMort");
 
         GetNode<GameManager>("/root/GameManager").GameReady += Initialize;
     }
@@ -144,8 +146,8 @@ public partial class Patient : RigidBody2D
     private void OnTimerUntilShake()
     {
         player.Play("shake");
-        
-        SonsMort.Instance.OnDeathSounds();
+
+        audioDeathEffectPlayer.Play();
     }
 
     private void StartPatientSaveEvent()
