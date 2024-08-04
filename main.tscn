@@ -1,15 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dugsja1pm8oje"]
+[gd_scene load_steps=3 format=3 uid="uid://dugsja1pm8oje"]
 
 [ext_resource type="PackedScene" uid="uid://c8qlykrks52h" path="res://Levels/MainLevel.tscn" id="1_dbflw"]
-[ext_resource type="Script" path="res://Managers/GameManager.cs" id="1_v01k2"]
 [ext_resource type="AudioStream" uid="uid://smecetoifamt" path="res://Audio/Bgm/BG_Music_02.wav" id="3_k8uev"]
 
 [node name="Main" type="Node2D"]
-
-[node name="Managers" type="Node" parent="."]
-
-[node name="GameManager" type="Node" parent="Managers"]
-script = ExtResource("1_v01k2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

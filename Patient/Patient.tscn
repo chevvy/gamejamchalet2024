@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" path="res://Patient/Patient.cs" id="1_0tk08"]
 [ext_resource type="Texture2D" uid="uid://coahpj2y41qpt" path="res://Assets/items/Bed_Empty.png" id="2_2xeot"]
-[ext_resource type="PackedScene" uid="uid://bt0k5u646kv1y" path="res://ProgressBar/DecrementingBar.tscn" id="3_adt8v"]
 [ext_resource type="Texture2D" uid="uid://bjwrsy7wvqq7j" path="res://Assets/Characters/Bed_Full.png" id="4_2gksv"]
-[ext_resource type="PackedScene" uid="uid://inhohtyl2o6" path="res://ProgressBar/LifeBar.tscn" id="4_h37pb"]
 [ext_resource type="Texture2D" uid="uid://chwfdengwbe3b" path="res://Assets/items/Asset_PickUp_Pills.png" id="5_2j03p"]
 [ext_resource type="AudioStream" uid="uid://catkntmb6l41b" path="res://Audio/Sfx/SfxMort/SonMortAurelie1.wav" id="7_hrx7k"]
 [ext_resource type="AudioStream" uid="uid://bl14a2ylp011q" path="res://Audio/Sfx/SfxMort/SonMortJeff1.wav" id="8_3hvmt"]
@@ -97,72 +95,13 @@ stream_7/weight = 1.0
 stream_8/stream = ExtResource("15_u2hlo")
 stream_8/weight = 1.0
 
-[node name="Patient" type="RigidBody2D"]
+[node name="Patient" type="RigidBody2D" groups=["Patients"]]
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
 freeze = true
 script = ExtResource("1_0tk08")
 BED_EMPTY_TEXT = ExtResource("2_2xeot")
-
-[node name="Bars" type="Node2D" parent="."]
-position = Vector2(-114, -146)
-
-[node name="LifeBar" parent="Bars" instance=ExtResource("4_h37pb")]
-visible = false
-anchors_preset = -1
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 39.0
-offset_top = 35.0
-offset_right = 198.0
-offset_bottom = 56.0
-
-[node name="DecrementingBarA" parent="Bars" instance=ExtResource("3_adt8v")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 23.0
-offset_top = 3.0
-offset_right = 273.0
-offset_bottom = 43.0
-scale = Vector2(0.75, 0.75)
-itemType = 1
-color = Color(6.257e-06, 0.932922, 0, 1)
-
-[node name="DecrementingBarB" parent="Bars" instance=ExtResource("3_adt8v")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 22.0
-offset_top = -58.0
-offset_right = 272.0
-offset_bottom = -18.0
-scale = Vector2(0.75, 0.75)
-color = Color(0.779115, 0.439435, 0.999885, 1)
-
-[node name="DecrementingBarC" parent="Bars" instance=ExtResource("3_adt8v")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 22.0
-offset_top = -26.0
-offset_right = 272.0
-offset_bottom = 14.0
-scale = Vector2(0.75, 0.75)
-itemType = 2
-color = Color(0.444314, 0.621122, 1, 1)
-
-[node name="HealingFromItemTimer" type="Timer" parent="."]
 
 [node name="PatientSprite" type="Sprite2D" parent="."]
 position = Vector2(-2, -2)
@@ -201,7 +140,7 @@ libraries = {
 stream = SubResource("AudioStreamRandomizer_2v64s")
 bus = &"Effects"
 
-[connection signal="timeout" from="HealingFromItemTimer" to="." method="OnHealthTickTimeout"]
+[connection signal="tree_exiting" from="." to="." method="OnTreeExiting"]
 [connection signal="timeout" from="DemandsTimer" to="." method="OnDemandTimerTimeout"]
 [connection signal="timeout" from="TimeUntilDeadTimer" to="." method="OnDeathTimer"]
 [connection signal="timeout" from="TimeUntilShakeTimer" to="." method="OnTimerUntilShake"]
