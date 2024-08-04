@@ -35,6 +35,16 @@ public partial class GameManager : Node
 		{
 			LoadScene(Scenes.MENU);
 		}
+
+		if (Input.IsActionJustPressed("p5_go_to_game"))
+		{
+			LoadScene(Scenes.GAME);
+		}
+
+		if (Input.IsActionJustPressed("p5_go_to_credit"))
+		{
+			LoadScene(Scenes.CREDIT);
+		}
     }
 
     public override void _Ready()
