@@ -9,6 +9,11 @@ public partial class ClosetPickupAreaCollisionHandler : Area2D
 		if (body is Character character) OnEnterClosetPickupArea(character);
 	}
 
+	public void OnBodyExited(Node2D body)
+	{
+		if (body is Character character) OnExitClosetPickupArea(character);
+	}
+
 	private void OnEnterClosetPickupArea(Character character)
 	{
 		character.CanReceiveItem = true;
@@ -17,7 +22,7 @@ public partial class ClosetPickupAreaCollisionHandler : Area2D
 
 	private void OnExitClosetPickupArea(Character character)
 	{
-		character._itemType = null;
+		character.CanReceiveItem = false;
 	}
 
 	private void OnDestroy()

@@ -96,6 +96,7 @@ public partial class Character : CharacterBody2D
         {
             if (CanReceiveItem && _itemType != null)
             {
+                GD.Print(string.Format("Player {0} received item {1}", _playerInput.GetID(), _itemType.ToString()));
                 ReceiveItem((ClosetItemType)_itemType);
             }
             // YES WE CAN SIMPLIFY THIS
@@ -218,6 +219,7 @@ public partial class Character : CharacterBody2D
             _itemHeld.Visible = false;
             CanReceiveItem = false;
             _animationPlayer.Stop();
+            _itemType = null;
         }
 
         PlayUseAudio();

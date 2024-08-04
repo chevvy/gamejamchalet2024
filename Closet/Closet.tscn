@@ -37,3 +37,4 @@ shape = SubResource("RectangleShape2D_hdn36")
 
 [connection signal="tree_exiting" from="." to="." method="OnTreeExiting"]
 [connection signal="body_entered" from="ClosetPickupArea" to="ClosetPickupArea" method="OnBodyEntered"]
+[connection signal="body_exited" from="ClosetPickupArea" to="ClosetPickupArea" method="OnBodyExited"]
