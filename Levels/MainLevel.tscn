@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c8qlykrks52h"]
 
-[ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_btio0"]
+[ext_resource type="Texture2D" uid="uid://b6lru605p8n5m" path="res://Assets/Environment/new_asset/Enviro cockpit.png" id="1_wikmy"]
 [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]
 [ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_4om8c"]
 [ext_resource type="Script" path="res://PlayerManager.cs" id="3_c2rit"]
@@ -77,10 +77,10 @@ scale = Vector2(0.771914, 0.771914)
 [node name="PlaneStart" type="Sprite2D" parent="PlaneSection"]
 position = Vector2(152, -3)
 scale = Vector2(0.73, 0.73)
-texture = ExtResource("1_btio0")
+texture = ExtResource("1_wikmy")
 
 [node name="PlaneBackground" type="Sprite2D" parent="PlaneSection"]
-position = Vector2(2759, 32)
+position = Vector2(2759.37, -32.387)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_70p3h")
 
