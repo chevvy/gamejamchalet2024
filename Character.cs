@@ -80,7 +80,6 @@ public partial class Character : CharacterBody2D
         else
         {
             _characterVisual = _player1.Instantiate<CharacterVisual>();
-            GD.PrintErr("Why don't you have a player between 1-4 !");
         }
 
         AddChild(_characterVisual);
