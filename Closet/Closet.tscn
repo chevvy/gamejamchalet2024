@@ -36,4 +36,3 @@ position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_hdn36")
 
 [connection signal="body_entered" from="ClosetPickupArea" to="ClosetPickupArea" method="OnBodyEntered"]
-[connection signal="body_exited" from="ClosetPickupArea" to="ClosetPickupArea" method="OnBodyExited"]
