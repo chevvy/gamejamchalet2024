@@ -33,6 +33,11 @@ public partial class Character : CharacterBody2D
 
     private Vector2 PlaneMovementVectore = Vector2.Zero;
 
+    private PackedScene _player1;
+    private PackedScene _player2;
+    private PackedScene _player3;
+    private PackedScene _player4;
+
     [ExportGroup("Patient")]
     [Export]
     public InteractArea InteractArea;
@@ -47,10 +52,40 @@ public partial class Character : CharacterBody2D
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         _bounceAudioPlayer = GetNode<AudioStreamPlayer2D>("PlayerEffectsAudioPlayer");
-        _characterVisual = GetNode<CharacterVisual>("CharacterVisual");
 
         _itemHeld = GetNode<Sprite2D>("Sprite2D/ItemHeld");
         _itemHeld.Visible = false;
+
+        _player1 = ResourceLoader.Load<PackedScene>("res://Assets/Characters/character_visual_01.tscn");
+        _player2 = ResourceLoader.Load<PackedScene>("res://Assets/Characters/character_visual_02.tscn");
+        _player3 = ResourceLoader.Load<PackedScene>("res://Assets/Characters/character_visual_03.tscn");
+        _player4 = ResourceLoader.Load<PackedScene>("res://Assets/Characters/character_visual_04.tscn");
+
+        if (_playerInput.GetID() == PlayerID.P1)
+        {
+            _characterVisual = _player1.Instantiate<CharacterVisual>();
+        }
+        else if (_playerInput.GetID() == PlayerID.P2)
+        {
+            _characterVisual = _player2.Instantiate<CharacterVisual>();
+        }
+        else if (_playerInput.GetID() == PlayerID.P3)
+        {
+            _characterVisual = _player3.Instantiate<CharacterVisual>();
+        }
+        else if (_playerInput.GetID() == PlayerID.P4)
+        {
+            _characterVisual = _player4.Instantiate<CharacterVisual>();
+        }
+        else
+        {
+            _characterVisual = _player1.Instantiate<CharacterVisual>();
+            GD.PrintErr("Why don't you have a player between 1-4 !");
+        }
+
+        AddChild(_characterVisual);
+        MoveChild(_characterVisual, 1);
+
         SetBounceMovementLockTimer();
     }
 
@@ -59,7 +94,7 @@ public partial class Character : CharacterBody2D
         base._Process(delta);
         if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)))
         {
-            if ( CanReceiveItem && ItemType != null)
+            if (CanReceiveItem && ItemType != null)
             {
                 ReceiveItem((ClosetItemType)ItemType);
             }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwsny8wxh0ku2"]
+[gd_scene load_steps=10 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_q02ar"]
 [ext_resource type="PackedScene" path="res://InteractArea.tscn" id="3_3to06"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dunkqmp0ql0fa" path="res://Audio/Sfx/Pick_Up.wav" id="3_rnle8"]
 [ext_resource type="AudioStream" uid="uid://bkcjbkq2tb5j8" path="res://Audio/Sfx/Drop.wav" id="4_0yac0"]
 [ext_resource type="AudioStream" uid="uid://dn1kwm7kb4osi" path="res://Audio/Sfx/Hurt.wav" id="4_8vfni"]
-[ext_resource type="PackedScene" uid="uid://1cgyp6ofvmr8" path="res://Assets/Characters/character_visual.tscn" id="5_5vahh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhnx"]
 size = Vector2(74.125, 64.5)
@@ -29,10 +28,6 @@ InteractArea = NodePath("InteractArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_plhnx")
-
-[node name="CharacterVisual" parent="." instance=ExtResource("5_5vahh")]
-position = Vector2(2.27374e-13, 0)
-scale = Vector2(1.67962, 1.67962)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.90735e-06, 0)
