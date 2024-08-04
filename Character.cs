@@ -16,7 +16,8 @@ public partial class Character : CharacterBody2D
     private PlayerInput _playerInput;
 
     private bool _hasItem = false;
-    private ClosetItemType? _itemType = null;
+    public bool CanReceiveItem = false;
+    public ClosetItemType? ItemType = null;
 
     private AnimationPlayer _animationPlayer;
     private Sprite2D _itemHeld;
@@ -49,14 +50,25 @@ public partial class Character : CharacterBody2D
         SetBounceMovementLockTimer();
     }
 
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+        if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)))
+        {
+            if (!_hasItem && CanReceiveItem && ItemType != null)
+            {
+                ReceiveItem((ClosetItemType)ItemType);
+            }
+            if (_hasItem && InteractArea.Patient != null)
+            {
+                UseItem(InteractArea.Patient);
+            }
+        }
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         if (!_canCharacterMove || _playerInput == null) return;
-
-        if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)) && _hasItem && InteractArea.Patient != null)
-        {
-            UseItem(InteractArea.Patient);
-        }
 
         Vector2 velocity = Velocity;
 
@@ -100,7 +112,7 @@ public partial class Character : CharacterBody2D
     public void ReceiveItem(ClosetItemType item)
     {
         _hasItem = true;
-        _itemType = item;
+        ItemType = item;
 
         _itemHeld.Texture = ItemHelper.TextureFromItem(item);
         _itemHeld.Visible = true;
@@ -110,11 +122,12 @@ public partial class Character : CharacterBody2D
 
     public void UseItem(Patient patient)
     {
-        if (_itemType.HasValue)
+        if (ItemType.HasValue)
         {
-            patient.ReceiveItem(_itemType.Value);
+            patient.ReceiveItem(ItemType.Value);
             _hasItem = false;
             _itemHeld.Visible = false;
+            CanReceiveItem = false;
             _animationPlayer.Stop();
         }
 
