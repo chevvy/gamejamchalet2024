@@ -3,9 +3,9 @@ using System;
 
 public partial class GameStartPlaneAnimationPlayer : AnimationPlayer
 {
-	public override void _EnterTree()
+	public override void _Ready()
 	{
-		GameManager.Instance.AnimationPlayer = this;
+		Play("plane_anim");
 	}
 
 	public void OnAnimationFinished()
