@@ -13,13 +13,14 @@ public partial class Patient : RigidBody2D
     [Signal]
     public delegate void OnPatientSavedEventHandler();
 
-    private const int HEALTH_AMT = 1;
-
     [Export]
     private const int HOW_MANY_DEMANDS = 5;
 
     [Export]
     private Texture2D BED_EMPTY_TEXT;
+
+    [Export]
+    private int DEMAND_RATE = 5;
 
     private Timer demandsTimer;
     private Timer timeUntilDeadTimer;
@@ -56,6 +57,8 @@ public partial class Patient : RigidBody2D
     private void Initialize()
     {
         CreateRandomDemands();
+
+        demandsTimer.WaitTime = new Random().Next(5, 15);
         demandsTimer.Start();
     }
 
@@ -100,6 +103,7 @@ public partial class Patient : RigidBody2D
         }
         _currentDemand = demands.First();
         demands.RemoveAt(0);
+        demandsTimer.WaitTime = DEMAND_RATE;
         demandsTimer.Stop();
 
         StartDemand();
