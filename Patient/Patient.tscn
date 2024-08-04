@@ -118,10 +118,10 @@ debug_color = Color(0.284208, 0.617454, 0.375096, 0.42)
 wait_time = 3.0
 
 [node name="TimeUntilDeadTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 18.0
 
 [node name="TimeUntilShakeTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 12.0
 
 [node name="ItemHolder" type="Node2D" parent="."]
 scale = Vector2(1.0002, 1.0002)
