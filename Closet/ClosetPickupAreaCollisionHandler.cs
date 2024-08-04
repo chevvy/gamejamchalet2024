@@ -13,7 +13,7 @@ public partial class ClosetPickupAreaCollisionHandler : Area2D
 
 	public void OnBodyExited(Node2D body)
 	{
-		GD.Print("ARRRR EXITED");
+		
 		// if (body is Character character) OnExitClosetPickupArea(character);
 		
 	}

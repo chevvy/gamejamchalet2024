@@ -55,7 +55,7 @@ public partial class Character : CharacterBody2D
         base._Process(delta);
         if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)))
         {
-            if (!_hasItem && CanReceiveItem && ItemType != null)
+            if ( CanReceiveItem && ItemType != null)
             {
                 ReceiveItem((ClosetItemType)ItemType);
             }
