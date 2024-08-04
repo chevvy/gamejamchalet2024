@@ -141,6 +141,12 @@ public partial class Patient : RigidBody2D
             return;
         }
 
+        if (!isAlive)
+        {
+            GD.PrintErr("Shouldn't create new patient demands while dead ...");
+            return;
+        }
+
         itemHolder.Visible = true;
         itemDemanded.Texture = ItemHelper.TextureFromItem(currentDemand.Value);
 
