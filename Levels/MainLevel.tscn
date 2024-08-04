@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8qlykrks52h"]
+[gd_scene load_steps=19 format=3 uid="uid://c8qlykrks52h"]
 
 [ext_resource type="Texture2D" uid="uid://b6lru605p8n5m" path="res://Assets/Environment/new_asset/Enviro cockpit.png" id="1_wikmy"]
 [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_70p3h"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cinc115ailk0h" path="res://Assets/items/Asset_Distributor_BandAid.png" id="7_o6s84"]
 [ext_resource type="PackedScene" uid="uid://cjfudasotem4i" path="res://Plane/PlaneMovement.tscn" id="8_8rrh6"]
 [ext_resource type="PackedScene" uid="uid://wuvjg1xx01wm" path="res://Closet/Closet.tscn" id="8_j6tna"]
+[ext_resource type="Texture2D" uid="uid://bux8rsdpqoide" path="res://Assets/Environment/new_asset/Enviro Toit Rond.png" id="9_txdqs"]
+[ext_resource type="AudioStream" uid="uid://cc1g1gbgchcsa" path="res://Audio/Sfx/rumble1.ogg" id="10_xs3kv"]
+[ext_resource type="Script" path="res://Audio/ToitRumble.cs" id="11_42uuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
 size = Vector2(1280, 50)
@@ -29,10 +32,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1348, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlaneSection/Toit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2944.63, -260.392)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlaneSection/Toit:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlaneSection/Toit:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_oucfm"]
 resource_name = "plane_anim"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,6 +96,56 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"OnAnimationFinished"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlaneSection/Toit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2821.56, -45.3418), Vector2(2821.56, -45.3418), Vector2(2944.63, -260.392), Vector2(6767.59, -3333.27)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlaneSection/Toit:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 2.4, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.589921, 1.24966]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlaneSection/Toit:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.450295]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlaneSection/ToitRumble")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlayRumble"
 }]
 }
 
@@ -181,6 +270,16 @@ ClosetItemType = 1
 ClosetTexture = ExtResource("7_o6s84")
 
 [node name="PlaneMovement" parent="PlaneSection" instance=ExtResource("8_8rrh6")]
+
+[node name="Toit" type="Sprite2D" parent="PlaneSection"]
+position = Vector2(2944.63, -260.392)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("9_txdqs")
+
+[node name="ToitRumble" type="AudioStreamPlayer2D" parent="PlaneSection"]
+stream = ExtResource("10_xs3kv")
+bus = &"Effects"
+script = ExtResource("11_42uuj")
 
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
