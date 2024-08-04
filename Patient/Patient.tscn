@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bn7ibigpaiqg1"]
+[gd_scene load_steps=22 format=3 uid="uid://bn7ibigpaiqg1"]
 
 [ext_resource type="Script" path="res://Patient/Patient.cs" id="1_0tk08"]
 [ext_resource type="Texture2D" uid="uid://coahpj2y41qpt" path="res://Assets/items/Bed_Empty.png" id="2_2xeot"]
@@ -6,6 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://bjwrsy7wvqq7j" path="res://Assets/Characters/Bed_Full.png" id="4_2gksv"]
 [ext_resource type="PackedScene" uid="uid://inhohtyl2o6" path="res://ProgressBar/LifeBar.tscn" id="4_h37pb"]
 [ext_resource type="Texture2D" uid="uid://chwfdengwbe3b" path="res://Assets/items/Asset_PickUp_Pills.png" id="5_2j03p"]
+[ext_resource type="AudioStream" uid="uid://catkntmb6l41b" path="res://Audio/Sfx/SfxMort/SonMortAurelie1.wav" id="7_hrx7k"]
+[ext_resource type="AudioStream" uid="uid://bl14a2ylp011q" path="res://Audio/Sfx/SfxMort/SonMortJeff1.wav" id="8_3hvmt"]
+[ext_resource type="AudioStream" uid="uid://bcgoahpa8k5k4" path="res://Audio/Sfx/SfxMort/SonMortJeff2.wav" id="9_xgakj"]
+[ext_resource type="AudioStream" uid="uid://de2h674b36hs2" path="res://Audio/Sfx/SfxMort/SonMortJeff3.wav" id="10_boxcv"]
+[ext_resource type="AudioStream" uid="uid://w80t1jn45yku" path="res://Audio/Sfx/SfxMort/SonMortJeff4.wav" id="11_ha4rw"]
+[ext_resource type="AudioStream" uid="uid://bykoa7x3klfmh" path="res://Audio/Sfx/SfxMort/SonMortJeff5.wav" id="12_tln2l"]
+[ext_resource type="AudioStream" uid="uid://h03stdf3nbbn" path="res://Audio/Sfx/SfxMort/SonMortLaurieAnne1.wav" id="13_dal7r"]
+[ext_resource type="AudioStream" uid="uid://bvex6x15b0na1" path="res://Audio/Sfx/SfxMort/SonMortNicolas1.wav" id="14_i445p"]
+[ext_resource type="AudioStream" uid="uid://ckhkfixir3e6j" path="res://Audio/Sfx/SfxMort/SonMortNicolas2.wav" id="15_u2hlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as4v1"]
 size = Vector2(155, 40)
@@ -65,6 +74,28 @@ _data = {
 "hurry": SubResource("Animation_s0e6t"),
 "shake": SubResource("Animation_1agjq")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2v64s"]
+playback_mode = 2
+streams_count = 9
+stream_0/stream = ExtResource("7_hrx7k")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_3hvmt")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("9_xgakj")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("10_boxcv")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("11_ha4rw")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("12_tln2l")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("13_dal7r")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("14_i445p")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("15_u2hlo")
+stream_8/weight = 1.0
 
 [node name="Patient" type="RigidBody2D"]
 collision_layer = 2
@@ -165,6 +196,9 @@ texture = ExtResource("5_2j03p")
 libraries = {
 "": SubResource("AnimationLibrary_nv86o")
 }
+
+[node name="SonsMort" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_2v64s")
 
 [connection signal="timeout" from="HealingFromItemTimer" to="." method="OnHealthTickTimeout"]
 [connection signal="timeout" from="DemandsTimer" to="." method="OnDemandTimerTimeout"]

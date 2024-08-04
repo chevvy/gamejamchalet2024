@@ -168,6 +168,7 @@ public partial class Patient : RigidBody2D
     private void OnTimerUntilShake()
     {
         player.Play("shake");
+        GetNode<AudioStreamPlayer2D>("SonsMort").Play();
     }
 
     private void OnHealthTickTimeout()
