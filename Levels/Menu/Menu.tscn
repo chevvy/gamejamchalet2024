@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://85avlcmjiomg"]
+[gd_scene load_steps=3 format=3 uid="uid://85avlcmjiomg"]
 
+[ext_resource type="Script" path="res://Levels/Menu/Menu.cs" id="1_edswx"]
 [ext_resource type="Texture2D" uid="uid://42reewpiulhs" path="res://Assets/UI/Menu_Title.png" id="1_ltx4e"]
 
 [node name="Menu" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_edswx")
 
 [node name="Splash_Art" type="TextureRect" parent="."]
 layout_mode = 1
