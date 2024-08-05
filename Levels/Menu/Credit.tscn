@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://brg4ctwd1tppi"]
 
-[ext_resource type="Texture2D" uid="uid://b2u6t612yel3h" path="res://Assets/UI/Menu_Credit.png" id="1_2v3xs"]
 [ext_resource type="Script" path="res://Levels/Menu/Credit.cs" id="1_rlqns"]
+[ext_resource type="Texture2D" uid="uid://d15yqyaxddljk" path="res://Assets/UI/Menu_Credit_v2.png" id="2_etdpb"]
 
 [node name="Credit" type="Control"]
 layout_mode = 3
@@ -19,5 +19,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_2v3xs")
+texture = ExtResource("2_etdpb")
 expand_mode = 2
