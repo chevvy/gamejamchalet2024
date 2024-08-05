@@ -1,12 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://dk0v0jxq5pf1k"]
+[gd_scene load_steps=19 format=3 uid="uid://blyi5nhqhymku"]
 
-[ext_resource type="Texture2D" uid="uid://cp2ynrnjf58se" path="res://Assets/Environment/Enviro_CockPit_intro.png" id="1_njpxb"]
-[ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_sxl72"]
-[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_33nl8"]
-[ext_resource type="PackedScene" uid="uid://dttj0h4pcqdyp" path="res://Item/HealingItem.tscn" id="4_wy032"]
-[ext_resource type="Script" path="res://PlayerManager.cs" id="5_2e3se"]
-[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="6_yf4bi"]
-[ext_resource type="Script" path="res://Managers/GameManager.cs" id="7_lecjm"]
+[ext_resource type="Texture2D" uid="uid://b6lru605p8n5m" path="res://Assets/Environment/new_asset/Enviro cockpit.png" id="1_w67ga"]
+[ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_hc508"]
+[ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_uwmnw"]
+[ext_resource type="PackedScene" uid="uid://wuvjg1xx01wm" path="res://Closet/Closet.tscn" id="4_1stfj"]
+[ext_resource type="Texture2D" uid="uid://do87thgtsw8s1" path="res://Assets/items/Asset_Distributor_Pills.png" id="5_kyb1r"]
+[ext_resource type="Texture2D" uid="uid://dbut785yenvo5" path="res://Assets/items/Asset_Distributor_Syringe.png" id="6_mlpiw"]
+[ext_resource type="Texture2D" uid="uid://cinc115ailk0h" path="res://Assets/items/Asset_Distributor_BandAid.png" id="7_64mop"]
+[ext_resource type="PackedScene" uid="uid://cjfudasotem4i" path="res://Plane/PlaneMovement.tscn" id="8_5p0vv"]
+[ext_resource type="Texture2D" uid="uid://bux8rsdpqoide" path="res://Assets/Environment/new_asset/Enviro Toit Rond.png" id="9_5n8sr"]
+[ext_resource type="AudioStream" uid="uid://cc1g1gbgchcsa" path="res://Audio/Sfx/rumble1.ogg" id="10_gi3a7"]
+[ext_resource type="Script" path="res://Audio/ToitRumble.cs" id="11_645c3"]
+[ext_resource type="Script" path="res://Levels/GameStartPlaneAnimationPlayer.cs" id="12_ohrj2"]
+[ext_resource type="Script" path="res://PlayerManager.cs" id="13_ymsgm"]
+[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character.tscn" id="14_gmqb5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og16h"]
 size = Vector2(1280, 50)
@@ -25,10 +32,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1348, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlaneSection/Toit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2944.63, -260.392)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlaneSection/Toit:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlaneSection/Toit:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_oucfm"]
 resource_name = "plane_anim"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,12 +82,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(0.378929, 1),
 "update": 0,
-"values": [Vector2(1348, 0), Vector2(-1764.56, 2.08165e-12)]
+"values": [Vector2(1348, -5), Vector2(-2099, -5)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Managers/GameManager")
+tracks/1/path = NodePath("EnvironmentAnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -52,7 +95,57 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"OnGameReady"
+"method": &"OnAnimationFinished"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlaneSection/Toit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2821.56, -45.3418), Vector2(2821.56, -45.3418), Vector2(2944.63, -260.392), Vector2(6767.59, -3333.27)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlaneSection/Toit:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 2.4, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.589921, 1.24966]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlaneSection/Toit:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.450295]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlaneSection/ToitRumble")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlayRumble"
 }]
 }
 
@@ -66,73 +159,141 @@ _data = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Walls" type="Node" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
-position = Vector2(17, 349)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
-shape = SubResource("RectangleShape2D_og16h")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
-position = Vector2(603, 110)
-rotation = 1.56684
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
-shape = SubResource("RectangleShape2D_og16h")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
-position = Vector2(-602, 106)
-rotation = 1.56684
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-shape = SubResource("RectangleShape2D_og16h")
-
 [node name="PlaneSection" type="Node2D" parent="."]
 position = Vector2(1348, 0)
+scale = Vector2(0.771914, 0.771914)
 
 [node name="PlaneStart" type="Sprite2D" parent="PlaneSection"]
-position = Vector2(76, -33)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_njpxb")
+position = Vector2(152, -3)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("1_w67ga")
 
 [node name="PlaneBackground" type="Sprite2D" parent="PlaneSection"]
-position = Vector2(1769, -1)
-scale = Vector2(0.49, 0.49)
-texture = ExtResource("2_sxl72")
+position = Vector2(2759.37, -32.387)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_hc508")
 
-[node name="Patient" parent="PlaneSection" instance=ExtResource("3_33nl8")]
-position = Vector2(1769, 9.0003e-05)
+[node name="Walls" type="Node2D" parent="PlaneSection"]
+position = Vector2(2412, -485)
 
-[node name="HealingItem" parent="PlaneSection" instance=ExtResource("4_wy032")]
-position = Vector2(2107, 270)
+[node name="StaticBody2D" type="StaticBody2D" parent="PlaneSection/Walls"]
+position = Vector2(259, 1254)
+scale = Vector2(2, 2)
 
-[node name="SpawnPoints" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaneSection/Walls/StaticBody2D"]
+shape = SubResource("RectangleShape2D_og16h")
 
-[node name="SpawnPointP1" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(-440, 4)
+[node name="StaticBody2D4" type="StaticBody2D" parent="PlaneSection/Walls"]
+position = Vector2(332, -18)
+scale = Vector2(2, 2)
 
-[node name="SpawnPointP2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(-228, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaneSection/Walls/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_og16h")
 
-[node name="SpawnPointP3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(135, 20)
+[node name="StaticBody2D2" type="StaticBody2D" parent="PlaneSection/Walls"]
+position = Vector2(1469, 585)
+rotation = 1.56684
 
-[node name="SpawnPointP4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(347, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaneSection/Walls/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_og16h")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="PlaneSection/Walls"]
+position = Vector2(-790, 647)
+rotation = 1.56684
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaneSection/Walls/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_og16h")
+
+[node name="Patients" type="Node2D" parent="PlaneSection"]
+
+[node name="Patient2" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(2856, -74)
+
+[node name="Patient3" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(3192.07, -75.1379)
+
+[node name="Patient4" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(2171.23, -74)
+
+[node name="Patient9" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(2507.29, -75.1379)
+
+[node name="Patient5" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(2852.11, 252.461)
+
+[node name="Patient6" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(3188.18, 251.323)
+
+[node name="Patient7" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(2167.34, 252.461)
+
+[node name="Patient10" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+position = Vector2(2503.41, 251.323)
+
+[node name="SpawnPoints" type="Node2D" parent="PlaneSection"]
+position = Vector2(3142.06, 116.578)
+scale = Vector2(1.38784, 1.38784)
+
+[node name="SpawnPointP1" type="Marker2D" parent="PlaneSection/SpawnPoints"]
+position = Vector2(-963, -303)
+
+[node name="SpawnPointP2" type="Marker2D" parent="PlaneSection/SpawnPoints"]
+position = Vector2(406, -331)
+
+[node name="SpawnPointP3" type="Marker2D" parent="PlaneSection/SpawnPoints"]
+position = Vector2(-929, 367)
+
+[node name="SpawnPointP4" type="Marker2D" parent="PlaneSection/SpawnPoints"]
+position = Vector2(423, 339)
+
+[node name="PillCloset" parent="PlaneSection" instance=ExtResource("4_1stfj")]
+position = Vector2(2325.39, 274.642)
+scale = Vector2(1.29548, 1.29548)
+collision_mask = 7
+freeze = true
+ClosetTexture = ExtResource("5_kyb1r")
+DisableMovement = true
+
+[node name="SeringeCloset" parent="PlaneSection" instance=ExtResource("4_1stfj")]
+position = Vector2(1992.45, -71.2515)
+scale = Vector2(1.29548, 1.29548)
+collision_mask = 7
+freeze = true
+ClosetItemType = 2
+ClosetTexture = ExtResource("6_mlpiw")
+DisableMovement = true
+
+[node name="BandageCloset" parent="PlaneSection" instance=ExtResource("4_1stfj")]
+position = Vector2(2662.21, -71.2515)
+scale = Vector2(1.29548, 1.29548)
+collision_mask = 7
+freeze = true
+ClosetItemType = 1
+ClosetTexture = ExtResource("7_64mop")
+DisableMovement = true
+
+[node name="PlaneMovement" parent="PlaneSection" instance=ExtResource("8_5p0vv")]
+
+[node name="Toit" type="Sprite2D" parent="PlaneSection"]
+visible = false
+position = Vector2(2944.63, -260.392)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("9_5n8sr")
+
+[node name="ToitRumble" type="AudioStreamPlayer2D" parent="PlaneSection"]
+stream = ExtResource("10_gi3a7")
+bus = &"Effects"
+script = ExtResource("11_645c3")
 
 [node name="EnvironmentAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_h1ndd")
 }
+script = ExtResource("12_ohrj2")
 
 [node name="Managers" type="Node" parent="."]
 
 [node name="PlayerManager" type="Node" parent="Managers" node_paths=PackedStringArray("PlayerSpawnPoint")]
-script = ExtResource("5_2e3se")
-Character = ExtResource("6_yf4bi")
-PlayerSpawnPoint = [NodePath("../../SpawnPoints/SpawnPointP1"), NodePath("../../SpawnPoints/SpawnPointP2"), NodePath("../../SpawnPoints/SpawnPointP3"), NodePath("../../SpawnPoints/SpawnPointP4")]
-
-[node name="GameManager" type="Node" parent="Managers" node_paths=PackedStringArray("AnimationPlayer")]
-script = ExtResource("7_lecjm")
-AnimationPlayer = NodePath("../../EnvironmentAnimationPlayer")
+script = ExtResource("13_ymsgm")
+Character = ExtResource("14_gmqb5")
+PlayerSpawnPoint = [NodePath("../../PlaneSection/SpawnPoints/SpawnPointP1"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP2"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP3"), NodePath("../../PlaneSection/SpawnPoints/SpawnPointP4")]

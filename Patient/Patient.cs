@@ -77,6 +77,15 @@ public partial class Patient : RigidBody2D
         return _currentDemand.HasValue && _currentDemand.Value == item;
     }
 
+    public bool CanBeHealed(ClosetItemType? item)
+    {
+        if (item is ClosetItemType validItemType)
+        {
+            return IsPatientAlive() && ItemNeededByPatient(validItemType);
+        };
+        return false;
+    }
+
     public void ReceiveItem(ClosetItemType item)
     {
         if (_currentDemand.HasValue && item == _currentDemand)
