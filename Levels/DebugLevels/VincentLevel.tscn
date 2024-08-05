@@ -218,18 +218,6 @@ position = Vector2(2171.23, -74)
 [node name="Patient9" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
 position = Vector2(2507.29, -75.1379)
 
-[node name="Patient5" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
-position = Vector2(2852.11, 252.461)
-
-[node name="Patient6" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
-position = Vector2(3188.18, 251.323)
-
-[node name="Patient7" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
-position = Vector2(2167.34, 252.461)
-
-[node name="Patient10" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
-position = Vector2(2503.41, 251.323)
-
 [node name="SpawnPoints" type="Node2D" parent="PlaneSection"]
 position = Vector2(3142.06, 116.578)
 scale = Vector2(1.38784, 1.38784)

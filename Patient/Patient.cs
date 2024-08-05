@@ -184,9 +184,10 @@ public partial class Patient : RigidBody2D
 
             patientSprite.Texture = BED_EMPTY_TEXT;
             itemHolder.Visible = false;
-
-            //GetParent().RemoveChild(this);
-            //QueueFree(); //TODO Dead animation or remove the sprite ???
+            demandsTimer.Stop();
+            timeUntilDeadTimer.Stop();
+            timeUntilShakeTimer.Stop();
+            audioDeathEffectPlayer.Stop();
         }
     }
 }
