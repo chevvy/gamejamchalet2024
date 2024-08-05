@@ -93,12 +93,19 @@ public partial class Character : CharacterBody2D
         base._Process(delta);
         if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.Interact)))
         {
+            var patient = InteractArea.Patient;
             if (CanReceiveItem && _lastBumpedItemType != null)
             {
+                if ((patient is not null && patient.CanBeHealed(_itemType)))
+                {
+                    UseItem(InteractArea.Patient);
+                    return;
+                }
                 ReceiveItem((ClosetItemType)_lastBumpedItemType);
+                return;
             }
             // YES WE CAN SIMPLIFY THIS
-            if (_itemType.HasValue && InteractArea.Patient != null && InteractArea.Patient.IsPatientAlive() && InteractArea.Patient.ItemNeededByPatient(_itemType.Value))
+            if (InteractArea.Patient != null && patient.CanBeHealed(_itemType))
             {
                 UseItem(InteractArea.Patient);
             }

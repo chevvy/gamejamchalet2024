@@ -77,6 +77,15 @@ public partial class Patient : RigidBody2D
         return _currentDemand.HasValue && _currentDemand.Value == item;
     }
 
+    public bool CanBeHealed(ClosetItemType? item)
+    {
+        if (item is ClosetItemType validItemType)
+        {
+            return IsPatientAlive() && ItemNeededByPatient(validItemType);
+        };
+        return false;
+    }
+
     public void ReceiveItem(ClosetItemType item)
     {
         if (_currentDemand.HasValue && item == _currentDemand)
@@ -175,9 +184,10 @@ public partial class Patient : RigidBody2D
 
             patientSprite.Texture = BED_EMPTY_TEXT;
             itemHolder.Visible = false;
-
-            //GetParent().RemoveChild(this);
-            //QueueFree(); //TODO Dead animation or remove the sprite ???
+            demandsTimer.Stop();
+            timeUntilDeadTimer.Stop();
+            timeUntilShakeTimer.Stop();
+            audioDeathEffectPlayer.Stop();
         }
     }
 }

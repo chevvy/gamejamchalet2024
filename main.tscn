@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dugsja1pm8oje"]
+[gd_scene load_steps=3 format=3 uid="uid://dugsja1pm8oje"]
 
 [ext_resource type="PackedScene" uid="uid://c8qlykrks52h" path="res://Levels/MainLevel.tscn" id="1_dbflw"]
 [ext_resource type="AudioStream" uid="uid://smecetoifamt" path="res://Audio/Bgm/BG_Music_02.wav" id="3_k8uev"]
-[ext_resource type="PackedScene" uid="uid://c5lwjpvdtbdw8" path="res://Audio/sons_mort.tscn" id="3_uxebr"]
-[ext_resource type="Script" path="res://Audio/SonsMort.cs" id="4_ppv0f"]
 
 [node name="Main" type="Node2D"]
 
@@ -15,6 +13,3 @@
 stream = ExtResource("3_k8uev")
 autoplay = true
 bus = &"Music"
-
-[node name="SonsMort" parent="." instance=ExtResource("3_uxebr")]
-script = ExtResource("4_ppv0f")

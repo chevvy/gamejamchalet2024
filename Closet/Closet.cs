@@ -6,6 +6,8 @@ public partial class Closet : RigidBody2D
 	[Export] public ClosetItemType ClosetItemType;
 	[Export] public Texture2D ClosetTexture;
 
+	[Export] public bool DisableMovement = false;
+
 	private ClosetPickupAreaCollisionHandler _closetPickupAreaCollisionHandler;
 	private Sprite2D _closetSprite;
 
@@ -60,7 +62,10 @@ public partial class Closet : RigidBody2D
 
 	public void ApplyPlaneMovement(Vector2 direction)
 	{
-		GD.Print(direction);
+		if (DisableMovement)
+		{
+			return;
+		}
 		ApplyImpulse(direction * 4);
 	}
 

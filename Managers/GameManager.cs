@@ -13,7 +13,7 @@ public partial class GameManager : Node
 	[Export] public int PatientSaved = 0;
 	[Export] public int PatientDead = 0;
 	[Export] public int PatientSavedGoal = 8;
-	[Export] public int PatientDeadGoal = 2;
+	[Export] public int PatientDeadGoal = 6;
 
 	public bool IsGameReady = false;
 	public AnimationPlayer AnimationPlayer { get; set; }

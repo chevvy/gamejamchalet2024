@@ -1,6 +1,18 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://bnn7m5mclc1l8"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://bnn7m5mclc1l8"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_nap0j"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_a4ml0"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_x64r8"]
+resource_name = "Limiter"
+threshold_db = -10.0
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectCompressor_nap0j")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
@@ -13,3 +25,13 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 2.24926
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectCompressor_a4ml0")
+bus/2/effect/0/enabled = true
+bus/3/name = &"CrisDeMort"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -18.9844
+bus/3/send = &"Effects"
+bus/3/effect/0/effect = SubResource("AudioEffectLimiter_x64r8")
+bus/3/effect/0/enabled = true
