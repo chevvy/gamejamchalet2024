@@ -138,7 +138,7 @@ libraries = {
 
 [node name="SonsMort" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_2v64s")
-bus = &"Effects"
+bus = &"CrisDeMort"
 
 [connection signal="tree_exiting" from="." to="." method="OnTreeExiting"]
 [connection signal="timeout" from="DemandsTimer" to="." method="OnDemandTimerTimeout"]
