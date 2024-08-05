@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Patient/Patient.cs" id="1_0tk08"]
 [ext_resource type="Texture2D" uid="uid://coahpj2y41qpt" path="res://Assets/items/Bed_Empty.png" id="2_2xeot"]
-[ext_resource type="Texture2D" uid="uid://bjwrsy7wvqq7j" path="res://Assets/Characters/Bed_Full.png" id="4_2gksv"]
+[ext_resource type="PackedScene" uid="uid://bo21u4mhgv2yk" path="res://Patient/Patient_Visual.tscn" id="3_wjj3s"]
 [ext_resource type="Texture2D" uid="uid://chwfdengwbe3b" path="res://Assets/items/Asset_PickUp_Pills.png" id="5_2j03p"]
 [ext_resource type="AudioStream" uid="uid://catkntmb6l41b" path="res://Audio/Sfx/SfxMort/SonMortAurelie1.wav" id="7_hrx7k"]
 [ext_resource type="AudioStream" uid="uid://bl14a2ylp011q" path="res://Audio/Sfx/SfxMort/SonMortJeff1.wav" id="8_3hvmt"]
@@ -95,18 +95,16 @@ stream_7/weight = 1.0
 stream_8/stream = ExtResource("15_u2hlo")
 stream_8/weight = 1.0
 
-[node name="Patient" type="RigidBody2D" groups=["Patients"]]
+[node name="Patient" type="RigidBody2D" node_paths=PackedStringArray("patientVisual") groups=["Patients"]]
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
 freeze = true
 script = ExtResource("1_0tk08")
 BED_EMPTY_TEXT = ExtResource("2_2xeot")
+patientVisual = NodePath("PatientVisual")
 
-[node name="PatientSprite" type="Sprite2D" parent="."]
-position = Vector2(-2, -2)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("4_2gksv")
+[node name="PatientVisual" parent="." instance=ExtResource("3_wjj3s")]
 
 [node name="PatientCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-10.5, -29)

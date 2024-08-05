@@ -20,6 +20,9 @@ public partial class Patient : RigidBody2D
     private Texture2D BED_EMPTY_TEXT;
 
     [Export]
+    private PatientVisual patientVisual;
+
+    [Export]
     private int DEMAND_RATE = 5;
 
     private Timer demandsTimer;
@@ -28,7 +31,6 @@ public partial class Patient : RigidBody2D
 
     private Node2D itemHolder;
     private Sprite2D itemDemanded;
-    private Sprite2D patientSprite;
 
     private List<ClosetItemType> demands = new();
     private ClosetItemType? _currentDemand = null;
@@ -48,7 +50,6 @@ public partial class Patient : RigidBody2D
         itemHolder.Visible = false;
         itemDemanded = GetNode<Sprite2D>("ItemHolder/ItemDemanded");
         player = GetNode<AnimationPlayer>("AnimationPlayer");
-        patientSprite = GetNode<Sprite2D>("PatientSprite");
         audioDeathEffectPlayer = GetNode<AudioStreamPlayer2D>("SonsMort");
 
         GetNode<GameManager>("/root/GameManager").GameReady += Initialize;
@@ -56,6 +57,7 @@ public partial class Patient : RigidBody2D
 
     private void Initialize()
     {
+        patientVisual.AnimatePatientFeelingGood();
         CreateRandomDemands();
 
         demandsTimer.WaitTime = new Random().Next(5, 15);
@@ -133,6 +135,7 @@ public partial class Patient : RigidBody2D
 
     private void DemandMet()
     {
+        patientVisual.AnimatePatientFeelingGood();
         timeUntilDeadTimer.Stop();
         timeUntilShakeTimer.Stop();
 
@@ -150,7 +153,7 @@ public partial class Patient : RigidBody2D
     private void OnTimerUntilShake()
     {
         player.Play("shake");
-
+        patientVisual.AnimatePatientFeelingBad();
         audioDeathEffectPlayer.Play();
     }
 
@@ -158,10 +161,9 @@ public partial class Patient : RigidBody2D
     {
         if (isAlive)
         {
+            patientVisual.AnimatePatientFullyHealed();
             GD.Print("Patient is saved");
             EmitSignal(SignalName.OnPatientSaved);
-            GetParent().RemoveChild(this);
-            QueueFree(); //TODO Win animation
         }
     }
 
@@ -169,11 +171,11 @@ public partial class Patient : RigidBody2D
     {
         if (isAlive)
         {
+            patientVisual.AnimatePatientDead();
             isAlive = false;
             GD.Print("Patient dying");
             EmitSignal(SignalName.OnPatientDead);
 
-            patientSprite.Texture = BED_EMPTY_TEXT;
             itemHolder.Visible = false;
 
             //GetParent().RemoveChild(this);
