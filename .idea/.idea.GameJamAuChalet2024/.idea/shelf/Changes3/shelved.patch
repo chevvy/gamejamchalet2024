@@ -1,0 +1,18 @@
+Index: Closet/Closet.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using Godot;\nusing System;\n\npublic partial class Closet : RigidBody2D\n{\n\t[Export] public ClosetItemType ClosetItemType;\n\t[Export] public Texture2D ClosetTexture;\n\n\t[Export] public bool DisableMovement = false;\n\n\tprivate ClosetPickupAreaCollisionHandler _closetPickupAreaCollisionHandler;\n\tprivate Sprite2D _closetSprite;\n\n\tprivate Vector2 _initialPosition;\n\n\tpublic override void _Ready()\n\t{\n\t\tGD.Print(\"_Ready on ClosetGameReadyStateHandler\");\n\n\t\tGameManager.Instance.GameReady += OnGameReady;\n\n\t\tSetClosetItemType(ClosetItemType);\n\t\tSetClosetTexture(ClosetTexture);\n\n\t\tFreeze = true;\n\n\t\t_initialPosition = Position;\n\t}\n\n\tpublic override void _Process(double delta)\n\t{\n\t\tif (4500 < Math.Abs(Position.Y) || 4500 < Math.Abs(Position.X))\n\t\t{\n\t\t\tOnAdjustNeeded();\n\t\t}\n\t}\n\n\tprivate void SetClosetItemType(ClosetItemType itemType)\n\t{\n\t\t_closetPickupAreaCollisionHandler = GetNode<CollisionObject2D>(\"ClosetPickupArea\") as ClosetPickupAreaCollisionHandler;\n\t\t_closetPickupAreaCollisionHandler.ClosetItemType = itemType;\n\t}\n\n\tprivate void SetClosetTexture(Texture2D texture)\n\t{\n\t\t_closetSprite = GetNode<Sprite2D>(\"ClosetSprite\");\n\t\t_closetSprite.Texture = texture;\n\t}\n\n\tpublic void OnGameReady()\n\t{\n\t\tGD.Print(\"Game ready on ClosetGameReadyStateHandler\");\n\n\t\tFreezeMode = FreezeModeEnum.Static;\n\t\tFreeze = false;\n\t}\n\n\tprivate void OnTreeExiting()\n\t{\n\t\tGameManager.Instance.GameReady -= OnGameReady;\n\t}\n\n\tpublic void ApplyPlaneMovement(Vector2 direction)\n\t{\n\t\tif (DisableMovement)\n\t\t{\n\t\t\treturn;\n\t\t}\n\t\tApplyImpulse(direction * 4);\n\t}\n\n\tprivate void OnAdjustNeeded()\n\t{\n\t\tFreeze = true;\n\t\tCallDeferred(\"FinishAdjustingTeleport\");\n\t}\n\n\tpublic void FinishAdjustingTeleport()\n\t{\n\t\tPosition = _initialPosition;\n\t\tFreeze = false;\n\t}\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Closet/Closet.cs b/Closet/Closet.cs
+--- a/Closet/Closet.cs	(revision 081289f07e5fedd299b29dd23079daef2a2164d8)
++++ b/Closet/Closet.cs	(date 1722902270580)
+@@ -66,6 +66,7 @@
+ 		{
+ 			return;
+ 		}
++		GD.Print("Closet: apply plane movement");
+ 		ApplyImpulse(direction * 4);
+ 	}
+ 
