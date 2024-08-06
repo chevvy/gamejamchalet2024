@@ -1,0 +1,218 @@
+Index: Levels/DebugLevels/VincentLevel.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=19 format=3 uid=\"uid://blyi5nhqhymku\"]\n\n[ext_resource type=\"Texture2D\" uid=\"uid://b6lru605p8n5m\" path=\"res://Assets/Environment/new_asset/Enviro cockpit.png\" id=\"1_w67ga\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://bc5rtwk7r4lhn\" path=\"res://Assets/Environment/Enviro slice.png\" id=\"2_hc508\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bn7ibigpaiqg1\" path=\"res://Patient/Patient.tscn\" id=\"3_uwmnw\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://wuvjg1xx01wm\" path=\"res://Closet/Closet.tscn\" id=\"4_1stfj\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://do87thgtsw8s1\" path=\"res://Assets/items/Asset_Distributor_Pills.png\" id=\"5_kyb1r\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://dbut785yenvo5\" path=\"res://Assets/items/Asset_Distributor_Syringe.png\" id=\"6_mlpiw\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://cinc115ailk0h\" path=\"res://Assets/items/Asset_Distributor_BandAid.png\" id=\"7_64mop\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://cjfudasotem4i\" path=\"res://Plane/PlaneMovement.tscn\" id=\"8_5p0vv\"]\n[ext_resource type=\"Texture2D\" uid=\"uid://bux8rsdpqoide\" path=\"res://Assets/Environment/new_asset/Enviro Toit Rond.png\" id=\"9_5n8sr\"]\n[ext_resource type=\"AudioStream\" uid=\"uid://cc1g1gbgchcsa\" path=\"res://Audio/Sfx/rumble1.ogg\" id=\"10_gi3a7\"]\n[ext_resource type=\"Script\" path=\"res://Audio/ToitRumble.cs\" id=\"11_645c3\"]\n[ext_resource type=\"Script\" path=\"res://Levels/GameStartPlaneAnimationPlayer.cs\" id=\"12_ohrj2\"]\n[ext_resource type=\"Script\" path=\"res://PlayerManager.cs\" id=\"13_ymsgm\"]\n[ext_resource type=\"PackedScene\" uid=\"uid://bwsny8wxh0ku2\" path=\"res://Character.tscn\" id=\"14_gmqb5\"]\n\n[sub_resource type=\"RectangleShape2D\" id=\"RectangleShape2D_og16h\"]\nsize = Vector2(1280, 50)\n\n[sub_resource type=\"Animation\" id=\"Animation_ipwiv\"]\nlength = 0.001\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [Vector2(1348, 0)]\n}\ntracks/1/type = \"value\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"PlaneSection/Toit:position\")\ntracks/1/interp = 1\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [Vector2(2944.63, -260.392)]\n}\ntracks/2/type = \"value\"\ntracks/2/imported = false\ntracks/2/enabled = true\ntracks/2/path = NodePath(\"PlaneSection/Toit:rotation\")\ntracks/2/interp = 1\ntracks/2/loop_wrap = true\ntracks/2/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [0.0]\n}\ntracks/3/type = \"value\"\ntracks/3/imported = false\ntracks/3/enabled = true\ntracks/3/path = NodePath(\"PlaneSection/Toit:skew\")\ntracks/3/interp = 1\ntracks/3/loop_wrap = true\ntracks/3/keys = {\n\"times\": PackedFloat32Array(0),\n\"transitions\": PackedFloat32Array(1),\n\"update\": 0,\n\"values\": [0.0]\n}\n\n[sub_resource type=\"Animation\" id=\"Animation_oucfm\"]\nresource_name = \"plane_anim\"\nlength = 3.0\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"PlaneSection:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 2),\n\"transitions\": PackedFloat32Array(0.378929, 1),\n\"update\": 0,\n\"values\": [Vector2(1348, -5), Vector2(-2099, -5)]\n}\ntracks/1/type = \"method\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"EnvironmentAnimationPlayer\")\ntracks/1/interp = 1\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(2),\n\"transitions\": PackedFloat32Array(1),\n\"values\": [{\n\"args\": [],\n\"method\": &\"OnAnimationFinished\"\n}]\n}\ntracks/2/type = \"value\"\ntracks/2/imported = false\ntracks/2/enabled = true\ntracks/2/path = NodePath(\"PlaneSection/Toit:position\")\ntracks/2/interp = 1\ntracks/2/loop_wrap = true\ntracks/2/keys = {\n\"times\": PackedFloat32Array(0, 2, 2.2, 3),\n\"transitions\": PackedFloat32Array(1, 1, 1, 1),\n\"update\": 0,\n\"values\": [Vector2(2821.56, -45.3418), Vector2(2821.56, -45.3418), Vector2(2944.63, -260.392), Vector2(6767.59, -3333.27)]\n}\ntracks/3/type = \"value\"\ntracks/3/imported = false\ntracks/3/enabled = true\ntracks/3/path = NodePath(\"PlaneSection/Toit:rotation\")\ntracks/3/interp = 1\ntracks/3/loop_wrap = true\ntracks/3/keys = {\n\"times\": PackedFloat32Array(2, 2.4, 2.9),\n\"transitions\": PackedFloat32Array(1, 1, 1),\n\"update\": 0,\n\"values\": [0.0, 0.589921, 1.24966]\n}\ntracks/4/type = \"value\"\ntracks/4/imported = false\ntracks/4/enabled = true\ntracks/4/path = NodePath(\"PlaneSection/Toit:skew\")\ntracks/4/interp = 1\ntracks/4/loop_wrap = true\ntracks/4/keys = {\n\"times\": PackedFloat32Array(2, 2.2),\n\"transitions\": PackedFloat32Array(1, 1),\n\"update\": 0,\n\"values\": [0.0, 0.450295]\n}\ntracks/5/type = \"method\"\ntracks/5/imported = false\ntracks/5/enabled = true\ntracks/5/path = NodePath(\"PlaneSection/ToitRumble\")\ntracks/5/interp = 1\ntracks/5/loop_wrap = true\ntracks/5/keys = {\n\"times\": PackedFloat32Array(2),\n\"transitions\": PackedFloat32Array(1),\n\"values\": [{\n\"args\": [],\n\"method\": &\"PlayRumble\"\n}]\n}\n\n[sub_resource type=\"AnimationLibrary\" id=\"AnimationLibrary_h1ndd\"]\n_data = {\n\"RESET\": SubResource(\"Animation_ipwiv\"),\n\"plane_anim\": SubResource(\"Animation_oucfm\")\n}\n\n[node name=\"MainLevel2\" type=\"Node2D\"]\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n\n[node name=\"PlaneSection\" type=\"Node2D\" parent=\".\"]\nposition = Vector2(1348, 0)\nscale = Vector2(0.771914, 0.771914)\n\n[node name=\"PlaneStart\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(152, -3)\nscale = Vector2(0.73, 0.73)\ntexture = ExtResource(\"1_w67ga\")\n\n[node name=\"PlaneBackground\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nposition = Vector2(2759.37, -32.387)\nscale = Vector2(0.75, 0.75)\ntexture = ExtResource(\"2_hc508\")\n\n[node name=\"Walls\" type=\"Node2D\" parent=\"PlaneSection\"]\nposition = Vector2(2412, -485)\n\n[node name=\"StaticBody2D\" type=\"StaticBody2D\" parent=\"PlaneSection/Walls\"]\nposition = Vector2(259, 1254)\nscale = Vector2(2, 2)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"PlaneSection/Walls/StaticBody2D\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D4\" type=\"StaticBody2D\" parent=\"PlaneSection/Walls\"]\nposition = Vector2(332, -18)\nscale = Vector2(2, 2)\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"PlaneSection/Walls/StaticBody2D4\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D2\" type=\"StaticBody2D\" parent=\"PlaneSection/Walls\"]\nposition = Vector2(1469, 585)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"PlaneSection/Walls/StaticBody2D2\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"StaticBody2D3\" type=\"StaticBody2D\" parent=\"PlaneSection/Walls\"]\nposition = Vector2(-790, 647)\nrotation = 1.56684\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\"PlaneSection/Walls/StaticBody2D3\"]\nshape = SubResource(\"RectangleShape2D_og16h\")\n\n[node name=\"Patients\" type=\"Node2D\" parent=\"PlaneSection\"]\n\n[node name=\"Patient2\" parent=\"PlaneSection/Patients\" instance=ExtResource(\"3_uwmnw\")]\nposition = Vector2(2856, -74)\n\n[node name=\"Patient3\" parent=\"PlaneSection/Patients\" instance=ExtResource(\"3_uwmnw\")]\nposition = Vector2(3192.07, -75.1379)\n\n[node name=\"Patient4\" parent=\"PlaneSection/Patients\" instance=ExtResource(\"3_uwmnw\")]\nposition = Vector2(2171.23, -74)\n\n[node name=\"Patient9\" parent=\"PlaneSection/Patients\" instance=ExtResource(\"3_uwmnw\")]\nposition = Vector2(2507.29, -75.1379)\n\n[node name=\"SpawnPoints\" type=\"Node2D\" parent=\"PlaneSection\"]\nposition = Vector2(3142.06, 116.578)\nscale = Vector2(1.38784, 1.38784)\n\n[node name=\"SpawnPointP1\" type=\"Marker2D\" parent=\"PlaneSection/SpawnPoints\"]\nposition = Vector2(-963, -303)\n\n[node name=\"SpawnPointP2\" type=\"Marker2D\" parent=\"PlaneSection/SpawnPoints\"]\nposition = Vector2(406, -331)\n\n[node name=\"SpawnPointP3\" type=\"Marker2D\" parent=\"PlaneSection/SpawnPoints\"]\nposition = Vector2(-929, 367)\n\n[node name=\"SpawnPointP4\" type=\"Marker2D\" parent=\"PlaneSection/SpawnPoints\"]\nposition = Vector2(423, 339)\n\n[node name=\"PillCloset\" parent=\"PlaneSection\" instance=ExtResource(\"4_1stfj\")]\nposition = Vector2(2325.39, 274.642)\nscale = Vector2(1.29548, 1.29548)\ncollision_mask = 7\nfreeze = true\nClosetTexture = ExtResource(\"5_kyb1r\")\nDisableMovement = true\n\n[node name=\"SeringeCloset\" parent=\"PlaneSection\" instance=ExtResource(\"4_1stfj\")]\nposition = Vector2(1992.45, -71.2515)\nscale = Vector2(1.29548, 1.29548)\ncollision_mask = 7\nfreeze = true\nClosetItemType = 2\nClosetTexture = ExtResource(\"6_mlpiw\")\nDisableMovement = true\n\n[node name=\"BandageCloset\" parent=\"PlaneSection\" instance=ExtResource(\"4_1stfj\")]\nposition = Vector2(2662.21, -71.2515)\nscale = Vector2(1.29548, 1.29548)\ncollision_mask = 7\nfreeze = true\nClosetItemType = 1\nClosetTexture = ExtResource(\"7_64mop\")\nDisableMovement = true\n\n[node name=\"PlaneMovement\" parent=\"PlaneSection\" instance=ExtResource(\"8_5p0vv\")]\n\n[node name=\"Toit\" type=\"Sprite2D\" parent=\"PlaneSection\"]\nvisible = false\nposition = Vector2(2944.63, -260.392)\nscale = Vector2(0.73, 0.73)\ntexture = ExtResource(\"9_5n8sr\")\n\n[node name=\"ToitRumble\" type=\"AudioStreamPlayer2D\" parent=\"PlaneSection\"]\nstream = ExtResource(\"10_gi3a7\")\nbus = &\"Effects\"\nscript = ExtResource(\"11_645c3\")\n\n[node name=\"EnvironmentAnimationPlayer\" type=\"AnimationPlayer\" parent=\".\"]\nlibraries = {\n\"\": SubResource(\"AnimationLibrary_h1ndd\")\n}\nscript = ExtResource(\"12_ohrj2\")\n\n[node name=\"Managers\" type=\"Node\" parent=\".\"]\n\n[node name=\"PlayerManager\" type=\"Node\" parent=\"Managers\" node_paths=PackedStringArray(\"PlayerSpawnPoint\")]\nscript = ExtResource(\"13_ymsgm\")\nCharacter = ExtResource(\"14_gmqb5\")\nPlayerSpawnPoint = [NodePath(\"../../PlaneSection/SpawnPoints/SpawnPointP1\"), NodePath(\"../../PlaneSection/SpawnPoints/SpawnPointP2\"), NodePath(\"../../PlaneSection/SpawnPoints/SpawnPointP3\"), NodePath(\"../../PlaneSection/SpawnPoints/SpawnPointP4\")]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Levels/DebugLevels/VincentLevel.tscn b/Levels/DebugLevels/VincentLevel.tscn
+--- a/Levels/DebugLevels/VincentLevel.tscn	(revision 081289f07e5fedd299b29dd23079daef2a2164d8)
++++ b/Levels/DebugLevels/VincentLevel.tscn	(date 1722903496538)
+@@ -1,12 +1,10 @@
+-[gd_scene load_steps=19 format=3 uid="uid://blyi5nhqhymku"]
++[gd_scene load_steps=17 format=3 uid="uid://blyi5nhqhymku"]
+ 
+ [ext_resource type="Texture2D" uid="uid://b6lru605p8n5m" path="res://Assets/Environment/new_asset/Enviro cockpit.png" id="1_w67ga"]
+ [ext_resource type="Texture2D" uid="uid://bc5rtwk7r4lhn" path="res://Assets/Environment/Enviro slice.png" id="2_hc508"]
+ [ext_resource type="PackedScene" uid="uid://bn7ibigpaiqg1" path="res://Patient/Patient.tscn" id="3_uwmnw"]
+ [ext_resource type="PackedScene" uid="uid://wuvjg1xx01wm" path="res://Closet/Closet.tscn" id="4_1stfj"]
+ [ext_resource type="Texture2D" uid="uid://do87thgtsw8s1" path="res://Assets/items/Asset_Distributor_Pills.png" id="5_kyb1r"]
+-[ext_resource type="Texture2D" uid="uid://dbut785yenvo5" path="res://Assets/items/Asset_Distributor_Syringe.png" id="6_mlpiw"]
+-[ext_resource type="Texture2D" uid="uid://cinc115ailk0h" path="res://Assets/items/Asset_Distributor_BandAid.png" id="7_64mop"]
+ [ext_resource type="PackedScene" uid="uid://cjfudasotem4i" path="res://Plane/PlaneMovement.tscn" id="8_5p0vv"]
+ [ext_resource type="Texture2D" uid="uid://bux8rsdpqoide" path="res://Assets/Environment/new_asset/Enviro Toit Rond.png" id="9_5n8sr"]
+ [ext_resource type="AudioStream" uid="uid://cc1g1gbgchcsa" path="res://Audio/Sfx/rumble1.ogg" id="10_gi3a7"]
+@@ -218,6 +216,18 @@
+ [node name="Patient9" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
+ position = Vector2(2507.29, -75.1379)
+ 
++[node name="Patient5" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
++position = Vector2(2635.76, 284.848)
++
++[node name="Patient6" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
++position = Vector2(2971.83, 283.71)
++
++[node name="Patient7" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
++position = Vector2(1950.99, 284.848)
++
++[node name="Patient10" parent="PlaneSection/Patients" instance=ExtResource("3_uwmnw")]
++position = Vector2(2287.05, 283.71)
++
+ [node name="SpawnPoints" type="Node2D" parent="PlaneSection"]
+ position = Vector2(3142.06, 116.578)
+ scale = Vector2(1.38784, 1.38784)
+@@ -240,25 +250,165 @@
+ collision_mask = 7
+ freeze = true
+ ClosetTexture = ExtResource("5_kyb1r")
+-DisableMovement = true
++
++[node name="PillCloset2" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2752.9, 224.118)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 1
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset3" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(3040.49, 296.665)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 2
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset4" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2514.53, 128.253)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset7" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(1936.74, -238.369)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset8" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2364.25, -288.893)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 1
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset9" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2651.84, -216.346)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 2
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset10" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2125.88, -384.758)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset15" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2085.73, 529.852)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset16" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2513.24, 479.328)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 1
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset17" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2800.83, 551.875)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 2
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset18" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2274.87, 383.463)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset19" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(1697.08, 16.8409)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset20" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2124.59, -33.6831)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 1
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset21" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2412.18, 38.8639)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 2
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset22" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(1886.22, -129.548)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset11" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(2978.31, -246.142)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset12" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(3405.82, -296.666)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 1
++ClosetTexture = ExtResource("5_kyb1r")
+ 
+-[node name="SeringeCloset" parent="PlaneSection" instance=ExtResource("4_1stfj")]
+-position = Vector2(1992.45, -71.2515)
++[node name="PillCloset13" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(3693.41, -224.119)
+ scale = Vector2(1.29548, 1.29548)
+ collision_mask = 7
+ freeze = true
+ ClosetItemType = 2
+-ClosetTexture = ExtResource("6_mlpiw")
+-DisableMovement = true
++ClosetTexture = ExtResource("5_kyb1r")
+ 
+-[node name="BandageCloset" parent="PlaneSection" instance=ExtResource("4_1stfj")]
+-position = Vector2(2662.21, -71.2515)
++[node name="PillCloset14" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(3167.45, -392.531)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset5" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(3404.52, 360.144)
+ scale = Vector2(1.29548, 1.29548)
+ collision_mask = 7
+ freeze = true
+ ClosetItemType = 1
+-ClosetTexture = ExtResource("7_64mop")
+-DisableMovement = true
++ClosetTexture = ExtResource("5_kyb1r")
++
++[node name="PillCloset6" parent="PlaneSection" instance=ExtResource("4_1stfj")]
++position = Vector2(3229.63, 150.276)
++scale = Vector2(1.29548, 1.29548)
++collision_mask = 7
++freeze = true
++ClosetItemType = 2
++ClosetTexture = ExtResource("5_kyb1r")
+ 
+ [node name="PlaneMovement" parent="PlaneSection" instance=ExtResource("8_5p0vv")]
+ 
