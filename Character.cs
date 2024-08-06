@@ -230,7 +230,7 @@ public partial class Character : CharacterBody2D
 
     public void ApplyPlaneMovement(Vector2 direction)
     {
-        GD.Print("char: apply plane movement");
+
         PlaneMovementVectore = direction;
     }
 
